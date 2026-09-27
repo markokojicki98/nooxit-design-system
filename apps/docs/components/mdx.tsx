@@ -1,9 +1,28 @@
 import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import type { MDXComponents } from 'mdx/types';
+
+import { ComponentPreview } from '@/components/component-preview';
+import {
+  ColorScale,
+  SemanticTokens,
+  TokenSwatch,
+} from '@/components/token-tables';
+import { TextStyles } from '@/components/text-styles';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
     ...defaultMdxComponents,
+    Tab,
+    Tabs,
+    Step,
+    Steps,
+    ComponentPreview,
+    ColorScale,
+    SemanticTokens,
+    TokenSwatch,
+    TextStyles,
     ...components,
   } satisfies MDXComponents;
 }

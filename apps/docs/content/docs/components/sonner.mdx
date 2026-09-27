@@ -1,0 +1,28 @@
+---
+title: Sonner
+description: An opinionated toast component for React.
+---
+
+<ComponentPreview name="sonner-demo" />
+
+## Installation
+
+```tsx
+import { ... } from 'nooxit-design-system/components/sonner';
+```
+
+## Notes
+
+356px wide with 16px padding, a 6px radius and `shadow-lg`, stacked 12px apart.
+The action is a 24px primary button in `text-xs`.
+
+Error toasts pick up the destructive colors from the kit's separate Toast
+component, whose bordered action button and 24px close button are folded in
+here — shadcn/ui replaced Toast with Sonner, so the kit's Toast page maps onto
+this component.
+
+Sonner ships its own unlayered CSS, so the overrides carry Tailwind's `!`
+modifier to win over it.
+
+**Source** — [`src/components/sonner.tsx`](https://github.com/markokojicki98/nooxit-design-system/blob/main/packages/ui/src/components/sonner.tsx)\
+**Figma** — [Sonner in the Nooxit UI kit](https://www.figma.com/design/ugfobk75w4e1lOotqhXHfO/Nooxit-design-system?node-id=540-5281)

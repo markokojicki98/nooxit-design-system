@@ -1,0 +1,13 @@
+{
+  "title": "Foundations",
+  "icon": "Palette",
+  "pages": [
+    "colors",
+    "typography",
+    "spacing",
+    "radius",
+    "elevation",
+    "states",
+    "icons"
+  ]
+}

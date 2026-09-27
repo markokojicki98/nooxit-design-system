@@ -1,0 +1,59 @@
+---
+title: Typography
+description: DM Sans and DM Mono, and the 105 text styles from the Figma kit.
+---
+
+Nooxit uses **DM Sans** for everything and **DM Mono** for code. DM Mono is
+loaded in weight 500 only, so mono text always renders medium regardless of
+what the surrounding element asks for.
+
+The Figma kit names its text styles `text-{size}/leading-{line height}/{weight}`,
+which maps one to one onto Tailwind utilities. The tables below print the
+Tailwind classes that reproduce each style.
+
+## The scale
+
+Letter spacing follows the kit: `-2.5%` (`tracking-tight`) at 30px and above,
+`-0.6px` at 20 and 24px, and none below that.
+
+### Display
+
+<TextStyles size="text-9xl" sample="Nooxit" />
+<TextStyles size="text-8xl" sample="Nooxit" />
+<TextStyles size="text-7xl" sample="Nooxit" />
+<TextStyles size="text-6xl" sample="Nooxit" />
+<TextStyles size="text-5xl" sample="Nooxit" />
+
+### Headings
+
+<TextStyles size="text-4xl" />
+<TextStyles size="text-3xl" />
+<TextStyles size="text-2xl" />
+<TextStyles size="text-xl" />
+<TextStyles size="text-lg" />
+
+### Body
+
+<TextStyles size="text-base" font="sans" />
+<TextStyles size="text-sm" font="sans" />
+<TextStyles size="text-xs" font="sans" />
+
+### Mono
+
+DM Mono covers three sizes. Figma draws some of these in DM Mono Regular, but
+only weight 500 is loaded, so they all render medium.
+
+<TextStyles font="mono" sample="const radius = '0.5rem'" />
+
+## Font variables
+
+The theme reads two CSS variables:
+
+```css
+--font-sans: var(--font-dm-sans, 'DM Sans'), ui-sans-serif, system-ui, sans-serif;
+--font-mono: var(--font-dm-mono, 'DM Mono'), ui-monospace, monospace;
+```
+
+`font-heading` is a third alias that also resolves to DM Sans. It exists so
+headings can be moved to a different family later without touching every
+component.

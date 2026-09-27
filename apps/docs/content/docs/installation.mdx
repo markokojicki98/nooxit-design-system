@@ -1,0 +1,124 @@
+---
+title: Installation
+description: Add Nooxit to a Next.js application.
+---
+
+The package is private and is not published to the public npm registry. Install
+it from a local tarball or from the workspace.
+
+## Install the package
+
+<Tabs items={['Tarball', 'Workspace']}>
+<Tab value="Tarball">
+
+```bash
+pnpm pack --filter nooxit-design-system
+pnpm add ./nooxit-design-system-0.1.0.tgz
+```
+
+</Tab>
+<Tab value="Workspace">
+
+```json title="package.json"
+{
+  "dependencies": {
+    "nooxit-design-system": "workspace:*"
+  }
+}
+```
+
+</Tab>
+</Tabs>
+
+Peer dependencies: React 19, React DOM 19 and `next-themes` (only if you use
+dark mode).
+
+## Import the stylesheet
+
+Nooxit ships its own Tailwind theme. Import Tailwind first, then the Nooxit
+theme — the theme resets Tailwind's color palette, so the order matters.
+
+```css title="app/global.css"
+@import 'tailwindcss';
+@import 'nooxit-design-system/theme.css';
+
+@source '../node_modules/nooxit-design-system/dist';
+```
+
+The `@source` line tells Tailwind to scan the package for the classes its
+components use. Point it at `dist` for an installed package, or at the source
+folder when you consume it from a workspace.
+
+## Load the fonts
+
+Nooxit uses DM Sans for text and DM Mono for code. The theme reads them from
+two CSS variables, so any loader works as long as it defines them.
+
+```tsx title="app/layout.tsx"
+import { DM_Mono, DM_Sans } from 'next/font/google';
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
+
+// DM Mono is used in weight 500 only.
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  weight: '500',
+  variable: '--font-dm-mono',
+  display: 'swap',
+});
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+If you are not on Next.js, import `nooxit-design-system/fonts.css` instead,
+which loads both families from Google Fonts.
+
+## Add the providers
+
+Tooltips need a provider, and toasts need the `<Toaster />` mounted once.
+
+```tsx title="app/layout.tsx"
+import { Toaster } from 'nooxit-design-system/components/sonner';
+import { TooltipProvider } from 'nooxit-design-system/components/tooltip';
+
+<TooltipProvider>{children}</TooltipProvider>
+<Toaster />
+```
+
+## Dark mode
+
+Every token has a dark value under the `.dark` class. Use
+[next-themes](https://github.com/pacocoursey/next-themes) or any other
+mechanism that puts that class on `<html>`.
+
+```tsx
+import { ThemeProvider } from 'next-themes';
+
+<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+  {children}
+</ThemeProvider>
+```
+
+## Use a component
+
+```tsx
+import { Button } from 'nooxit-design-system/components/button';
+
+export function Example() {
+  return <Button>Get started</Button>;
+}
+```
+
+Every component is also re-exported from the package root, so
+`import { Button } from 'nooxit-design-system'` works too. Prefer the deep
+import in application code — it keeps the module graph smaller.

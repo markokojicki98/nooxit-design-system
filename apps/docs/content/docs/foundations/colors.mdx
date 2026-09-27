@@ -1,0 +1,140 @@
+---
+title: Colors
+description: The Nooxit primitives and the semantic tokens built from them.
+---
+
+Colors come in two layers. **Primitives** are the raw scales — 79 values across
+nine families. **Semantic tokens** name a role (`--primary`, `--destructive`,
+`--sidebar-border`) and point at a primitive, once for light mode and once for
+dark.
+
+Only ever use the semantic tokens in application code. The primitives exist so
+the tokens have somewhere to point.
+
+<Callout type="warn">
+Tailwind's own palette is removed by `--color-*: initial`. `bg-blue-500` and
+`text-slate-900` do not resolve — the Nooxit `blue` and `gray` scales replace
+them.
+</Callout>
+
+## Primitives
+
+### Base
+
+<ColorScale family="base" />
+
+### Gray
+
+<ColorScale family="gray" />
+
+### Orange
+
+<ColorScale family="orange" />
+
+### Red
+
+<ColorScale family="red" />
+
+### Yellow
+
+<ColorScale family="yellow" />
+
+### Lime
+
+<ColorScale family="lime" />
+
+### Green
+
+<ColorScale family="green" />
+
+### Blue
+
+<ColorScale family="blue" />
+
+## Semantic tokens
+
+Every row shows what the token resolves to in each mode and the Figma variable
+it came from. Three badges appear in this table:
+
+- **added** — not a Figma variable; added to fill a gap.
+- **proposed** — not in Figma at all; a value proposed here.
+- **adjusted** — in Figma, but the stored value was corrected. The kit's own
+  value is shown underneath.
+
+### Base and surfaces
+
+<SemanticTokens group="Base" />
+
+<SemanticTokens group="Surfaces" />
+
+### Primary and secondary
+
+<SemanticTokens group="Primary" />
+
+<SemanticTokens group="Secondary" />
+
+### Muted and accent
+
+<SemanticTokens group="Muted" />
+
+<SemanticTokens group="Accent" />
+
+<Callout type="info">
+`bg-muted-40`, `bg-muted-50` and `bg-accent-50` are stored in Figma as
+base-white or base-black at 40–50%, which is invisible against the page
+background. The Figma code syntax for those same variables reads `muted/.4`
+and `accent/.5`, so the code follows the syntax and the kit's raw value is
+recorded alongside it.
+</Callout>
+
+### Status
+
+<SemanticTokens group="Destructive" />
+
+<SemanticTokens group="Success" />
+
+<SemanticTokens group="Warning" />
+
+### Descriptive
+
+These carry meaning in product surfaces — categories, tags, brand moments —
+rather than state.
+
+<SemanticTokens group="Descriptive" />
+
+### Borders and inputs
+
+<SemanticTokens group="Borders & focus" />
+
+### Sidebar
+
+<SemanticTokens group="Sidebar" />
+
+### Charts
+
+<SemanticTokens group="Chart" />
+
+<Callout type="warn">
+The five chart tokens are **proposed**. The Figma kit only shows single-series
+charts painted in `primary`, so this palette was chosen here: orange, green,
+yellow, blue, lime. Red is deliberately excluded so it stays reserved for
+destructive states. The order was checked for colour-vision separation against
+both the light and dark chart surfaces.
+</Callout>
+
+## Using the tokens
+
+Each token is reachable through the Tailwind utility that matches its role:
+
+```tsx
+<div className="bg-background text-foreground" />
+<div className="bg-primary text-primary-foreground hover:bg-hover-primary" />
+<div className="border border-border bg-muted-50" />
+<p className="text-muted-foreground" />
+```
+
+The translucent tokens are registered in a single Tailwind namespace each, so
+they exist as exactly one utility: `bg-muted-40`, `bg-muted-50`,
+`bg-accent-50`, `bg-destructive-10`, `border-muted-40` and
+`border-destructive-50`. Those names are identical to the ones in the Figma
+kit, so a spec and its implementation read the same.

@@ -1,0 +1,10 @@
+{
+  "title": "Nooxit",
+  "root": true,
+  "pages": [
+    "index",
+    "installation",
+    "foundations",
+    "components"
+  ]
+}

@@ -1,0 +1,54 @@
+---
+title: Elevation
+description: Shadows, blur and the focus ring.
+---
+
+## Shadows
+
+The kit defines seven shadows. They match Tailwind's defaults by value, though
+not always by name — the v3-to-v4 rename applies here too.
+
+| Figma | Tailwind v4 | Used by |
+| --- | --- | --- |
+| `shadow-sm` | `shadow-xs` | Active tab |
+| `shadow` | `shadow-sm` | — |
+| `shadow-md` | `shadow-md` | Popover, tooltip, menu, command, select menu, chart tooltip |
+| `shadow-lg` | `shadow-lg` | Dialog, sheet, drawer, sonner, switch thumb |
+| `shadow-xl` | `shadow-xl` | — |
+| `shadow-2xl` | `shadow-2xl` | — |
+| `shadow-inner` | `inset-shadow-*` | — |
+
+Cards deliberately have **no shadow**; a 1px border defines them instead.
+
+## Blur
+
+| Figma | Value |
+| --- | --- |
+| `blur-sm` | 4px |
+| `blur` | 8px |
+| `blur-md` | 12px |
+| `blur-lg` | 16px |
+| `blur-xl` | 24px |
+| `blur-2xl` | 40px |
+| `blur-3xl` | 64px |
+
+Dialog and sheet overlays use a small backdrop blur over black at 10%.
+
+## Focus ring
+
+One ring, everywhere:
+
+```tsx
+focus-visible:ring-2
+focus-visible:ring-primary
+focus-visible:ring-offset-2
+focus-visible:ring-offset-background
+```
+
+Destructive and invalid controls swap `ring-primary` for `ring-destructive`.
+Inside the sidebar the ring becomes `ring-sidebar-ring` with a
+`ring-offset-sidebar` offset, so it stays visible on the sidebar surface.
+
+In Figma this is the `focus ring/2px` effect style: a 4px spread in the ring
+color with a 2px spread in the background color on top, which is exactly what
+`ring-2` plus `ring-offset-2` produces.

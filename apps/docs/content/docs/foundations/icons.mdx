@@ -1,0 +1,53 @@
+---
+title: Icons
+description: Lucide, at 16px.
+---
+
+Nooxit uses [Lucide](https://lucide.dev) through `lucide-react`. The Figma kit
+embeds the full Lucide set (1,527 icons at 24px), so any icon you find there
+exists in the package under the same name.
+
+```tsx
+import { ArrowRightIcon, SearchIcon } from 'lucide-react';
+```
+
+## Sizing
+
+Components size icons for you. Every component carries a rule along the lines
+of `[&_svg:not([class*='size-'])]:size-4`, so an icon dropped into a button,
+menu item or input is 16px without being told. Add an explicit `size-*` class
+only when you want something other than the default.
+
+| Context | Size |
+| --- | --- |
+| Buttons, menu items, inputs, alerts | 16px (`size-4`) |
+| Extra-small buttons | 12px (`size-3`) |
+| Navigation menu chevron | 12px (`size-3`) |
+| Empty state media, choice cards | 24px (`size-6`) |
+| Resizable grip | 10px (`size-2.5`) |
+
+## Inline icons in buttons
+
+Buttons tighten their padding on whichever side holds an icon. Mark it so they
+can:
+
+```tsx
+<Button>
+  <MailIcon data-icon="inline-start" />
+  Email me
+</Button>
+
+<Button variant="outline">
+  Continue
+  <ArrowRightIcon data-icon="inline-end" />
+</Button>
+```
+
+Without the attribute the icon still renders at the right size; only the
+padding compensation is lost.
+
+## Color
+
+Icons inherit `currentColor`. Inside a component that means they follow the
+component's text color automatically — a destructive menu item's icon turns
+destructive without any extra class.

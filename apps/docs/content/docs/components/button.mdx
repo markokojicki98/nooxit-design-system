@@ -1,0 +1,40 @@
+---
+title: Button
+description: Displays a button or a component that looks like a button.
+---
+
+<ComponentPreview name="button-demo" />
+
+## Sizes
+
+<ComponentPreview name="button-sizes" />
+
+## With icons
+
+<ComponentPreview name="button-icons" />
+
+## Destructive
+
+<ComponentPreview name="button-destructive" />
+
+## Installation
+
+```tsx
+import { ... } from 'nooxit-design-system/components/button';
+```
+
+## Notes
+
+Nooxit buttons are pills (`rounded-full`) with `text-sm`/`leading-6` medium
+labels and 16px icons.
+
+`destructive` is a separate boolean prop, not only a variant: it recolors any
+variant and swaps the focus ring to `ring-destructive`. `variant="destructive"`
+is kept as a shorthand for the filled destructive button.
+
+Mark leading and trailing icons with `data-icon="inline-start"` or
+`data-icon="inline-end"` so the button tightens the padding on that side, the
+way the Figma kit does.
+
+**Source** — [`src/components/button.tsx`](https://github.com/markokojicki98/nooxit-design-system/blob/main/packages/ui/src/components/button.tsx)\
+**Figma** — [Button in the Nooxit UI kit](https://www.figma.com/design/ugfobk75w4e1lOotqhXHfO/Nooxit-design-system?node-id=2718-8237)

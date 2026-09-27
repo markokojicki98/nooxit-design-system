@@ -1,0 +1,28 @@
+---
+title: Avatar
+description: An image element with a fallback for representing the user.
+---
+
+<ComponentPreview name="avatar-demo" />
+
+## Sizes
+
+<ComponentPreview name="avatar-sizes" />
+
+## Installation
+
+```tsx
+import { ... } from 'nooxit-design-system/components/avatar';
+```
+
+## Notes
+
+Sizes follow the Figma kit: `xxs` 16px, `xs` 24px, `sm` 32px, `default` and
+`md` 40px, `lg` 48px, `xl` 56px and `2xl` 64px. The `shape` prop switches
+between a circle and the rounded square, whose radius scales with the size.
+
+Fallbacks use the orange-100 / orange-950 primitives directly, which is how the
+Figma kit paints them.
+
+**Source** — [`src/components/avatar.tsx`](https://github.com/markokojicki98/nooxit-design-system/blob/main/packages/ui/src/components/avatar.tsx)\
+**Figma** — [Avatar in the Nooxit UI kit](https://www.figma.com/design/ugfobk75w4e1lOotqhXHfO/Nooxit-design-system?node-id=8-297)

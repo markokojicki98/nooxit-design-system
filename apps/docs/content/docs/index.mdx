@@ -1,13 +1,44 @@
 ---
-title: Hello World
-description: Your first document
+title: Introduction
+description: The Nooxit design system — shadcn/ui components restyled to the Nooxit Figma UI kit.
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+Nooxit is a design system for Next.js applications. It takes every component
+from [shadcn/ui](https://ui.shadcn.com), rebuilds it on Radix primitives and
+Tailwind CSS v4, and restyles it to the Nooxit Figma UI kit.
 
-## What is Next?
+It ships as one npm package, `nooxit-design-system`, containing 61 components,
+the design tokens they are built from, and the stylesheet that defines them.
+
+## What makes it Nooxit
+
+The components share shadcn/ui's API, so anything you know from there still
+applies. What changes is the styling, and the changes are systematic:
+
+- **Buttons are pills.** Every button is `rounded-full`; only inputs, cards and
+  surfaces carry the 4/6/8px radii.
+- **One focus ring.** `ring-2 ring-primary ring-offset-2 ring-offset-background`,
+  everywhere, swapping to `ring-destructive` on destructive and invalid
+  controls. No component uses the stock 3px translucent ring.
+- **Tailwind's palette is removed.** `--color-*: initial` clears it, so
+  `bg-blue-500` does not exist. Only the Nooxit primitives and semantic tokens
+  resolve.
+- **Cards have no shadow.** They are defined by a 1px border alone.
+- **Tooltips are popovers**, not inverted chips.
+- **DM Sans and DM Mono**, with DM Mono loaded in weight 500 only.
+
+## Where to start
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+  <Card title="Installation" href="/docs/installation" description="Add the package to a Next.js app." />
+  <Card title="Colors" href="/docs/foundations/colors" description="Primitives, semantic tokens and both modes." />
+  <Card title="Typography" href="/docs/foundations/typography" description="All 105 text styles from the Figma kit." />
+  <Card title="Components" href="/docs/components/button" description="61 components, each with a live demo." />
 </Cards>
+
+## Source of truth
+
+The [Nooxit Figma UI kit](https://www.figma.com/design/ugfobk75w4e1lOotqhXHfO/Nooxit-design-system)
+defines the tokens and the component styling. Every page here links back to the
+node it was built from, and the [Colors](/docs/foundations/colors) page marks
+the handful of tokens that were added or adjusted rather than read from Figma.

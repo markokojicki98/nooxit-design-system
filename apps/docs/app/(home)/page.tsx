@@ -1,36 +1,113 @@
+import Link from 'next/link';
+
+import { NooxitLogo } from '@/components/nooxit-logo';
 import { Badge } from 'nooxit-design-system/components/badge';
 import { Button } from 'nooxit-design-system/components/button';
-import { Input } from 'nooxit-design-system/components/input';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'nooxit-design-system/components/card';
+import { primitives, semanticTokens, textStyles } from 'nooxit-design-system/tokens';
+import { ArrowRightIcon } from 'lucide-react';
+
+const stats = [
+  { value: '61', label: 'components' },
+  { value: String(semanticTokens.length), label: 'semantic tokens' },
+  { value: String(primitives.length), label: 'color primitives' },
+  { value: String(textStyles.length), label: 'text styles' },
+];
+
+const entries = [
+  {
+    href: '/docs/installation',
+    title: 'Installation',
+    description: 'Add the package to a Next.js app, load the fonts and the stylesheet.',
+  },
+  {
+    href: '/docs/foundations/colors',
+    title: 'Foundations',
+    description: 'Colors, typography, spacing, radius, elevation, states and icons.',
+  },
+  {
+    href: '/docs/components/button',
+    title: 'Components',
+    description: 'Every component with a live demo, its source and its Figma node.',
+  },
+];
+
+const swatches = [
+  'bg-primary',
+  'bg-accent',
+  'bg-destructive',
+  'bg-success',
+  'bg-warning',
+  'bg-descriptive-lime-brand',
+  'bg-descriptive-blue-brand',
+  'bg-descriptive-orange-brand',
+];
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-6 px-6 py-16">
-      <h1 className="text-4xl font-semibold tracking-tight">Nooxit smoke test</h1>
-      <p className="text-muted-foreground">DM Sans body text. <code className="font-mono">DM Mono 500</code></p>
-      <div className="flex flex-wrap gap-2">
-        <Button>Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="destructive">Destructive</Button>
-        <Button variant="link">Link</Button>
-      </div>
-      <div className="flex gap-2">
-        <Badge>Badge</Badge>
-        <Badge variant="secondary">Secondary</Badge>
-        <Badge variant="outline">Outline</Badge>
-      </div>
-      <Input placeholder="Email" />
-      <div className="grid grid-cols-5 gap-2">
-        {['bg-chart-1', 'bg-chart-2', 'bg-chart-3', 'bg-chart-4', 'bg-chart-5'].map((c) => (
-          <div key={c} className={`${c} h-10 rounded-md`} />
+    <main className="mx-auto flex w-full max-w-screen-lg flex-1 flex-col gap-16 px-6 py-20">
+      <section className="flex flex-col items-start gap-6">
+        <Badge variant="secondary">v0.1.0 · private</Badge>
+        <div className="flex items-center gap-4">
+          <NooxitLogo className="size-10" />
+          <h1 className="font-heading text-5xl leading-none font-semibold tracking-tight">
+            Nooxit
+          </h1>
+        </div>
+        <p className="max-w-2xl text-xl leading-7 text-muted-foreground">
+          A design system for Next.js. Every shadcn/ui component, rebuilt on
+          Radix and Tailwind CSS v4 and restyled to the Nooxit Figma UI kit.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Button size="lg" asChild>
+            <Link href="/docs">
+              Get started
+              <ArrowRightIcon data-icon="inline-end" />
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link href="/docs/components/button">Browse components</Link>
+          </Button>
+        </div>
+      </section>
+
+      <section className="flex flex-wrap gap-2">
+        {swatches.map((swatch) => (
+          <div key={swatch} className={`h-16 flex-1 rounded-lg ${swatch}`} />
         ))}
-        <div className="h-10 rounded-md bg-muted-40 border" />
-        <div className="h-10 rounded-md bg-destructive-10 border border-destructive-50" />
-        <div className="h-10 rounded-md bg-accent" />
-        <div className="h-10 rounded-md bg-descriptive-lime-brand" />
-        <div className="h-10 rounded-md bg-hover-primary" />
-      </div>
+      </section>
+
+      <section className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        {stats.map((stat) => (
+          <div key={stat.label} className="flex flex-col gap-1">
+            <span className="font-heading text-4xl leading-10 font-semibold tracking-tight">
+              {stat.value}
+            </span>
+            <span className="text-sm leading-5 text-muted-foreground">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-3">
+        {entries.map((entry) => (
+          <Link key={entry.href} href={entry.href} className="group/entry">
+            <Card className="h-full transition-colors group-hover/entry:bg-muted-50">
+              <CardHeader>
+                <CardTitle size="sm">{entry.title}</CardTitle>
+                <CardDescription>{entry.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="mt-auto">
+                <span className="inline-flex items-center gap-1 text-sm leading-5 font-medium">
+                  Read
+                  <ArrowRightIcon className="size-4 transition-transform group-hover/entry:translate-x-0.5" />
+                </span>
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </section>
     </main>
   );
 }

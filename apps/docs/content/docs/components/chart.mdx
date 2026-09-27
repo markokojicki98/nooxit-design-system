@@ -1,0 +1,25 @@
+---
+title: Chart
+description: Charts built with Recharts, themed with the Nooxit chart tokens.
+---
+
+<ComponentPreview name="chart-demo" />
+
+## Installation
+
+```tsx
+import { ... } from 'nooxit-design-system/components/chart';
+```
+
+## Notes
+
+Series colors come from `--chart-1` through `--chart-5`. Those five tokens are
+**proposed**, not taken from Figma — the kit only shows single-series charts
+painted in `primary`. The order is orange, green, yellow, blue, lime; red is
+deliberately left out so it stays reserved for destructive states.
+
+Figma paints axis labels with an unbound `#888888`, which maps to
+`muted-foreground` here.
+
+**Source** — [`src/components/chart.tsx`](https://github.com/markokojicki98/nooxit-design-system/blob/main/packages/ui/src/components/chart.tsx)\
+**Figma** — not in the UI kit; styled from the Nooxit tokens.

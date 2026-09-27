@@ -1,0 +1,52 @@
+---
+title: States
+description: Hover, disabled and the tokens behind them.
+---
+
+## Hover
+
+Hover is a **token**, not an opacity change. Each interactive surface has a
+paired hover color:
+
+| Surface | Hover |
+| --- | --- |
+| `bg-primary` | `bg-hover-primary` |
+| `bg-secondary` | `bg-hover-secondary` |
+| `bg-destructive` | `bg-hover-destructive` |
+| `bg-destructive-10` | `bg-hover-destructive-20` |
+| `bg-success` | `bg-hover-success` |
+
+Outline and ghost buttons hover to `bg-hover-secondary`; menu and select items
+hover to `bg-accent`; navigation and toggle surfaces hover to `bg-muted`.
+
+<Callout type="info">
+The success hover token is spelled `background/hover:succes` in Figma — a typo
+in the kit. It is exported here as `--hover-success`.
+</Callout>
+
+## Opacity utilities
+
+Two state values come from the kit as opacities rather than colors, and they
+are exposed as utilities so components never hard-code the number:
+
+```css
+--state-disabled: 0.5;
+--state-hover: 0.8;
+```
+
+| Utility | Value | Used by |
+| --- | --- | --- |
+| `opacity-disabled` | 50% | Every disabled control |
+| `opacity-hover` | 80% | Destructive badge hover |
+
+Icon buttons and destructive buttons drop to 40% when disabled, which is what
+the kit's button page specifies.
+
+## Disabled
+
+```tsx
+disabled:pointer-events-none disabled:opacity-disabled
+```
+
+Disabled controls keep their colors and only lose opacity — none of them switch
+to a muted fill.

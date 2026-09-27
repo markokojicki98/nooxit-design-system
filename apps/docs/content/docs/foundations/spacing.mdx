@@ -1,0 +1,51 @@
+---
+title: Spacing
+description: The 4px spacing rhythm the components are built on.
+---
+
+Nooxit uses Tailwind's default 4px spacing scale unchanged. Nothing in the
+Figma kit departs from it, so `p-4` is 16px here exactly as it is anywhere
+else.
+
+## The values components actually use
+
+Reading across the kit, a small set of steps does almost all the work:
+
+| Step | Value | Where it shows up |
+| --- | --- | --- |
+| `0.5` | 2px | Switch track inset |
+| `1` | 4px | Menu and popover padding, toggle group gaps |
+| `1.5` | 6px | Menu item vertical padding |
+| `2` | 8px | Field gaps, icon-to-label gaps, tabs track padding |
+| `2.5` | 10px | Input vertical padding, small button sides |
+| `3` | 12px | Input and select sides, calendar padding |
+| `4` | 16px | Alert, sheet body, table cell sides, choice cards |
+| `6` | 24px | Card and dialog padding, sheet header |
+| `8` | 32px | Dialog section gaps |
+
+## Container widths
+
+The theme adds a set of fixed container widths for page shells:
+
+| Utility | Width |
+| --- | --- |
+| `max-w-screen-sm` | 40rem (640px) |
+| `max-w-screen-md` | 48rem (768px) |
+| `max-w-screen-lg` | 64rem (1024px) |
+| `max-w-screen-xl` | 80rem (1280px) |
+| `max-w-screen-2xl` | 96rem (1536px) |
+
+## Component heights
+
+Controls line up on a shared set of heights, which is what lets an input, a
+select and a button sit in one row without drifting:
+
+| Height | Controls |
+| --- | --- |
+| 24px | Badge, toast action, sonner action |
+| 28px | Extra-small icon button, calendar nav |
+| 32px | Small button, menu item, tab, sidebar item |
+| 36px | Small input, select, toggle |
+| 40px | Input, select, combobox, large button, toggle, menubar |
+| 44px | Large toggle |
+| 48px | Table header cell |

@@ -1,0 +1,25 @@
+---
+title: Sidebar
+description: A composable, themeable and customisable sidebar component.
+---
+
+<ComponentPreview name="sidebar-demo" />
+
+## Installation
+
+```tsx
+import { ... } from 'nooxit-design-system/components/sidebar';
+```
+
+## Notes
+
+Nooxit sidebars are **240px** wide expanded and 48px collapsed, narrower than
+the 256px stock default. Menu items are 32px with a 4px radius; group labels use
+the dedicated `sidebar-foreground-70` token.
+
+`sidebar-primary` and `sidebar-primary-foreground` are not Figma variables —
+they were added so the logo tile has its own token, and they carry the same
+values as `primary` and `primary-foreground`.
+
+**Source** — [`src/components/sidebar.tsx`](https://github.com/markokojicki98/nooxit-design-system/blob/main/packages/ui/src/components/sidebar.tsx)\
+**Figma** — [Sidebar in the Nooxit UI kit](https://www.figma.com/design/ugfobk75w4e1lOotqhXHfO/Nooxit-design-system?node-id=2844-3)

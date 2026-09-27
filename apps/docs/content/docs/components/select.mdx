@@ -1,0 +1,25 @@
+---
+title: Select
+description: Displays a list of options for the user to pick from, triggered by a button.
+---
+
+<ComponentPreview name="select-demo" />
+
+## Installation
+
+```tsx
+import { ... } from 'nooxit-design-system/components/select';
+```
+
+## Notes
+
+The trigger is 40px (36px for `sm`) with a 16px gap between the value and the
+chevron. Both the placeholder and the chevron are foreground rather than muted,
+which is what the kit specifies — Input and Date Picker use muted placeholders
+instead.
+
+The check indicator sits on the **left** in a 32px gutter, so labels and items
+share the same text origin.
+
+**Source** — [`src/components/select.tsx`](https://github.com/markokojicki98/nooxit-design-system/blob/main/packages/ui/src/components/select.tsx)\
+**Figma** — not in the UI kit; styled from the Nooxit tokens.

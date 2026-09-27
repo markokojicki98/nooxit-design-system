@@ -1,0 +1,36 @@
+---
+title: Radius
+description: The three corner radii, and how the Figma names map onto Tailwind v4.
+---
+
+Three radii cover the system. They derive from a single `--radius` variable, so
+changing that one value rounds or squares off everything at once.
+
+```css
+:root {
+  --radius: 0.5rem; /* 8px */
+}
+```
+
+| Token | Value | Tailwind | Used by |
+| --- | --- | --- | --- |
+| `--radius-sm` | 4px | `rounded-sm` | Menu items, checkbox, dialog close, chips |
+| `--radius-md` | 6px | `rounded-md` | Inputs, selects, popovers, menus, toasts |
+| `--radius-lg` | 8px | `rounded-lg` | Cards, alerts, dialogs, tabs track, command |
+| — | 12px | `rounded-xl` | Drawer top corners |
+| — | full | `rounded-full` | Buttons, badges, switches, sliders, avatars |
+
+<Callout type="info">
+The Figma kit was built against Tailwind v3, so a few names shifted in v4. The
+kit's `rounded-sm` (2px) is v4's `rounded-xs`, and its `rounded` (4px) is v4's
+`rounded-sm`. The **values** are identical, so the components are mapped by
+value rather than by name. Read a radius off the kit in pixels, not by its
+label.
+</Callout>
+
+## Buttons are the exception
+
+Buttons, badges, switches, slider thumbs and avatars are fully round. Nothing
+in that group uses `--radius`, so restyling the radius leaves the pills alone —
+which is intentional: the pill shape is the most recognisable part of the
+system.
