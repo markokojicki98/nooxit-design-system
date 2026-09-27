@@ -1,0 +1,25 @@
+{
+  "name": "nooxit",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Nooxit design system monorepo: the nooxit-design-system package and its Fumadocs documentation site.",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "turbo format",
+    "typecheck": "turbo typecheck"
+  },
+  "devDependencies": {
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "turbo": "^2.11.4",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@11.11.0",
+  "engines": {
+    "node": ">=22"
+  }
+}
