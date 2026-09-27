@@ -5,7 +5,6 @@ import {
 import {
   Alert,
   AlertDescription,
-  AlertTitle,
 } from 'nooxit-design-system/components/alert';
 import { Button } from 'nooxit-design-system/components/button';
 import {
@@ -29,11 +28,14 @@ export function Intervention() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Alert variant="destructive" className="[&>svg]:text-destructive">
+        <Alert
+          variant="destructive"
+          className="border-transparent bg-destructive-muted [&>svg]:text-destructive"
+        >
           <TriangleAlertIcon />
-          <AlertTitle>Supplier not on the approved list</AlertTitle>
           <AlertDescription className="font-mono text-xs leading-4 font-medium uppercase">
-            Invoice #INV-2291 for €14,280 names a supplier added three days ago.
+            Invoice #INV-2291 for €14,280 names a supplier who is not on the
+            approved list.
           </AlertDescription>
         </Alert>
 
