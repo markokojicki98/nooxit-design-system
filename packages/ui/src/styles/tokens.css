@@ -115,13 +115,13 @@
   /* Muted */
   --muted: var(--gray-50);
   --muted-foreground: var(--gray-600);
-  --bg-muted-40: color-mix(in srgb, var(--base-white) 40%, transparent);
-  --bg-muted-50: color-mix(in srgb, var(--base-white) 50%, transparent);
+  --bg-muted-40: color-mix(in srgb, var(--gray-50) 40%, transparent); /* adjusted: Figma value is base-white@40 */
+  --bg-muted-50: color-mix(in srgb, var(--gray-50) 50%, transparent); /* adjusted: Figma value is base-white@50 */
 
   /* Accent */
   --accent: var(--orange-100);
   --accent-foreground: var(--orange-950);
-  --bg-accent-50: color-mix(in srgb, var(--base-white) 50%, transparent);
+  --bg-accent-50: color-mix(in srgb, var(--orange-100) 50%, transparent); /* adjusted: Figma value is base-white@50 */
 
   /* Destructive */
   --destructive: var(--red-600);
@@ -211,13 +211,13 @@
   /* Muted */
   --muted: var(--gray-950);
   --muted-foreground: var(--gray-400);
-  --bg-muted-40: color-mix(in srgb, var(--base-black) 40%, transparent);
-  --bg-muted-50: color-mix(in srgb, var(--base-black) 50%, transparent);
+  --bg-muted-40: color-mix(in srgb, var(--gray-950) 40%, transparent); /* adjusted: Figma value is base-black@40 */
+  --bg-muted-50: color-mix(in srgb, var(--gray-950) 50%, transparent); /* adjusted: Figma value is base-black@50 */
 
   /* Accent */
   --accent: var(--orange-950);
   --accent-foreground: var(--orange-100);
-  --bg-accent-50: color-mix(in srgb, var(--base-black) 50%, transparent);
+  --bg-accent-50: color-mix(in srgb, var(--orange-950) 50%, transparent); /* adjusted: Figma value is base-black@50 */
 
   /* Destructive */
   --destructive: var(--red-500);

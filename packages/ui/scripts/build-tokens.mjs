@@ -96,7 +96,12 @@ for (const mode of ["light", "dark"]) {
       css.push(`  /* ${t.group} */`)
       lastGroup = t.group
     }
-    const note = t.origin ? ` /* ${t.origin}: not a Figma variable */` : ""
+    const note =
+      t.origin === "adjusted"
+        ? ` /* adjusted: Figma value is ${t.figmaValue[mode]} */`
+        : t.origin
+          ? ` /* ${t.origin}: not a Figma variable */`
+          : ""
     css.push(`  --${t.name}: ${cssValue(t[mode])};${note}`)
   }
   // Declared in both modes so a nested .dark wrapper re-resolves it.
@@ -138,7 +143,10 @@ ts.push("  /** CSS custom property, e.g. \"--primary\". */")
 ts.push("  cssVar: string")
 ts.push("  /** Figma variable path, or null when the token is not in Figma. */")
 ts.push("  figma: string | null")
-ts.push("  origin?: \"added\" | \"proposed\"")
+ts.push("  /** added/proposed: not a Figma variable. adjusted: in Figma, but the value was corrected. */")
+ts.push("  origin?: \"added\" | \"proposed\" | \"adjusted\"")
+ts.push("  /** The Figma value when origin is \"adjusted\". */")
+ts.push("  figmaValue?: { light: string; dark: string }")
 ts.push("  /** Example Tailwind utilities that use the token. */")
 ts.push("  utilities: string[]")
 ts.push("  light: TokenValue")
@@ -164,6 +172,7 @@ const semanticOut = semantic.map((t) => ({
   cssVar: `--${t.name}`,
   figma: t.figma,
   ...(t.origin ? { origin: t.origin } : {}),
+  ...(t.figmaValue ? { figmaValue: t.figmaValue } : {}),
   utilities: t.utilities,
   light: { ...t.light, hex: resolvedHex(t.light) },
   dark: { ...t.dark, hex: resolvedHex(t.dark) },
@@ -173,8 +182,51 @@ ts.push(
   `export const semanticTokens: SemanticToken[] = ${JSON.stringify(semanticOut, null, 2)}`,
   ""
 )
+// Text styles: Figma names map 1:1 onto Tailwind utilities.
+const WEIGHT_CLASS = { 400: "font-normal", 500: "font-medium", 600: "font-semibold", 700: "font-bold", 800: "font-extrabold" }
+function textStyleClasses(style) {
+  const [size, leading] = style.name.split("/")
+  const classes = []
+  if (style.font === "mono") classes.push("font-mono")
+  classes.push(size, leading)
+  // DM Mono ships in one weight (500); pin it so a bold parent cannot trigger faux bold.
+  classes.push(style.font === "mono" ? "font-medium" : WEIGHT_CLASS[style.weight])
+  const ls = style.letterSpacing
+  if (ls.endsWith("%")) {
+    if (ls !== "-2.5%") throw new Error(`Unmapped letter spacing ${ls}`)
+    classes.push("tracking-tight")
+  } else if (ls.endsWith("px") && parseFloat(ls) !== 0) {
+    // -0.025em (tracking-tight) equals the Figma pixel value at 24px and 30px.
+    const em = parseFloat(ls) / style.size
+    classes.push(Math.abs(em + 0.025) < 0.0005 ? "tracking-tight" : `tracking-[${ls}]`)
+  }
+  if (style.decoration === "underline") classes.push("underline")
+  if (style.case === "uppercase") classes.push("uppercase")
+  return classes.join(" ")
+}
+const typography = source.typography
+ts.push("export type TextStyle = {")
+ts.push("  /** Figma text style name, e.g. \"text-sm/leading-5/medium\". */")
+ts.push("  name: string")
+ts.push("  font: \"sans\" | \"mono\"")
+ts.push("  /** Weight used in Figma. Mono renders at 500, the only DM Mono weight loaded. */")
+ts.push("  weight: number")
+ts.push("  /** Font size in px. */")
+ts.push("  size: number")
+ts.push("  /** Line height in px, or \"100%\" for leading-none. */")
+ts.push("  lineHeight: number | \"100%\"")
+ts.push("  /** Figma letter spacing, e.g. \"-2.5%\" or \"-0.6px\". */")
+ts.push("  letterSpacing: string")
+ts.push("  decoration?: \"underline\"")
+ts.push("  case?: \"uppercase\"")
+ts.push("  /** Tailwind classes that reproduce the style. */")
+ts.push("  classes: string")
+ts.push("}", "")
+ts.push(`export const fonts = ${JSON.stringify(typography.fonts, null, 2)} as const`, "")
+const textStylesOut = typography.textStyles.map((style) => ({ ...style, classes: textStyleClasses(style) }))
+ts.push(`export const textStyles: TextStyle[] = ${JSON.stringify(textStylesOut, null, 2)}`, "")
 writeFileSync(resolve(root, "src/tokens.ts"), ts.join("\n"))
 
 console.log(
-  `tokens: ${primitives.length} primitives, ${semantic.length} semantic tokens -> src/styles/tokens.css, src/tokens.ts`
+  `tokens: ${primitives.length} primitives, ${semantic.length} semantic tokens, ${typography.textStyles.length} text styles -> src/styles/tokens.css, src/tokens.ts`
 )
