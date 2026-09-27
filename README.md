@@ -23,9 +23,43 @@ site that documents the foundations and every component.
 ```bash
 pnpm install     # install all workspaces
 pnpm dev         # run the docs site on http://localhost:3000
-pnpm build       # build the package and the docs site
+pnpm build       # build the registry, the package and the docs site
 pnpm typecheck   # type-check every workspace
 ```
+
+Workspace-specific:
+
+```bash
+pnpm --filter nooxit-design-system tokens     # tokens.json -> tokens.css + tokens.ts
+pnpm --filter nooxit-design-system registry   # registry.json + apps/docs/public/r
+pnpm --filter nooxit-design-system build      # dist/ (tsdown)
+pnpm --filter docs demos                      # regenerate the demo registry
+```
+
+## Editing tokens
+
+`packages/ui/tokens/nooxit.tokens.json` is the single source of truth for
+colors and text styles. Edit it, then run the `tokens` script — it regenerates
+`src/styles/tokens.css` (the CSS variables and the Tailwind theme) and
+`src/tokens.ts` (the typed exports the docs site reads). Never edit either
+generated file by hand.
+
+## Packaging
+
+The package is private and is not published to the public npm registry. To hand
+it to someone, build a tarball:
+
+```bash
+pnpm --filter nooxit-design-system pack
+```
+
+`prepack` runs the build first, so the tarball always contains a fresh `dist`.
+`publishConfig.exports` points the packed package at `dist`, while the
+workspace itself resolves to `src` — so the docs site and the registry always
+read the real source.
+
+`"private": true` stays in `package.json` as a safety latch: `npm publish`
+refuses to publish it until that is deliberately removed.
 
 ## License
 

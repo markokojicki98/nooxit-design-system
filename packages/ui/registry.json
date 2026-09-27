@@ -1,0 +1,1264 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "nooxit",
+  "homepage": "https://github.com/markokojicki98/nooxit-design-system",
+  "items": [
+    {
+      "name": "nooxit-theme",
+      "type": "registry:theme",
+      "title": "Nooxit theme",
+      "description": "The Nooxit design tokens: color primitives, semantic tokens for both modes, the type scale, radii and state values.",
+      "dependencies": [
+        "tw-animate-css"
+      ],
+      "files": [
+        {
+          "path": "registry/styles/tokens.css",
+          "type": "registry:file",
+          "target": "styles/nooxit/tokens.css"
+        },
+        {
+          "path": "registry/styles/theme.css",
+          "type": "registry:file",
+          "target": "styles/nooxit/theme.css"
+        },
+        {
+          "path": "registry/styles/shadcn.css",
+          "type": "registry:file",
+          "target": "styles/nooxit/shadcn.css"
+        },
+        {
+          "path": "registry/styles/fonts.css",
+          "type": "registry:file",
+          "target": "styles/nooxit/fonts.css"
+        },
+        {
+          "path": "registry/lib/nooxit-tokens.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Import styles/nooxit/theme.css after `@import \"tailwindcss\"`. The theme resets Tailwind's color palette, so it must load before any other theme. Load DM Sans and DM Mono as --font-dm-sans and --font-dm-mono, or import styles/nooxit/fonts.css."
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cn",
+      "description": "The class merger, extended so it understands the Nooxit opacity utilities.",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "title": "useIsMobile",
+      "description": "Tracks whether the viewport is below the mobile breakpoint.",
+      "files": [
+        {
+          "path": "registry/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Accordion, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Alert Dialog, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Alert, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "Aspect Ratio, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "attachment",
+      "type": "registry:ui",
+      "title": "Attachment",
+      "description": "Attachment, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/attachment.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Avatar, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Badge, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Breadcrumb, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "title": "Bubble",
+      "description": "Bubble, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/bubble.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Button Group, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/separator",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Button, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Calendar, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Card, styled to the Nooxit Figma UI kit.",
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "Carousel, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "embla-carousel-react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Chart, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkbox, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Collapsible, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Combobox, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/input-group",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Command, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nooxit/dialog",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Context Menu, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Dialog, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "title": "Direction",
+      "description": "Direction, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/direction.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Drawer, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "vaul"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Dropdown Menu, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "Empty, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Field, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@nooxit/label",
+        "@nooxit/nooxit-theme",
+        "@nooxit/separator",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "Hover Card, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "Input Group, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/input",
+        "@nooxit/nooxit-theme",
+        "@nooxit/textarea",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input Otp",
+      "description": "Input Otp, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Input, styled to the Nooxit Figma UI kit.",
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "Item, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/separator",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Kbd, styled to the Nooxit Figma UI kit.",
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Label, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "marker",
+      "type": "registry:ui",
+      "title": "Marker",
+      "description": "Marker, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/marker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "Menubar, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:ui",
+      "title": "Message Scroller",
+      "description": "Message Scroller, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "@shadcn/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/message-scroller.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "title": "Message",
+      "description": "Message, styled to the Nooxit Figma UI kit.",
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/message.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "title": "Native Select",
+      "description": "Native Select, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/native-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "Navigation Menu, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Pagination, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Popover, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Progress, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:ui",
+      "title": "Questionnaire",
+      "description": "Questionnaire, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "@shadcn/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/questionnaire.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Radio Group, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "Resizable, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "react-resizable-panels"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Scroll Area, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Select, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Separator, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Sheet, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Sidebar, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/button",
+        "@nooxit/input",
+        "@nooxit/nooxit-theme",
+        "@nooxit/separator",
+        "@nooxit/sheet",
+        "@nooxit/skeleton",
+        "@nooxit/tooltip",
+        "@nooxit/use-mobile",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Skeleton, styled to the Nooxit Figma UI kit.",
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Slider, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Sonner, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react",
+        "next-themes",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Spinner, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Switch, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Table, styled to the Nooxit Figma UI kit.",
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tabs, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Textarea, styled to the Nooxit Figma UI kit.",
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "Toggle Group, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/toggle",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Toggle, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Tooltip, styled to the Nooxit Figma UI kit.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@nooxit/nooxit-theme",
+        "@nooxit/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

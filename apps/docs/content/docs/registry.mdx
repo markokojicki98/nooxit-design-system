@@ -1,0 +1,82 @@
+---
+title: Registry
+description: Install Nooxit components as source code with the shadcn CLI.
+---
+
+Nooxit ships two ways to consume it.
+
+The **npm package** is the normal path: you import components, they stay
+up to date with the package, and you do not own the code.
+
+The **registry** is the shadcn path: the CLI copies a component's source into
+your project, where you own and can edit it. Use it when a consuming app needs
+to diverge from the system, or when you want to lift one component out without
+taking the package.
+
+## Point the CLI at the registry
+
+Add the registry to your project's `components.json`. Hosting is local for now,
+so the URL points at the docs site.
+
+```json title="components.json"
+{
+  "registries": {
+    "@nooxit": "http://localhost:3000/r/{name}.json"
+  }
+}
+```
+
+Serve it by running the docs site:
+
+```bash
+pnpm --filter docs dev
+```
+
+## Install components
+
+```bash
+npx shadcn@latest add @nooxit/button
+npx shadcn@latest add @nooxit/card @nooxit/table @nooxit/tabs
+```
+
+Every component depends on `@nooxit/nooxit-theme`, so the first install also
+brings in the tokens, the Tailwind theme and the font stylesheet. Components
+that compose others pull those in too — adding `@nooxit/sidebar` also installs
+Button, Input, Separator, Sheet, Skeleton, Tooltip and the `use-mobile` hook.
+
+## Browse it
+
+```bash
+npx shadcn@latest list @nooxit
+npx shadcn@latest search @nooxit -q "menu"
+npx shadcn@latest view @nooxit/button
+npx shadcn@latest add @nooxit/button --dry-run
+```
+
+## What is in it
+
+| Item | Type | Contents |
+| --- | --- | --- |
+| `@nooxit/nooxit-theme` | `registry:theme` | `tokens.css`, `theme.css`, `shadcn.css`, `fonts.css` and the token exports |
+| `@nooxit/utils` | `registry:lib` | The `cn` class merger, extended for the Nooxit opacity utilities |
+| `@nooxit/use-mobile` | `registry:hook` | The mobile breakpoint hook |
+| 61 components | `registry:ui` | One item per component |
+
+## How it is generated
+
+`registry.json` is generated from the component sources rather than written by
+hand, so it cannot drift from the code:
+
+```bash
+pnpm --filter nooxit-design-system registry
+```
+
+The script reads the imports in each component to work out its npm and registry
+dependencies, then stages a copy of every file with the package's own import
+alias rewritten to the standard shadcn aliases (`@/components/ui/…`,
+`@/lib/utils`, `@/hooks/…`). The CLI maps those onto whatever aliases the
+consuming project has configured. It fails the build if a component imports a
+package that `package.json` does not declare.
+
+The staging folder and the built output are both generated, so neither is
+committed. The docs build runs the registry task first.

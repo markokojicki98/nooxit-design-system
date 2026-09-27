@@ -43,3 +43,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated: the shadcn registry staging copies and its built output
+packages/ui/registry/
+apps/docs/public/r/

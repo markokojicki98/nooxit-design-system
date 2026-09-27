@@ -6,10 +6,13 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "build": "tsdown",
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
-    "tokens": "node scripts/build-tokens.mjs"
+    "tokens": "node scripts/build-tokens.mjs",
+    "registry": "node scripts/build-registry.mjs && shadcn build registry.json --output ../../apps/docs/public/r",
+    "prepack": "pnpm run build"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -37,12 +40,13 @@
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
     "eslint": "^9",
+    "next-themes": "^0.4.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "shadcn": "^4.21.0",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "next-themes": "^0.4.6"
+    "tsdown": "^0.23.0",
+    "typescript": "^5"
   },
   "peerDependencies": {
     "next-themes": ">=0.4",
@@ -60,5 +64,49 @@
     "./tokens.css": "./src/styles/tokens.css",
     "./fonts.css": "./src/styles/fonts.css",
     "./postcss.config": "./postcss.config.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markokojicki98/nooxit-design-system.git",
+    "directory": "packages/ui"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "./components/*": {
+        "types": "./dist/components/*.d.ts",
+        "default": "./dist/components/*.js"
+      },
+      "./hooks/*": {
+        "types": "./dist/hooks/*.d.ts",
+        "default": "./dist/hooks/*.js"
+      },
+      "./lib/*": {
+        "types": "./dist/lib/*.d.ts",
+        "default": "./dist/lib/*.js"
+      },
+      "./tokens": {
+        "types": "./dist/tokens.d.ts",
+        "default": "./dist/tokens.js"
+      },
+      "./globals.css": "./dist/styles/globals.css",
+      "./theme.css": "./dist/styles/theme.css",
+      "./tokens.css": "./dist/styles/tokens.css",
+      "./fonts.css": "./dist/styles/fonts.css",
+      "./postcss.config": "./postcss.config.mjs"
+    }
   }
 }
