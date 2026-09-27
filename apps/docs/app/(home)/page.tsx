@@ -5,15 +5,8 @@ import { Showcase } from '@/components/showcase';
 import { Badge } from 'nooxit-design-system/components/badge';
 import { Button } from 'nooxit-design-system/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'nooxit-design-system/components/card';
-import { primitives, semanticTokens, textStyles } from 'nooxit-design-system/tokens';
+import { Separator } from 'nooxit-design-system/components/separator';
 import { ArrowRightIcon } from 'lucide-react';
-
-const stats = [
-  { value: '61', label: 'components' },
-  { value: String(semanticTokens.length), label: 'semantic tokens' },
-  { value: String(primitives.length), label: 'color primitives' },
-  { value: String(textStyles.length), label: 'text styles' },
-];
 
 const entries = [
   {
@@ -65,36 +58,30 @@ export default function HomePage() {
         <Showcase />
       </section>
 
-      <section className="grid grid-cols-2 gap-8 md:grid-cols-4">
-        {stats.map((stat) => (
-          <div key={stat.label} className="flex flex-col gap-1">
-            <span className="font-heading text-4xl leading-10 font-semibold tracking-tight">
-              {stat.value}
-            </span>
-            <span className="text-sm leading-5 text-muted-foreground">
-              {stat.label}
-            </span>
-          </div>
-        ))}
-      </section>
+      <Separator />
 
-      <section className="grid gap-4 md:grid-cols-3">
-        {entries.map((entry) => (
-          <Link key={entry.href} href={entry.href} className="group/entry">
-            <Card className="h-full transition-colors group-hover/entry:bg-muted-50">
-              <CardHeader>
-                <CardTitle size="sm">{entry.title}</CardTitle>
-                <CardDescription>{entry.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="mt-auto">
-                <span className="inline-flex items-center gap-1 text-sm leading-5 font-medium">
-                  Read
-                  <ArrowRightIcon className="size-4 transition-transform group-hover/entry:translate-x-0.5" />
-                </span>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
+      <section className="flex flex-col gap-6">
+        <h2 className="font-heading text-xl leading-7 font-semibold tracking-tight">
+          Explore the library
+        </h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          {entries.map((entry) => (
+            <Link key={entry.href} href={entry.href} className="group/entry">
+              <Card className="h-full transition-colors group-hover/entry:bg-muted-50">
+                <CardHeader>
+                  <CardTitle size="sm">{entry.title}</CardTitle>
+                  <CardDescription>{entry.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <span className="inline-flex items-center gap-1 text-sm leading-5 font-medium">
+                    Read
+                    <ArrowRightIcon className="size-4 transition-transform group-hover/entry:translate-x-0.5" />
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
       </section>
     </main>
   );
