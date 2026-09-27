@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "tokens": "node scripts/build-tokens.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -20,7 +21,6 @@
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.5.0",
     "lucide-react": "^1.48.0",
-    "next-themes": "^0.4.6",
     "radix-ui": "^1.6.7",
     "react-day-picker": "^10.0.1",
     "react-resizable-panels": "^4.13.3",
@@ -37,21 +37,28 @@
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
     "eslint": "^9",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "shadcn": "^4.21.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "next-themes": "^0.4.6"
   },
   "peerDependencies": {
+    "next-themes": ">=0.4",
     "react": "^19",
     "react-dom": "^19"
   },
   "exports": {
-    "./globals.css": "./src/styles/globals.css",
-    "./postcss.config": "./postcss.config.mjs",
-    "./lib/*": "./src/lib/*.ts",
+    ".": "./src/index.ts",
     "./components/*": "./src/components/*.tsx",
-    "./hooks/*": "./src/hooks/*.ts"
+    "./hooks/*": "./src/hooks/*.ts",
+    "./lib/*": "./src/lib/*.ts",
+    "./tokens": "./src/tokens.ts",
+    "./globals.css": "./src/styles/globals.css",
+    "./theme.css": "./src/styles/theme.css",
+    "./tokens.css": "./src/styles/tokens.css",
+    "./fonts.css": "./src/styles/fonts.css",
+    "./postcss.config": "./postcss.config.mjs"
   }
 }

@@ -1,0 +1,76 @@
+/*
+ * Nooxit design system: theme layer for Tailwind CSS v4.
+ *
+ * Most apps import `nooxit-design-system/globals.css`, which loads Tailwind and
+ * this file. Apps that own their Tailwind entry can instead do:
+ *
+ *   @import "tailwindcss";
+ *   @import "nooxit-design-system/theme.css";
+ *
+ * Fonts: the theme expects DM Sans and DM Mono in the CSS variables
+ * --font-dm-sans and --font-dm-mono (next/font/google sets them, see the docs),
+ * and falls back to the family names "DM Sans" / "DM Mono".
+ */
+@import "tw-animate-css";
+@import "./shadcn.css";
+@import "./tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Generate the classes used by this package's components. */
+@source "../components";
+@source "../hooks";
+
+:root {
+  /* Figma radius+opacity: radius/radius = 8px (radius-md 6px, radius-sm 4px). */
+  --radius: 0.5rem;
+  /* Figma radius+opacity: state/disabled = 50%, state/hover = 80%. */
+  --state-disabled: 0.5;
+  --state-hover: 0.8;
+}
+
+@theme inline {
+  /* Figma tailwind_typography: font-family/font-sans, font-family/font-mono. */
+  --font-sans:
+    var(--font-dm-sans, "DM Sans"), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading:
+    var(--font-dm-sans, "DM Sans"), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    var(--font-dm-mono, "DM Mono"), ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* rounded-sm = 4px, rounded-md = 6px, rounded-lg = 8px (from --radius).
+     rounded-xs 2px, rounded-xl 12px, rounded-2xl 16px and rounded-3xl 24px are
+     Tailwind defaults and already equal the Figma border radius primitives. */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+@theme {
+  /* Figma tailwind_primitives: max-w/max-w-screen-*. */
+  --container-screen-sm: 40rem;
+  --container-screen-md: 48rem;
+  --container-screen-lg: 64rem;
+  --container-screen-xl: 80rem;
+  --container-screen-2xl: 96rem;
+}
+
+/* State opacities bound to the Figma state/* tokens. */
+@utility opacity-disabled {
+  opacity: var(--state-disabled);
+}
+
+@utility opacity-hover {
+  opacity: var(--state-hover);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+}

@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+/* Nooxit tokens, fonts, radius and component styles. Must come before the
+   Fumadocs presets: it resets Tailwind's default palette. */
+@import 'nooxit-design-system/theme.css';
+/* Fumadocs reads its colors from the shadcn variables, i.e. the Nooxit tokens. */
+@import 'fumadocs-ui/css/shadcn.css';
+@import 'fumadocs-ui/css/preset.css';
+
+/* Docs pages and examples also use Tailwind classes. */
+@source '../components';
+@source '../content';
+
+/* Fumadocs status colors, mapped to Nooxit tokens instead of Tailwind hues. */
+@theme static {
+  --color-fd-info: var(--blue-600);
+  --color-fd-warning: var(--yellow-500);
+  --color-fd-error: var(--destructive);
+  --color-fd-success: var(--success);
+  --color-fd-idea: var(--orange-500);
+  --color-fd-diff-remove: var(--bg-destructive-10);
+  --color-fd-diff-remove-symbol: var(--destructive);
+  --color-fd-diff-add: color-mix(in srgb, var(--success) 12%, transparent);
+  --color-fd-diff-add-symbol: var(--success);
+}
+
+:root,
+.dark {
+  --color-fd-overlay: color-mix(in srgb, var(--base-black) 20%, transparent);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}

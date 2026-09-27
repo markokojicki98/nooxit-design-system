@@ -1,0 +1,8 @@
+/*
+ * Optional: load DM Sans (variable) and DM Mono (500) from Google Fonts.
+ * Next.js apps should prefer next/font/google (self-hosted, no layout shift);
+ * see the Nooxit docs, "Installation".
+ *
+ *   @import "nooxit-design-system/fonts.css";
+ */
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
