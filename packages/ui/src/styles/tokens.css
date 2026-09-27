@@ -129,8 +129,8 @@
   --hover-destructive: var(--red-400); /* adjusted: Figma value is red-500 */
   --destructive-muted: var(--red-100);
   --destructive-muted-foreground: var(--red-950);
-  --bg-destructive-10: color-mix(in srgb, var(--red-600) 10%, transparent);
-  --hover-destructive-20: color-mix(in srgb, var(--red-600) 20%, transparent);
+  --bg-destructive-10: color-mix(in srgb, var(--red-600) 10%, transparent); /* adjusted: Figma value is red-600@10 */
+  --hover-destructive-20: color-mix(in srgb, var(--red-600) 20%, transparent); /* adjusted: Figma value is red-600@20 */
 
   /* Success */
   --success: var(--green-600);
@@ -225,8 +225,8 @@
   --hover-destructive: var(--red-400); /* adjusted: Figma value is red-800 */
   --destructive-muted: var(--red-950);
   --destructive-muted-foreground: var(--red-100);
-  --bg-destructive-10: color-mix(in srgb, var(--red-900) 10%, transparent);
-  --hover-destructive-20: color-mix(in srgb, var(--red-900) 20%, transparent);
+  --bg-destructive-10: color-mix(in srgb, var(--red-500) 10%, transparent); /* adjusted: Figma value is red-900@10 */
+  --hover-destructive-20: color-mix(in srgb, var(--red-500) 20%, transparent); /* adjusted: Figma value is red-900@20 */
 
   /* Success */
   --success: var(--green-400);

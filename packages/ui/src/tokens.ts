@@ -1096,6 +1096,11 @@ export const semanticTokens: SemanticToken[] = [
     "group": "Destructive",
     "cssVar": "--bg-destructive-10",
     "figma": "background/bg-destructive-10",
+    "origin": "adjusted",
+    "figmaValue": {
+      "light": "red-600@10",
+      "dark": "red-900@10"
+    },
     "utilities": [
       "bg-destructive-10"
     ],
@@ -1105,9 +1110,9 @@ export const semanticTokens: SemanticToken[] = [
       "hex": "#d241421a"
     },
     "dark": {
-      "ref": "red-900",
+      "ref": "red-500",
       "alpha": 10,
-      "hex": "#7109131a"
+      "hex": "#ee5c5a1a"
     },
     "description": "Translucent destructive surface (10%)."
   },
@@ -1116,6 +1121,11 @@ export const semanticTokens: SemanticToken[] = [
     "group": "Destructive",
     "cssVar": "--hover-destructive-20",
     "figma": "background/hover:destructive-20",
+    "origin": "adjusted",
+    "figmaValue": {
+      "light": "red-600@20",
+      "dark": "red-900@20"
+    },
     "utilities": [
       "bg-hover-destructive-20",
       "text-hover-destructive-20",
@@ -1127,9 +1137,9 @@ export const semanticTokens: SemanticToken[] = [
       "hex": "#d2414233"
     },
     "dark": {
-      "ref": "red-900",
+      "ref": "red-500",
       "alpha": 20,
-      "hex": "#71091333"
+      "hex": "#ee5c5a33"
     },
     "description": "Translucent destructive surface on hover (20%)."
   },
