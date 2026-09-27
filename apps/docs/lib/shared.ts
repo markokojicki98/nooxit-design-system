@@ -1,6 +1,18 @@
 import { createGetUrl } from 'fumadocs-core/source';
 
 export const appName = 'Nooxit Design System';
+
+/**
+ * Canonical origin. Vercel sets VERCEL_PROJECT_PRODUCTION_URL on every build,
+ * so a deploy is correct before a custom domain exists; NEXT_PUBLIC_SITE_URL
+ * overrides it once one does.
+ */
+export const baseUrl = new URL(
+  process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'http://localhost:3000'),
+);
 export const docsRoute = '/docs';
 export const docsImageRoute = '/og/docs';
 export const docsContentRoute = '/llms.mdx/docs';

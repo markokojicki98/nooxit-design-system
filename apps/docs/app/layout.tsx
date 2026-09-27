@@ -1,6 +1,8 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { DM_Mono, DM_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
+
+import { baseUrl } from '@/lib/shared';
 import { TooltipProvider } from 'nooxit-design-system/components/tooltip';
 import { Toaster } from 'nooxit-design-system/components/sonner';
 import './global.css';
@@ -20,10 +22,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  // Hosting is local for now; set NEXT_PUBLIC_SITE_URL when the docs are deployed.
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
-  ),
+  metadataBase: baseUrl,
   title: {
     template: '%s | Nooxit Design System',
     default: 'Nooxit Design System',
