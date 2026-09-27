@@ -15,15 +15,17 @@ const ToggleGroupContext = React.createContext<
 >({
   size: "default",
   variant: "default",
-  spacing: 2,
+  spacing: 1,
   orientation: "horizontal",
 })
 
+// Figma: Toggle Group (#2769:30628). Separate ghost toggles 4px apart
+// (spacing=1); spacing=0 joins them into one segmented control.
 function ToggleGroup({
   className,
   variant,
   size,
-  spacing = 2,
+  spacing = 1,
   orientation = "horizontal",
   children,
   ...props
@@ -41,7 +43,7 @@ function ToggleGroup({
       data-orientation={orientation}
       style={{ "--gap": spacing } as React.CSSProperties}
       className={cn(
-        "group/toggle-group flex w-fit flex-row items-center gap-[--spacing(var(--gap))] rounded-md data-[spacing=0]:data-[variant=outline]:shadow-xs data-vertical:flex-col data-vertical:items-stretch",
+        "group/toggle-group flex w-fit flex-row items-center gap-[--spacing(var(--gap))] rounded-md data-vertical:flex-col data-vertical:items-stretch",
         className
       )}
       {...props}

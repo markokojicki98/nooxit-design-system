@@ -3,7 +3,16 @@
 import * as React from "react"
 import { cn } from "nooxit-design-system/lib/utils"
 
-function Table({ className, ...props }: React.ComponentProps<"table">) {
+// Figma: Table Example (#2807:10070), Table Base / Header (#2768:27447) and
+// Table Base / Cell (#2770:31005). 48px header cells in medium muted text;
+// body cells 16px side padding, text-sm/leading-5. Row height comes from
+// `size`: sm 56px (default), md 76px, lg 96px. Rows hover to bg-muted-50;
+// the footer sits on bg-muted-50 and hovers to bg-muted.
+function Table({
+  className,
+  size = "sm",
+  ...props
+}: React.ComponentProps<"table"> & { size?: "sm" | "md" | "lg" }) {
   return (
     <div
       data-slot="table-container"
@@ -11,7 +20,11 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
     >
       <table
         data-slot="table"
-        className={cn("w-full caption-bottom text-sm", className)}
+        data-size={size}
+        className={cn(
+          "group/table w-full caption-bottom text-sm text-foreground",
+          className
+        )}
         {...props}
       />
     </div>
@@ -22,7 +35,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("[&_tr]:border-b", className)}
+      className={cn("[&_tr]:border-b [&_tr]:border-border", className)}
       {...props}
     />
   )
@@ -43,7 +56,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
     <tfoot
       data-slot="table-footer"
       className={cn(
-        "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
+        "border-t border-border bg-muted-50 font-medium [&>tr]:last:border-b-0 [&>tr]:hover:bg-muted",
         className
       )}
       {...props}
@@ -56,7 +69,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b transition-colors hover:bg-muted/50 has-aria-expanded:bg-muted/50 data-[state=selected]:bg-muted",
+        "border-b border-border transition-colors hover:bg-muted-50 has-aria-expanded:bg-muted-50 data-[state=selected]:bg-muted",
         className
       )}
       {...props}
@@ -69,7 +82,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "h-10 px-2 text-left align-middle font-medium whitespace-nowrap text-foreground [&:has([role=checkbox])]:pr-0",
+        "h-12 px-4 py-3 text-left align-middle text-sm leading-6 font-medium whitespace-nowrap text-muted-foreground [&:has([role=checkbox])]:w-12",
         className
       )}
       {...props}
@@ -82,7 +95,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     <td
       data-slot="table-cell"
       className={cn(
-        "p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0",
+        "px-4 py-2 align-middle text-sm leading-5 whitespace-nowrap group-data-[size=lg]/table:h-24 group-data-[size=md]/table:h-19 group-data-[size=sm]/table:h-14 [&:has([role=checkbox])]:w-12",
         className
       )}
       {...props}
@@ -97,7 +110,10 @@ function TableCaption({
   return (
     <caption
       data-slot="table-caption"
-      className={cn("mt-4 text-sm text-muted-foreground", className)}
+      className={cn(
+        "px-3.5 py-4 text-sm leading-5 text-muted-foreground",
+        className
+      )}
       {...props}
     />
   )
