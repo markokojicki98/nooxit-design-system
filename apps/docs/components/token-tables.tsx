@@ -10,23 +10,21 @@ export function ColorScale({ family }: { family: string }) {
   }
 
   return (
-    <div className="not-prose my-6 flex flex-col gap-2">
-      <div className="flex flex-wrap gap-2">
-        {steps.map((step) => (
-          <div key={step.name} className="flex min-w-[88px] flex-1 flex-col gap-1.5">
-            <div
-              className="h-14 rounded-md border border-border"
-              style={{ background: step.hex }}
-            />
-            <div className="flex flex-col">
-              <span className="text-xs leading-4 font-medium">{step.step}</span>
-              <span className="font-mono text-xs leading-4 text-muted-foreground">
-                {step.hex}
-              </span>
-            </div>
+    <div className="not-prose my-6 grid grid-cols-[repeat(auto-fill,minmax(88px,1fr))] gap-2">
+      {steps.map((step) => (
+        <div key={step.name} className="flex flex-col gap-1.5">
+          <div
+            className="h-14 rounded-md border border-border"
+            style={{ background: step.hex }}
+          />
+          <div className="flex flex-col">
+            <span className="text-xs leading-4 font-medium">{step.step}</span>
+            <span className="font-mono text-xs leading-4 text-muted-foreground">
+              {step.hex}
+            </span>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }

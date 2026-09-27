@@ -40,7 +40,7 @@ export async function ComponentPreview({
       <Tab value="Preview">
         <div
           className={cn(
-            'flex min-h-[320px] w-full flex-col gap-4 p-8',
+            'flex min-h-[220px] w-full flex-col gap-4 p-8',
             align === 'center' ? 'items-center justify-center' : 'items-start',
             className,
           )}
