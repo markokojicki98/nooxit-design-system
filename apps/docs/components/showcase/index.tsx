@@ -15,13 +15,13 @@ import { Throughput } from './throughput';
  * component carries weight.
  */
 const blocks = [
-  { Block: AgentRuns, span: 'lg:col-span-4' },
-  { Block: Intervention, span: 'lg:col-span-2' },
-  { Block: Throughput, span: 'lg:col-span-3' },
-  { Block: Guardrails, span: 'lg:col-span-3' },
-  { Block: CommandPalette, span: 'lg:col-span-2' },
-  { Block: AuditTrail, span: 'lg:col-span-2' },
-  { Block: Reviewers, span: 'lg:col-span-2' },
+  { id: 'agent-runs', Block: AgentRuns, span: 'lg:col-span-4' },
+  { id: 'intervention', Block: Intervention, span: 'lg:col-span-2' },
+  { id: 'throughput', Block: Throughput, span: 'lg:col-span-3' },
+  { id: 'guardrails', Block: Guardrails, span: 'lg:col-span-3' },
+  { id: 'command-palette', Block: CommandPalette, span: 'lg:col-span-2' },
+  { id: 'audit-trail', Block: AuditTrail, span: 'lg:col-span-2' },
+  { id: 'reviewers', Block: Reviewers, span: 'lg:col-span-2' },
 ];
 
 export function Showcase({ className }: { className?: string }) {
@@ -32,9 +32,9 @@ export function Showcase({ className }: { className?: string }) {
         className,
       )}
     >
-      {blocks.map(({ Block, span }, index) => (
+      {blocks.map(({ id, Block, span }, index) => (
         <div
-          key={Block.name}
+          key={id}
           // The settle is additive: the final state is the CSS default, so the
           // grid is correct and readable before the animation ever runs.
           className={cn('animate-settle', span)}

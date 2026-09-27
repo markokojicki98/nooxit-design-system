@@ -160,7 +160,7 @@
   /* Borders & focus */
   --border: var(--gray-200);
   --border-muted-40: color-mix(in srgb, var(--gray-600) 40%, transparent);
-  --border-destructive-50: var(--red-200);
+  --border-destructive-50: color-mix(in srgb, var(--red-600) 50%, transparent); /* adjusted: Figma value is red-200 */
   --input: var(--gray-200);
   --ring: var(--gray-200);
 
@@ -256,7 +256,7 @@
   /* Borders & focus */
   --border: var(--gray-900);
   --border-muted-40: color-mix(in srgb, var(--gray-400) 40%, transparent);
-  --border-destructive-50: var(--red-900);
+  --border-destructive-50: color-mix(in srgb, var(--red-900) 50%, transparent); /* adjusted: Figma value is red-900 */
   --input: var(--gray-900);
   --ring: var(--gray-800);
 

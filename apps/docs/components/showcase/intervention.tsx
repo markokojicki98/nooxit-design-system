@@ -29,10 +29,10 @@ export function Intervention() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Alert variant="destructive">
+        <Alert variant="destructive" className="[&>svg]:text-destructive">
           <TriangleAlertIcon />
           <AlertTitle>Supplier not on the approved list</AlertTitle>
-          <AlertDescription>
+          <AlertDescription className="font-mono text-xs leading-4 font-medium uppercase">
             Invoice #INV-2291 for €14,280 names a supplier added three days ago.
           </AlertDescription>
         </Alert>

@@ -1558,18 +1558,25 @@ export const semanticTokens: SemanticToken[] = [
     "group": "Borders & focus",
     "cssVar": "--border-destructive-50",
     "figma": "border/border-destructive-50",
+    "origin": "adjusted",
+    "figmaValue": {
+      "light": "red-200",
+      "dark": "red-900"
+    },
     "utilities": [
       "border-destructive-50"
     ],
     "light": {
-      "ref": "red-200",
-      "hex": "#fecfcb"
+      "ref": "red-600",
+      "alpha": 50,
+      "hex": "#d2414280"
     },
     "dark": {
       "ref": "red-900",
-      "hex": "#710913"
+      "alpha": 50,
+      "hex": "#71091380"
     },
-    "description": "Outline of destructive elements such as buttons or alerts."
+    "description": "Outline of destructive elements such as buttons or alerts. The name announces the 50% opacity the Figma value was missing."
   },
   {
     "name": "input",
