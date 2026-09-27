@@ -4,6 +4,9 @@ import { cn } from "nooxit-design-system/lib/utils"
 import { Button } from "nooxit-design-system/components/button"
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
 
+// Figma: Pagination (#2774:38047) and Pagination Base / Item (#546:5807).
+// Page numbers are 40px squares with 8px corners (not pills); the current
+// page gets a border. Previous/Next are large ghost buttons.
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
@@ -44,12 +47,18 @@ function PaginationLink({
   size = "icon",
   ...props
 }: PaginationLinkProps) {
+  const isPageNumber = size === "icon"
+
   return (
     <Button
       asChild
-      variant={isActive ? "outline" : "ghost"}
+      variant="ghost"
       size={size}
-      className={cn(className)}
+      className={cn(
+        isPageNumber &&
+          "rounded-lg leading-6 hover:bg-muted aria-[current=page]:border-border aria-[current=page]:bg-background focus-visible:bg-background disabled:opacity-disabled",
+        className
+      )}
     >
       <a
         aria-current={isActive ? "page" : undefined}
@@ -69,8 +78,8 @@ function PaginationPrevious({
   return (
     <PaginationLink
       aria-label="Go to previous page"
-      size="default"
-      className={cn("pl-2!", className)}
+      size="lg"
+      className={cn(className)}
       {...props}
     >
       <ChevronLeftIcon data-icon="inline-start" />
@@ -87,8 +96,8 @@ function PaginationNext({
   return (
     <PaginationLink
       aria-label="Go to next page"
-      size="default"
-      className={cn("pr-2!", className)}
+      size="lg"
+      className={cn(className)}
       {...props}
     >
       <span className="hidden sm:block">{text}</span>
@@ -106,13 +115,12 @@ function PaginationEllipsis({
       aria-hidden
       data-slot="pagination-ellipsis"
       className={cn(
-        "flex size-9 items-center justify-center [&_svg:not([class*='size-'])]:size-4",
+        "flex size-10 items-center justify-center text-foreground [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
     >
-      <MoreHorizontalIcon
-      />
+      <MoreHorizontalIcon />
       <span className="sr-only">More pages</span>
     </span>
   )
