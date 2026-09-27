@@ -47,3 +47,9 @@ next-env.d.ts
 # generated: the shadcn registry staging copies and its built output
 packages/ui/registry/
 apps/docs/public/r/
+
+# Impeccable ships a platform-specific engine binary per install; the hooks
+# no-op when it is absent, so it is fetched rather than committed.
+# Reinstall with: npx impeccable install -y --project --providers=claude-code
+.claude/skills/impeccable/scripts/bin/
+.claude/settings.local.json

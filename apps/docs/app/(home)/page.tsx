@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { BrandPalette } from '@/components/brand-palette';
 import { NooxitLogo } from '@/components/nooxit-logo';
 import { Badge } from 'nooxit-design-system/components/badge';
 import { Button } from 'nooxit-design-system/components/button';
@@ -32,17 +33,6 @@ const entries = [
   },
 ];
 
-const swatches = [
-  'bg-primary',
-  'bg-accent',
-  'bg-destructive',
-  'bg-success',
-  'bg-warning',
-  'bg-descriptive-lime-brand',
-  'bg-descriptive-blue-brand',
-  'bg-descriptive-orange-brand',
-];
-
 export default function HomePage() {
   return (
     <main className="mx-auto flex w-full max-w-screen-lg flex-1 flex-col gap-16 px-6 py-20">
@@ -71,10 +61,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="flex flex-wrap gap-2">
-        {swatches.map((swatch) => (
-          <div key={swatch} className={`h-16 flex-1 rounded-lg ${swatch}`} />
-        ))}
+      <section className="flex flex-col gap-4">
+        <div className="flex items-baseline justify-between gap-4">
+          <h2 className="font-heading text-xl leading-7 font-semibold tracking-tight">
+            Brand colors
+          </h2>
+          <Link
+            href="/docs/foundations/colors"
+            className="text-sm leading-5 font-medium underline-offset-4 hover:underline"
+          >
+            All tokens
+          </Link>
+        </div>
+        <BrandPalette />
       </section>
 
       <section className="grid grid-cols-2 gap-8 md:grid-cols-4">

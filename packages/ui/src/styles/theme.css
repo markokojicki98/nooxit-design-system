@@ -73,4 +73,66 @@
   body {
     @apply bg-background font-sans text-foreground antialiased;
   }
+
+  /*
+   * Anything that can be clicked shows the pointer cursor.
+   *
+   * Browsers default <button> and friends to `cursor: default`, and Tailwind's
+   * preflight does not change that, so without this rule a styled button looks
+   * clickable but does not feel it. Declaring it once here covers every
+   * component — including the Radix primitives, which carry their roles on
+   * whatever element they render.
+   *
+   * This sits in @layer base, so a `cursor-*` utility on a component still wins.
+   */
+  button,
+  summary,
+  label[for],
+  select,
+  a[href],
+  [role="button"],
+  [role="link"],
+  [role="tab"],
+  [role="menuitem"],
+  [role="menuitemcheckbox"],
+  [role="menuitemradio"],
+  [role="option"],
+  [role="checkbox"],
+  [role="radio"],
+  [role="switch"],
+  [role="slider"],
+  [role="combobox"],
+  [role="treeitem"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="file"],
+  input[type="color"],
+  input[type="range"] {
+    cursor: pointer;
+  }
+
+  /* File inputs put the clickable area in the button part. */
+  ::file-selector-button {
+    cursor: pointer;
+  }
+
+  /*
+   * A disabled control is not clickable, so it must not claim to be. Radix and
+   * Base UI mark state with data-disabled or aria-disabled rather than the
+   * native attribute, so all three spellings are covered.
+   */
+  :disabled,
+  [data-disabled],
+  [aria-disabled="true"] {
+    cursor: default;
+  }
+
+  /* Text entry keeps the I-beam even inside a clickable wrapper. */
+  input:not([type="button"], [type="submit"], [type="reset"], [type="checkbox"], [type="radio"], [type="file"], [type="color"], [type="range"]),
+  textarea {
+    cursor: auto;
+  }
 }

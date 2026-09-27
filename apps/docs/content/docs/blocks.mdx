@@ -1,0 +1,60 @@
+---
+title: Blocks
+description: Full page compositions built from Nooxit components.
+---
+
+Blocks are whole pages, not components: a dashboard, an app shell, a settings
+screen. They show how the parts compose at real size, which a component demo
+cannot.
+
+Each one runs as a real route in this site and is shown in a frame, because an
+app shell is `position: fixed` and sized to the viewport — it cannot be
+rendered honestly inside a documentation column. Use the width toggle to see
+how it responds.
+
+## Dashboard
+
+A port of shadcn/ui's `dashboard-01` onto Nooxit components: sidebar, site
+header, stat cards, an interactive area chart and a sortable, filterable data
+table with drag-and-drop rows.
+
+<BlockPreview path="/preview/dashboard-01" title="Dashboard" height={720} />
+
+### What changed in the port
+
+The block is the stock composition with its imports repointed at
+`nooxit-design-system`, plus three corrections that bring it onto the system:
+
+- **Chart colors.** The stock block paints both series with `var(--primary)`,
+  which renders them as two identical grays. It now uses `var(--chart-1)` and
+  `var(--chart-2)` — orange and green — so the series are actually separable.
+- **Card treatment.** The stock cards carry `bg-gradient-to-t from-primary/5`
+  and `shadow-xs`. Nooxit cards are defined by a border and have no shadow, and
+  the design rules forbid gradients, so both were removed.
+- **Sidebar width.** The block hard-codes 288px; the override was dropped so it
+  uses the Nooxit 240px.
+
+It also replaces shadcn's internal `IconPlaceholder` — which leaks into the
+published block and does not resolve outside their repo — with the real
+`lucide-react` icons it was standing in for.
+
+### Install it yourself
+
+```bash
+npx shadcn@latest add dashboard-01
+```
+
+That gives you the stock block. Repoint the imports at
+`nooxit-design-system/components/*` and apply the three corrections above.
+
+It needs `@dnd-kit/core`, `@dnd-kit/modifiers`, `@dnd-kit/sortable`,
+`@dnd-kit/utilities`, `@tanstack/react-table` and `zod`.
+
+## App shell
+
+The sidebar pattern on its own: a collapsible 240px sidebar with a logo tile,
+grouped navigation, a sub-menu, a footer, and a header with a breadcrumb.
+
+<BlockPreview path="/preview/sidebar" title="App shell" height={560} />
+
+Source: [`app/(preview)/preview/sidebar/page.tsx`](https://github.com/markokojicki98/nooxit-design-system/blob/main/apps/docs/app/(preview)/preview/sidebar/page.tsx).

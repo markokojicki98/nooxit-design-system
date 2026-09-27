@@ -6,6 +6,8 @@
     "installation",
     "foundations",
     "components",
-    "registry"
+    "blocks",
+    "registry",
+    "ai-development"
   ]
 }

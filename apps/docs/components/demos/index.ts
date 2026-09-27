@@ -10,6 +10,7 @@ import AttachmentDemo from './attachment-demo';
 import AvatarDemo from './avatar-demo';
 import AvatarSizes from './avatar-sizes';
 import BadgeDemo from './badge-demo';
+import BadgeTones from './badge-tones';
 import BreadcrumbDemo from './breadcrumb-demo';
 import BubbleDemo from './bubble-demo';
 import ButtonDemo from './button-demo';
@@ -55,7 +56,6 @@ import ScrollAreaDemo from './scroll-area-demo';
 import SelectDemo from './select-demo';
 import SeparatorDemo from './separator-demo';
 import SheetDemo from './sheet-demo';
-import SidebarDemo from './sidebar-demo';
 import SkeletonDemo from './skeleton-demo';
 import SliderDemo from './slider-demo';
 import SonnerDemo from './sonner-demo';
@@ -79,6 +79,7 @@ export const demos = {
   'avatar-demo': AvatarDemo,
   'avatar-sizes': AvatarSizes,
   'badge-demo': BadgeDemo,
+  'badge-tones': BadgeTones,
   'breadcrumb-demo': BreadcrumbDemo,
   'bubble-demo': BubbleDemo,
   'button-demo': ButtonDemo,
@@ -124,7 +125,6 @@ export const demos = {
   'select-demo': SelectDemo,
   'separator-demo': SeparatorDemo,
   'sheet-demo': SheetDemo,
-  'sidebar-demo': SidebarDemo,
   'skeleton-demo': SkeletonDemo,
   'slider-demo': SliderDemo,
   'sonner-demo': SonnerDemo,

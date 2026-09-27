@@ -1,0 +1,100 @@
+---
+title: AI-assisted development
+description: The design guide agents read, and the tooling that checks their output.
+---
+
+Most code written against this system will be written with an agent. Two things
+in the repo exist for that: a design guide agents read before they start, and a
+detector that checks what they produced.
+
+## DESIGN.md
+
+[`DESIGN.md`](https://github.com/markokojicki98/nooxit-design-system/blob/main/DESIGN.md)
+at the repo root is the single briefing document for an agent working on or
+with Nooxit. It carries:
+
+- **Front matter** — every color token with its resolved value, the type scale
+  with the Tailwind classes that reproduce each style, the radius and spacing
+  scales, state opacities, and per-component geometry. Machine-readable, so an
+  agent can look a value up rather than guess one.
+- **Prose** — the reasoning a value cannot carry: why the interface is neutral,
+  why hover is a token rather than an opacity, why cards have no shadow.
+- **A component API table** — every deliberate deviation from stock shadcn/ui,
+  which is what an agent trained on shadcn will otherwise get wrong.
+- **Repo rules** — which files are generated, what never to edit, what to run.
+
+<Callout type="warn">
+The front matter mirrors `packages/ui/tokens/nooxit.tokens.json`. If the two
+ever disagree, **the JSON wins** — it is what the build reads. Treat a
+disagreement as a bug in `DESIGN.md`.
+</Callout>
+
+### The rules that catch agents out
+
+Five behaviours are worth stating plainly, because a model trained on stock
+shadcn/ui will otherwise reproduce them:
+
+1. **Buttons are pills.** `rounded-full`, not `rounded-md`.
+2. **Tailwind's palette is gone.** `--color-*: initial` clears it, so
+   `bg-blue-500` silently does nothing. Use the Nooxit ramps.
+3. **One focus ring.** `ring-2 ring-primary ring-offset-2`, never the stock 3px
+   translucent ring.
+4. **No `dark:` color overrides.** Every token already has a dark value; a
+   `dark:` class means the wrong token was picked.
+5. **No `cursor-pointer`.** The base layer already applies it to everything
+   clickable.
+
+## Impeccable
+
+[Impeccable](https://impeccable.style) adds design skills and an anti-pattern
+detector to the coding agent. It is installed into this repo at project scope:
+
+```bash
+npx impeccable install -y --project --providers=claude-code
+```
+
+It installs a skill and four agents under `.claude/`, plus hooks that run a
+detector after each edit and a deeper pass when the agent stops. The commands
+it adds — `polish`, `typeset`, `distill`, `clarify`, `layout`, `colorize`,
+`animate`, `audit` — run inside the agent's chat, not the terminal.
+
+The CLI's own `init` command would generate a `DESIGN.md` by scanning the
+codebase. Ours is written by hand against the Figma kit instead, because the
+kit is the source of truth and a scan would only rediscover what the code
+already does — including its mistakes.
+
+<Callout type="warn">
+**Known upstream bug.** `npx impeccable install` currently fails with
+`Could not verify skill bundle: HTTP 404`. The npm `latest` tag is 4.1.0, and
+that release's `universal.zip.sig.json` signature file is missing from GitHub,
+so verification cannot complete ([issue #479](https://github.com/pbakaus/impeccable/issues/479)).
+The bundle itself is present; only the signature is gone.
+
+Until it is fixed, install from a verified bundle of a newer release:
+
+```bash
+V=4.3.1
+BASE=https://github.com/pbakaus/impeccable/releases/download/skill-v$V
+curl -sL -o /tmp/universal.zip "$BASE/universal.zip"
+curl -sL -o /tmp/universal.zip.sig.json "$BASE/universal.zip.sig.json"
+
+# Check the archive against the publisher's manifest before installing.
+shasum -a 256 /tmp/universal.zip
+node -e "console.log(require('/tmp/universal.zip.sig.json').sha256)"
+
+IMPECCABLE_BUNDLE_PATH=/tmp/universal.zip \
+  npx impeccable install -y --project --providers=claude-code
+```
+
+`IMPECCABLE_BUNDLE_PATH` is the CLI's supported override for a local bundle.
+</Callout>
+
+### What is and is not committed
+
+The install drops a 12 MB platform-specific engine binary into
+`.claude/skills/impeccable/scripts/bin/`. That is gitignored — it is a build
+artifact, it only runs on the architecture it was built for, and the hooks are
+written to no-op when it is absent. Everyone re-runs the install locally.
+
+The skill definitions, reference docs and agent prompts are committed, so the
+guidance is reviewable in a diff.

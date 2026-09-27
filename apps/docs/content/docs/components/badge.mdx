@@ -5,6 +5,30 @@ description: Displays a badge or a component that looks like a badge.
 
 <ComponentPreview name="badge-demo" />
 
+## Tones
+
+Badges often need to carry a category or a state beyond the four kit variants.
+Those are **not** extra variants — they are the existing color-token pairs
+applied through `className`, so nothing new enters the system:
+
+- Filled tones use a solid pair: `bg-descriptive-orange-brand` with
+  `text-descriptive-orange-brand-foreground`, `bg-success` with
+  `text-success-foreground`, and so on.
+- Muted tones use the quieter pair: `bg-descriptive-lime`,
+  `bg-success-muted`, `bg-warning-muted`, `bg-destructive-muted`, each with
+  its matching foreground. Orange's muted pair is `bg-accent` /
+  `text-accent-foreground`.
+
+Both modes are covered, because every one of those tokens has a dark value.
+
+<ComponentPreview name="badge-tones" align="start" />
+
+<Callout type="info">
+If a tone becomes common enough to repeat across a product, add it to the Badge
+component in the Figma kit first, then promote it to a `tone` prop here. The kit
+stays the source of truth; `className` is the escape hatch, not the pattern.
+</Callout>
+
 ## Installation
 
 ```tsx
