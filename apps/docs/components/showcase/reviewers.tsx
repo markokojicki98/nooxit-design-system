@@ -20,9 +20,9 @@ import {
 } from 'nooxit-design-system/components/tooltip';
 
 const reviewers = [
-  { initials: 'MK', name: 'Marko Kojicki', email: 'marko@nooxit.com', role: 'owner' },
-  { initials: 'AS', name: 'Ana Schmidt', email: 'ana@nooxit.com', role: 'approver' },
-  { initials: 'TL', name: 'Tomas Lange', email: 'tomas@nooxit.com', role: 'viewer' },
+  { initials: 'MK', name: 'Marko Kojicki', email: 'marko@example.com', role: 'owner' },
+  { initials: 'AS', name: 'Ana Schmidt', email: 'ana@example.com', role: 'approver' },
+  { initials: 'TL', name: 'Tomas Lange', email: 'tomas@example.com', role: 'viewer' },
 ];
 
 export function Reviewers() {

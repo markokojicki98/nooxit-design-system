@@ -122,7 +122,7 @@ export default function SidebarPreviewPage() {
             <SidebarMenuItem>
               <SidebarMenuButton>
                 <UsersIcon />
-                <span>marko@nooxit.com</span>
+                <span>marko@example.com</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
