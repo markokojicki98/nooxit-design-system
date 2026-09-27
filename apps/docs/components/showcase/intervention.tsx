@@ -27,7 +27,7 @@ export function Intervention() {
           RUN-4819 stopped before a payment it could not verify.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-1">
         <Alert
           variant="destructive"
           className="border-transparent bg-destructive-muted [&>svg]:text-destructive"
@@ -55,7 +55,7 @@ export function Intervention() {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="justify-end">
+      <CardFooter className="justify-between">
         <Button variant="outline" destructive>
           Reject
         </Button>
