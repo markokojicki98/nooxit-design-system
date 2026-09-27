@@ -38,6 +38,9 @@ function useChart() {
   return context
 }
 
+// Figma: Chart. Axis labels are text-xs; Figma paints them with an unbound
+// #888888, mapped here to muted-foreground. Series colors come from the
+// proposed chart-1..5 tokens. The tooltip uses the Nooxit popover style.
 function ChartContainer({
   id,
   className,
@@ -190,7 +193,7 @@ function ChartTooltipContent({
   return (
     <div
       className={cn(
-        "grid min-w-32 items-start gap-1.5 rounded-lg border border-border/50 bg-background px-2.5 py-1.5 text-xs shadow-xl",
+        "grid min-w-32 items-start gap-1.5 rounded-md border border-border bg-popover px-2.5 py-1.5 text-xs text-popover-foreground shadow-md",
         className
       )}
     >

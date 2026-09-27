@@ -3,8 +3,9 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "nooxit-design-system/lib/utils"
 import { Slot } from "radix-ui"
 
+// Not in the Figma kit (a chat timeline divider). Muted text-sm/leading-5.
 const markerVariants = cva(
-  "group/marker relative flex min-h-4 w-full items-center gap-2 text-left text-sm text-muted-foreground [&_svg:not([class*='size-'])]:size-4 [a]:underline [a]:underline-offset-3 [a]:hover:text-foreground",
+  "group/marker relative flex min-h-4 w-full items-center gap-2 text-left text-sm leading-5 text-muted-foreground [&_svg:not([class*='size-'])]:size-4 [a]:underline [a]:underline-offset-3 [a]:hover:text-foreground",
   {
     variants: {
       variant: {
