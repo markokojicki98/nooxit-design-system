@@ -4,6 +4,7 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import type { MDXComponents } from 'mdx/types';
 
 import { BlockPreview } from '@/components/block-preview';
+import { BrandPalette } from '@/components/brand-palette';
 import { ComponentPreview } from '@/components/component-preview';
 import {
   ColorScale,
@@ -20,6 +21,7 @@ export function getMDXComponents(components?: MDXComponents) {
     Step,
     Steps,
     BlockPreview,
+    BrandPalette,
     ComponentPreview,
     ColorScale,
     SemanticTokens,

@@ -17,6 +17,24 @@ Tailwind's own palette is removed by `--color-*: initial`. `bg-blue-500` and
 them.
 </Callout>
 
+## Brand colors
+
+Four colors carry the Nooxit brand, with Silver, black and white as the
+neutrals around them.
+
+<BrandPalette className="my-6" />
+
+These are **brand** colors, not interface colors. `primary` is warm black, not
+Blaze orange — the product UI stays neutral and lets status speak. Reach for a
+brand color on marketing surfaces, in charts (`chart-1` is `orange-500`), and
+through the `descriptive-*-brand` tokens.
+
+<Callout type="warn">
+The brand sheet prints white as `#F8F7F5`. The live Figma variable `base/white`
+is `#FBFAF9`, which is what the code uses, and what is shown above. The older
+value also appears in the stale `variables2json` block on the Figma Readme page.
+</Callout>
+
 ## Primitives
 
 ### Base

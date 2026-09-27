@@ -130,6 +130,29 @@
     cursor: default;
   }
 
+  /*
+   * Browser surfaces. Selection, the caret and the scrollbar ship with
+   * defaults that belong to no design system and quietly break the palette on
+   * every page. They are themed here so every consumer gets them.
+   */
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  :root {
+    accent-color: var(--primary);
+    caret-color: var(--foreground);
+    scrollbar-color: var(--border) transparent;
+    scrollbar-width: thin;
+  }
+
+  /* Numerals in data must not jitter as values change. */
+  table,
+  [data-slot="table"] {
+    font-variant-numeric: tabular-nums;
+  }
+
   /* Text entry keeps the I-beam even inside a clickable wrapper. */
   input:not([type="button"], [type="submit"], [type="reset"], [type="checkbox"], [type="radio"], [type="file"], [type="color"], [type="range"]),
   textarea {

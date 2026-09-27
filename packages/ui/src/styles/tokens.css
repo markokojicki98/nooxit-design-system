@@ -105,7 +105,7 @@
   /* Primary */
   --primary: var(--base-black);
   --primary-foreground: var(--base-white);
-  --hover-primary: var(--gray-900);
+  --hover-primary: var(--gray-800); /* adjusted: Figma value is gray-900 */
 
   /* Secondary */
   --secondary: var(--gray-100);
@@ -126,7 +126,7 @@
   /* Destructive */
   --destructive: var(--red-600);
   --destructive-foreground: var(--red-50);
-  --hover-destructive: var(--red-500);
+  --hover-destructive: var(--red-400); /* adjusted: Figma value is red-500 */
   --destructive-muted: var(--red-100);
   --destructive-muted-foreground: var(--red-950);
   --bg-destructive-10: color-mix(in srgb, var(--red-600) 10%, transparent);
@@ -201,7 +201,7 @@
   /* Primary */
   --primary: var(--base-white);
   --primary-foreground: var(--base-black);
-  --hover-primary: var(--gray-100);
+  --hover-primary: var(--gray-200); /* adjusted: Figma value is gray-100 */
 
   /* Secondary */
   --secondary: var(--gray-950);
@@ -222,7 +222,7 @@
   /* Destructive */
   --destructive: var(--red-500);
   --destructive-foreground: var(--red-950);
-  --hover-destructive: var(--red-800);
+  --hover-destructive: var(--red-400); /* adjusted: Figma value is red-800 */
   --destructive-muted: var(--red-950);
   --destructive-muted-foreground: var(--red-100);
   --bg-destructive-10: color-mix(in srgb, var(--red-900) 10%, transparent);

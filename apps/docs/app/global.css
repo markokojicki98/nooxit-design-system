@@ -36,3 +36,27 @@ html > body[data-scroll-locked] {
   margin-right: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;
 }
+
+/*
+ * The one authored moment on the landing page: the showcase grid settles into
+ * place. The final state is the element's default, so the grid is correct with
+ * JavaScript off, with the animation unsupported, or before it runs — nothing
+ * here can leave content invisible.
+ */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+}
+
+.animate-settle {
+  animation: settle 620ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-settle {
+    animation: none;
+  }
+}

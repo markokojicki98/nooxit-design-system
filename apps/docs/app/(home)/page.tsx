@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { BrandPalette } from '@/components/brand-palette';
 import { NooxitLogo } from '@/components/nooxit-logo';
+import { Showcase } from '@/components/showcase';
 import { Badge } from 'nooxit-design-system/components/badge';
 import { Button } from 'nooxit-design-system/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'nooxit-design-system/components/card';
@@ -61,19 +61,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-4">
-        <div className="flex items-baseline justify-between gap-4">
-          <h2 className="font-heading text-xl leading-7 font-semibold tracking-tight">
-            Brand colors
-          </h2>
-          <Link
-            href="/docs/foundations/colors"
-            className="text-sm leading-5 font-medium underline-offset-4 hover:underline"
-          >
-            All tokens
-          </Link>
-        </div>
-        <BrandPalette />
+      <section className="flex flex-col gap-6">
+        <Showcase />
       </section>
 
       <section className="grid grid-cols-2 gap-8 md:grid-cols-4">

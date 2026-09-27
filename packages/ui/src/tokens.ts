@@ -751,18 +751,23 @@ export const semanticTokens: SemanticToken[] = [
     "group": "Primary",
     "cssVar": "--hover-primary",
     "figma": "background/hover:primary",
+    "origin": "adjusted",
+    "figmaValue": {
+      "light": "gray-900",
+      "dark": "gray-100"
+    },
     "utilities": [
       "bg-hover-primary",
       "text-hover-primary",
       "border-hover-primary"
     ],
     "light": {
-      "ref": "gray-900",
-      "hex": "#32302e"
+      "ref": "gray-800",
+      "hex": "#494745"
     },
     "dark": {
-      "ref": "gray-100",
-      "hex": "#efedeb"
+      "ref": "gray-200",
+      "hex": "#e0dedc"
     },
     "description": "Primary background on hover."
   },
@@ -1026,18 +1031,23 @@ export const semanticTokens: SemanticToken[] = [
     "group": "Destructive",
     "cssVar": "--hover-destructive",
     "figma": "background/hover:destructive",
+    "origin": "adjusted",
+    "figmaValue": {
+      "light": "red-500",
+      "dark": "red-800"
+    },
     "utilities": [
       "bg-hover-destructive",
       "text-hover-destructive",
       "border-hover-destructive"
     ],
     "light": {
-      "ref": "red-500",
-      "hex": "#ee5c5a"
+      "ref": "red-400",
+      "hex": "#fd837d"
     },
     "dark": {
-      "ref": "red-800",
-      "hex": "#91171f"
+      "ref": "red-400",
+      "hex": "#fd837d"
     },
     "description": "Destructive background on hover."
   },
