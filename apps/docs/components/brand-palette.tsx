@@ -80,9 +80,10 @@ export function BrandPalette({ className }: { className?: string }) {
           <div
             key={swatch.token}
             className={cn(
-              'flex min-h-[140px] flex-col justify-end gap-1 rounded-lg p-4',
-              // White needs an edge or it disappears into the page.
-              swatch.token === 'base-white' && 'border border-border',
+              // Every tile carries the border: white needs one in light mode
+              // and black needs one in dark, so applying it to all of them is
+              // both simpler and more even than special-casing two.
+              'flex min-h-[140px] flex-col justify-end gap-1 rounded-lg border border-border p-4',
               swatch.className,
             )}
             style={{ background: value }}
