@@ -7,7 +7,7 @@ import {
   useMessageScrollerScrollable,
   useMessageScrollerVisibility,
 } from "@shadcn/react/message-scroller"
-import { cn } from "cn"
+import { cn } from "nooxit-design-system/lib/utils"
 
 import { Button } from "nooxit-design-system/components/button"
 import { ArrowDownIcon } from "lucide-react"

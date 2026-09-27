@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "cn"
+import { cn } from "nooxit-design-system/lib/utils"
 import { Slot } from "radix-ui"
 
 import { Separator } from "nooxit-design-system/components/separator"
