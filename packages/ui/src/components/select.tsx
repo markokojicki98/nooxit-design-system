@@ -33,7 +33,7 @@ function SelectValue({
 // Figma: Select (#2819:29971 page). md = 40px (default), sm = 36px; 6px
 // radius, input-colored border, 16px gap between value and chevron. Figma
 // draws the placeholder ("Select...") and the chevron in foreground, not
-// muted. Focus: 2px primary ring offset by 2px (destructive when invalid).
+// muted. Focus turns the border primary (destructive when invalid).
 function SelectTrigger({
   className,
   size = "default",
@@ -47,7 +47,7 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "flex w-fit items-center justify-between gap-4 rounded-md border border-input bg-background px-3 py-2 text-sm leading-5 whitespace-nowrap text-foreground transition-[color,box-shadow] outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-disabled aria-invalid:focus-visible:ring-destructive data-[size=default]:h-10 data-[size=sm]:h-9 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "flex w-fit items-center justify-between gap-4 rounded-md border border-input bg-background px-3 py-2 text-sm leading-5 whitespace-nowrap text-foreground transition-[color,border-color] outline-none focus-visible:border-primary disabled:cursor-not-allowed disabled:opacity-disabled aria-invalid:focus-visible:border-destructive data-[size=default]:h-10 data-[size=sm]:h-9 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

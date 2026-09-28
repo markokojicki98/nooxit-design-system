@@ -37,8 +37,10 @@ shadcn/ui will otherwise reproduce them:
 1. **Buttons are pills.** `rounded-full`, not `rounded-md`.
 2. **Tailwind's palette is gone.** `--color-*: initial` clears it, so
    `bg-blue-500` silently does nothing. Use the Nooxit ramps.
-3. **One focus ring.** `ring-2 ring-primary ring-offset-2`, never the stock 3px
-   translucent ring.
+3. **Two focus treatments.** Text-entry fields turn their border `primary`
+   (`focus-visible:border-primary`) with no ring. Every other control uses
+   `ring-2 ring-primary ring-offset-2`. Never use the stock 3px translucent
+   ring.
 4. **No `dark:` color overrides.** Every token already has a dark value; a
    `dark:` class means the wrong token was picked.
 5. **No `cursor-pointer`.** The base layer already applies it to everything

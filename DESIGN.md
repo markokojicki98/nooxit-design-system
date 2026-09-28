@@ -214,6 +214,7 @@ state:
   disabled: 0.5    # opacity-disabled
   hover: 0.8       # opacity-hover
   focus-ring: "ring-2 ring-primary ring-offset-2 ring-offset-background"
+  focus-field: "border-primary"   # text-entry fields: 1px border swap, no ring
 components:
   button:
     backgroundColor: "{colors.primary}"
@@ -432,7 +433,26 @@ for floating content.
 - `shadow-xs` — the active tab, and almost nothing else.
 - **Cards have no shadow.** A 1px border defines them.
 
-Focus is one ring everywhere:
+Focus has two treatments, chosen by what the control is.
+
+**Text-entry fields change their border.** Input, Textarea, Select,
+NativeSelect, InputGroup, InputOTP and the Combobox field turn their own 1px
+border `primary` on focus. There is no ring outside the field, so nothing grows
+or shifts:
+
+```
+focus-visible:border-primary
+aria-invalid:focus-visible:border-destructive
+```
+
+InputGroup and the Combobox chips field react to focus inside them
+(`has-[…:focus-visible]` / `focus-within`) rather than to their own focus.
+InputOTP slots share border lines, so the active slot paints its left edge,
+which is its neighbour's border, with a 1px `shadow-[-1px_0_0_0_var(--primary)]`.
+
+**Every other control keeps the ring.** Buttons, checkboxes, radios, switches,
+tabs, toggles, sliders, links and menu triggers have no border to recolor.
+A filled black button, for example, would show no visible change. They use:
 
 ```
 focus-visible:ring-2 focus-visible:ring-primary
@@ -442,6 +462,12 @@ focus-visible:ring-offset-2 focus-visible:ring-offset-background
 Destructive and invalid controls swap `ring-primary` for `ring-destructive`.
 Inside the sidebar it becomes `ring-sidebar-ring` with `ring-offset-sidebar`.
 No component uses the stock shadcn 3px translucent ring.
+
+> **Deliberate deviation from Figma.** The kit has a single `focus ring/2px`
+> effect style and uses it on fields too. Fields were changed to the border swap
+> as a product decision. A 1px color change is a weaker focus cue than a 2px
+> ring and falls short of WCAG 2.2's AAA focus-appearance guideline (2.4.13).
+> That tradeoff is accepted for now.
 
 ## Shapes
 
@@ -478,7 +504,7 @@ These are the deliberate deviations an agent has to know:
 | Component | Deviation |
 |---|---|
 | `Button` | Pills. `destructive` is a **boolean prop** that recolors any variant, alongside `variant="destructive"`. Sizes `xs \| sm \| default \| lg` plus `icon`, `icon-sm`, `icon-xs`, `icon-xss`. |
-| `Input` | `size?: "default" \| "sm"` (40/36px) — this **shadows the native `size` attribute**, which is not forwarded. Invalid inputs keep their border and only swap the ring. |
+| `Input` | `size?: "default" \| "sm"` (40/36px) — this **shadows the native `size` attribute**, which is not forwarded. Focus turns the 1px border `primary`, with no ring. Invalid inputs keep the normal border until focused, then turn it `destructive`. |
 | `Table` | `size?: "sm" \| "md" \| "lg"` on `<Table>` sets row height (56/76/96px). `sm` is the default. |
 | `Progress` | `size?: "xs" \| "sm" \| "md" \| "lg"`, default `lg`. |
 | `Tabs` | `TabsList` takes `variant="line"` for the underline style. |

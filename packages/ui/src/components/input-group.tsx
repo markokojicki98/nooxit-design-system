@@ -9,16 +9,15 @@ import { Input } from "nooxit-design-system/components/input"
 import { Textarea } from "nooxit-design-system/components/textarea"
 
 // Not in the Figma kit. Styled as a Nooxit Input (#2732:15509): 40px tall,
-// 6px radius, input-colored border, and the 2px primary focus ring (offset
-// 2px) drawn around the whole group; destructive ring when a control is
-// invalid.
+// 6px radius, input-colored border that turns primary while a control inside
+// has focus; destructive when that control is invalid.
 function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="input-group"
       role="group"
       className={cn(
-        "group/input-group relative flex h-10 w-full min-w-0 items-center rounded-md border border-input bg-background text-foreground transition-[color,box-shadow] outline-none in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0 in-data-[slot=combobox-content]:focus-within:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-primary has-[[data-slot=input-group-control]:focus-visible]:ring-offset-2 has-[[data-slot=input-group-control]:focus-visible]:ring-offset-background has-[[data-slot=input-group-control][aria-invalid=true]:focus-visible]:ring-destructive has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-end]]:[&>input]:pr-1.5 has-[>[data-align=inline-start]]:[&>input]:pl-2",
+        "group/input-group relative flex h-10 w-full min-w-0 items-center rounded-md border border-input bg-background text-foreground transition-[color,border-color] outline-none in-data-[slot=combobox-content]:focus-within:border-inherit not-in-data-[slot=combobox-content]:has-[[data-slot=input-group-control]:focus-visible]:border-primary not-in-data-[slot=combobox-content]:has-[[data-slot=input-group-control][aria-invalid=true]:focus-visible]:border-destructive has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-end]]:[&>input]:pr-1.5 has-[>[data-align=inline-start]]:[&>input]:pl-2",
         className
       )}
       {...props}
@@ -116,7 +115,7 @@ function InputGroupText({ className, ...props }: React.ComponentProps<"span">) {
   )
 }
 
-// The group draws the border and focus ring, so the inner control drops its own.
+// The group draws the border and its focus color, so the inner control has no border.
 function InputGroupInput({
   className,
   ...props
@@ -125,7 +124,7 @@ function InputGroupInput({
     <Input
       data-slot="input-group-control"
       className={cn(
-        "h-full flex-1 rounded-none border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0",
+        "h-full flex-1 rounded-none border-0 bg-transparent",
         className
       )}
       {...props}
@@ -141,7 +140,7 @@ function InputGroupTextarea({
     <Textarea
       data-slot="input-group-control"
       className={cn(
-        "flex-1 resize-none rounded-none border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0",
+        "flex-1 resize-none rounded-none border-0 bg-transparent",
         className
       )}
       {...props}

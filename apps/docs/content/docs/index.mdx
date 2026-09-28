@@ -17,9 +17,11 @@ applies. What changes is the styling, and the changes are systematic:
 
 - **Buttons are pills.** Every button is `rounded-full`; only inputs, cards and
   surfaces carry the 4/6/8px radii.
-- **One focus ring.** `ring-2 ring-primary ring-offset-2 ring-offset-background`,
-  everywhere, swapping to `ring-destructive` on destructive and invalid
-  controls. No component uses the stock 3px translucent ring.
+- **Focus.** Text-entry fields turn their 1px border `primary` (`destructive`
+  when invalid) with no ring. Every other control uses
+  `ring-2 ring-primary ring-offset-2 ring-offset-background`, swapping to
+  `ring-destructive` on destructive and invalid controls. No component uses
+  the stock 3px translucent ring.
 - **Tailwind's palette is removed.** `--color-*: initial` clears it, so
   `bg-blue-500` does not exist. Only the Nooxit primitives and semantic tokens
   resolve.

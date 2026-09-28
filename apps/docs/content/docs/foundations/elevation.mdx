@@ -36,7 +36,26 @@ Dialog and sheet overlays use a small backdrop blur over black at 10%.
 
 ## Focus ring
 
-One ring, everywhere:
+Text-entry fields and every other control are treated differently.
+
+### Fields: the border changes color
+
+Input, Textarea, Select, NativeSelect, InputGroup, InputOTP and the Combobox
+field have no ring. On focus their own 1px border turns `primary`, or
+`destructive` when the field is invalid, so nothing grows or shifts:
+
+```tsx
+focus-visible:border-primary
+aria-invalid:focus-visible:border-destructive
+```
+
+This departs from the Figma kit on purpose; the kit uses the 2px ring on fields
+too. A 1px color change is a weaker focus cue than a ring. It falls short of
+the WCAG 2.2 AAA guideline for focus appearance, and that is accepted for now.
+
+### Everything else: one ring
+
+Buttons, checkboxes, radios, switches, tabs, toggles, sliders and links use:
 
 ```tsx
 focus-visible:ring-2

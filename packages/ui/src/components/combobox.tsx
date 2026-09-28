@@ -14,8 +14,8 @@ import {
 import { ChevronsUpDownIcon, XIcon, CheckIcon } from "lucide-react"
 
 // Figma: Combobox (#2819:22160 page). The field is a 40px Nooxit input
-// (36px for sm) with a foreground chevrons-up-down, an accent hover, and the
-// 2px primary focus ring. The popup is a 6px-radius popover with shadow-md;
+// (36px for sm) with a foreground chevrons-up-down, an accent hover, and a
+// border that turns primary on focus. The popup is a 6px-radius popover with shadow-md;
 // a search field inside it becomes a 40px row with a bottom border.
 const Combobox = ComboboxPrimitive.Root
 
@@ -235,7 +235,7 @@ function ComboboxChips({
     <ComboboxPrimitive.Chips
       data-slot="combobox-chips"
       className={cn(
-        "flex min-h-10 flex-wrap items-center gap-1.5 rounded-md border border-input bg-background px-3 py-1.5 text-sm leading-5 text-foreground transition-[color,box-shadow] focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-background has-aria-invalid:focus-within:ring-destructive has-data-[slot=combobox-chip]:px-1.5",
+        "flex min-h-10 flex-wrap items-center gap-1.5 rounded-md border border-input bg-background px-3 py-1.5 text-sm leading-5 text-foreground transition-[color,border-color] focus-within:border-primary has-aria-invalid:focus-within:border-destructive has-data-[slot=combobox-chip]:px-1.5",
         className
       )}
       {...props}

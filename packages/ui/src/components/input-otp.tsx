@@ -6,7 +6,8 @@ import { OTPInput, OTPInputContext } from "input-otp"
 import { DotIcon } from "lucide-react"
 
 // Figma: Input OPT (#2737:7152). 40px slots joined into groups with 6px
-// outer corners, text-sm/leading-6/medium values, dot separators.
+// outer corners, text-sm/leading-6/medium values, dot separators. Slots share
+// borders, so the active slot's left line (its neighbour's) is a 1px shadow.
 function InputOTP({
   className,
   containerClassName,
@@ -53,7 +54,7 @@ function InputOTPSlot({
       data-slot="input-otp-slot"
       data-active={isActive}
       className={cn(
-        "relative flex size-10 items-center justify-center border-y border-r border-border bg-background text-sm leading-6 font-medium text-foreground transition-all outline-none first:rounded-l-md first:border-l last:rounded-r-md data-[active=true]:z-10 data-[active=true]:ring-2 data-[active=true]:ring-primary data-[active=true]:ring-offset-2 data-[active=true]:ring-offset-background data-[active=true]:aria-invalid:ring-destructive",
+        "relative flex size-10 items-center justify-center border-y border-r border-border bg-background text-sm leading-6 font-medium text-foreground transition-all outline-none first:rounded-l-md first:border-l last:rounded-r-md data-[active=true]:z-10 data-[active=true]:border-primary not-first:data-[active=true]:shadow-[-1px_0_0_0_var(--primary)] data-[active=true]:aria-invalid:border-destructive not-first:data-[active=true]:aria-invalid:shadow-[-1px_0_0_0_var(--destructive)]",
         className
       )}
       {...props}

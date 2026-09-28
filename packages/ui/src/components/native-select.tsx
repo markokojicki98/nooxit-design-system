@@ -7,7 +7,7 @@ type NativeSelectProps = Omit<React.ComponentProps<"select">, "size"> & {
 }
 
 // Not in the Figma kit. Styled as the Nooxit Select trigger: 40px (sm 36px),
-// 6px radius, input-colored border, foreground chevron, primary focus ring.
+// 6px radius, input-colored border, foreground chevron, primary border on focus.
 function NativeSelect({
   className,
   size = "default",
@@ -25,7 +25,7 @@ function NativeSelect({
       <select
         data-slot="native-select"
         data-size={size}
-        className="h-10 w-full min-w-0 appearance-none rounded-md border border-input bg-background py-2 pr-10 pl-3 text-sm leading-5 text-foreground transition-[color,box-shadow] outline-none select-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:focus-visible:ring-destructive data-[size=sm]:h-9"
+        className="h-10 w-full min-w-0 appearance-none rounded-md border border-input bg-background py-2 pr-10 pl-3 text-sm leading-5 text-foreground transition-[color,border-color] outline-none select-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground focus-visible:border-primary disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:focus-visible:border-destructive data-[size=sm]:h-9"
         {...props}
       />
       <ChevronDownIcon className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-foreground select-none" aria-hidden="true" data-slot="native-select-icon" />
