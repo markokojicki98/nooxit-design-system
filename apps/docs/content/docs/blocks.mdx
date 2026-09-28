@@ -13,6 +13,39 @@ app shell is `position: fixed` and sized to the viewport — it cannot be
 rendered honestly inside a documentation column. Use the width toggle to see
 how it responds.
 
+## Agent cockpit
+
+The Nooxit product home, built on `dashboard-01`'s structure. It follows the
+product's own loop: see which agent is waiting on you, decide the case in
+place, then check that the rest ran on its own. Two routes, Home and
+Operations, share one sidebar and one set of state. A decision on Home is still
+reflected in the Operations table and the sidebar count.
+
+<BlockPreview path="/preview/agent-cockpit" title="Agent cockpit" height={900} />
+
+Try it:
+
+- **Pick an agent** in the "On duty" row. The queue and the decision card
+  narrow to that agent's cases.
+- **Accept or reject** a case. It leaves the queue, the agent's count and the
+  summary drop, the activity log records it, and a toast offers Undo.
+- **Open Operations** from the sidebar. Its table has status tabs, search, an
+  agent filter, sorting, bulk accept, and a detail sheet on each row.
+
+### How it differs from dashboard-01
+
+- **No stat-card row.** Numbers sit next to what a person does about them:
+  the waiting count in the summary and on each agent, and the totals in the
+  chart's legend.
+- **The top bar sits outside the content panel**, on the sidebar surface,
+  holding the organization switcher, workforce status and Inbox.
+- **Agents are neutral monograms.** Color is kept for state: warning for
+  deviations, blue for approvals and work in progress, red for overdue.
+
+All suppliers, references and amounts are fictional.
+
+Source: [`app/(preview)/preview/agent-cockpit/`](https://github.com/markokojicki98/nooxit-design-system/tree/main/apps/docs/app/(preview)/preview/agent-cockpit).
+
 ## Dashboard
 
 A port of shadcn/ui's `dashboard-01` onto Nooxit components: sidebar, site
