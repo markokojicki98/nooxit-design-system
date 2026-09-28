@@ -1,0 +1,14 @@
+{
+  "title": "Charts",
+  "icon": "ChartArea",
+  "pages": [
+    "index",
+    "area",
+    "bar",
+    "line",
+    "pie",
+    "radar",
+    "radial",
+    "tooltip"
+  ]
+}

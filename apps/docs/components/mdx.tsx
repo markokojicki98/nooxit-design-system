@@ -5,6 +5,7 @@ import type { MDXComponents } from 'mdx/types';
 
 import { BlockPreview } from '@/components/block-preview';
 import { BrandPalette } from '@/components/brand-palette';
+import { ChartGallery } from '@/components/chart-gallery';
 import { ComponentPreview } from '@/components/component-preview';
 import {
   ColorScale,
@@ -22,6 +23,7 @@ export function getMDXComponents(components?: MDXComponents) {
     Steps,
     BlockPreview,
     BrandPalette,
+    ChartGallery,
     ComponentPreview,
     ColorScale,
     SemanticTokens,

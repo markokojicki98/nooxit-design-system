@@ -1,0 +1,70 @@
+---
+title: Charts
+description: Seventy ready-made charts on the Nooxit Chart and Card components.
+---
+
+This is shadcn/ui's chart gallery rebuilt on Nooxit. Each chart is a single
+file built on [`Chart`](/docs/components/chart), [`Card`](/docs/components/card)
+and Recharts. Open **View code** under a chart and copy the file into a project
+that has `nooxit-design-system` installed. Only
+[Area](/docs/charts/area#chart-area-interactive) and
+[Pie](/docs/charts/pie#chart-pie-interactive) need anything more: they use
+`Select`, which is also in the package.
+
+| Type | Count |
+|---|---|
+| [Area](/docs/charts/area) | 10 |
+| [Bar](/docs/charts/bar) | 10 |
+| [Line](/docs/charts/line) | 10 |
+| [Pie](/docs/charts/pie) | 11 |
+| [Radar](/docs/charts/radar) | 14 |
+| [Radial](/docs/charts/radial) | 6 |
+| [Tooltip](/docs/charts/tooltip) | 9 |
+
+## Color
+
+- **One series uses `primary`.** The Figma kit only draws single-series charts,
+  and it paints them in `primary`. That is warm black in light mode and
+  off-white in dark mode, not orange.
+- **Two or more series use `chart-1` to `chart-5`**, in this order: orange,
+  green, yellow, blue, lime. Categorical charts use this palette too, such as a
+  pie with one slice per browser, or a bar chart that colors positive and
+  negative values differently. These five tokens are proposed rather than
+  taken from Figma (see [Chart](/docs/components/chart)). Red is not in the
+  palette, so it only ever means destructive.
+- Colors are set through `ChartConfig` and read back as `var(--color-<key>)`.
+  They switch with the theme on their own, so never add a `dark:` color class
+  to a chart.
+
+## What changed from shadcn
+
+The data, layout and Recharts setup are unchanged. The ports differ from
+shadcn's files as follows:
+
+- **Imports** point at `nooxit-design-system/components/*` instead of shadcn's
+  internal registry paths.
+- **Single-series charts** use `var(--primary)` instead of `var(--chart-1)`.
+  Three line charts declared a `mobile` series they never drew; it was removed.
+- **Card titles** use `size="md"` (18px semibold). The Nooxit default is 24px,
+  which is too large for a gallery card.
+- **Centered headers** on pie, radar and radial charts use
+  `<CardHeader align="center">`. shadcn's `items-center` does not center the
+  text of a grid header.
+- **Selects** drop shadcn's `rounded-lg` and `rounded-xl` overrides and use
+  `size="sm"`, so they keep the system's 6px radius and 36px height.
+- **The toggle headers** on the interactive bar and line charts use
+  `bg-muted-50` instead of `bg-muted/50`. Their numbers are semibold instead of
+  bold, and the buttons show the standard focus ring.
+- **The two gradient area charts** keep their fills, as the Dashboard block
+  does. Their SVG gradient ids are renamed so the two charts on one page do
+  not share them.
+- **Pie, radar and radial charts** give their `CardContent` the `block` class.
+  Nooxit's `CardContent` is a flex column, and inside it shadcn's
+  `mx-auto aspect-square` container shrinks to zero width, so the chart
+  disappears.
+- **Radar - Custom Label** gives its tick text `fill-foreground`, because
+  unstyled SVG text is black and disappears in dark mode. It also stops passing
+  Recharts' `verticalAnchor` prop to the DOM.
+- **Custom Dots** used `hsl(var(--background))`, which produces an invalid
+  color because the Nooxit tokens are not HSL values. It now uses
+  `var(--background)`.
