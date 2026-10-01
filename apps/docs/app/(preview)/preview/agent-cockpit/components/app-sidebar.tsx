@@ -2,20 +2,21 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
 import {
-  ChartColumnIcon,
-  ChevronsUpDownIcon,
-  CircleUserRoundIcon,
-  HandshakeIcon,
-  HouseIcon,
-  LanguagesIcon,
-  ListChecksIcon,
-  LogOutIcon,
-  NetworkIcon,
-  SettingsIcon,
-  BellIcon,
+  Agreement01Icon,
+  AiNetworkIcon,
+  ArrowUpDownIcon,
+  BarChartIcon,
+  CheckListIcon,
+  Home01Icon,
+  LanguageCircleIcon,
+  Logout01Icon,
+  Notification01Icon,
+  Settings01Icon,
+  UserCircleIcon,
   WarehouseIcon,
-} from "lucide-react"
+} from "@hugeicons/core-free-icons"
 
 import { NooxitLogo } from "@/components/nooxit-logo"
 import { Avatar, AvatarFallback } from "nooxit-design-system/components/avatar"
@@ -54,27 +55,27 @@ import { useCockpit } from "./cockpit-store"
 const base = "/preview/agent-cockpit"
 
 const platform = [
-  { id: "home", title: "Home", icon: HouseIcon, href: base },
+  { id: "home", title: "Home", icon: Home01Icon, href: base },
   {
     id: "operations",
     title: "Operations",
-    icon: ListChecksIcon,
+    icon: CheckListIcon,
     href: `${base}/operations`,
   },
-  { id: "transactions", title: "Transactions", icon: HandshakeIcon },
+  { id: "transactions", title: "Transactions", icon: Agreement01Icon },
   { id: "suppliers", title: "Suppliers", icon: WarehouseIcon },
-  { id: "digital-twin", title: "Digital twin", icon: NetworkIcon },
+  { id: "digital-twin", title: "Digital twin", icon: AiNetworkIcon },
 ] as const
 
 const system = [
-  { id: "analytics", title: "Analytics", icon: ChartColumnIcon },
-  { id: "settings", title: "Settings", icon: SettingsIcon },
+  { id: "analytics", title: "Analytics", icon: BarChartIcon },
+  { id: "settings", title: "Settings", icon: Settings01Icon },
 ] as const
 
 type NavItem = {
   id: string
   title: string
-  icon: React.ComponentType
+  icon: IconSvgElement
   href?: string
 }
 
@@ -98,18 +99,18 @@ function NavGroup({
               {item.href ? (
                 <SidebarMenuButton asChild isActive={pathname === item.href}>
                   <Link href={item.href}>
-                    <item.icon />
+                    <HugeiconsIcon icon={item.icon} strokeWidth={2} />
                     <span>{item.title}</span>
                   </Link>
                 </SidebarMenuButton>
               ) : (
                 <SidebarMenuButton>
-                  <item.icon />
+                  <HugeiconsIcon icon={item.icon} strokeWidth={2} />
                   <span>{item.title}</span>
                 </SidebarMenuButton>
               )}
               {item.id === "operations" && waiting.length > 0 ? (
-                <SidebarMenuBadge className="font-mono font-medium tabular-nums">
+                <SidebarMenuBadge className="font-medium">
                   {waiting.length}
                 </SidebarMenuBadge>
               ) : null}
@@ -146,7 +147,11 @@ function NavUser() {
                   m@example.com
                 </span>
               </div>
-              <ChevronsUpDownIcon className="ml-auto" />
+              <HugeiconsIcon
+                icon={ArrowUpDownIcon}
+                strokeWidth={2}
+                className="ml-auto"
+              />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -164,16 +169,16 @@ function NavUser() {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <CircleUserRoundIcon />
+                <HugeiconsIcon icon={UserCircleIcon} strokeWidth={2} />
                 Account
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <BellIcon />
+                <HugeiconsIcon icon={Notification01Icon} strokeWidth={2} />
                 Notifications
               </DropdownMenuItem>
               <DropdownMenuSub>
                 <DropdownMenuSubTrigger>
-                  <LanguagesIcon />
+                  <HugeiconsIcon icon={LanguageCircleIcon} strokeWidth={2} />
                   Language
                 </DropdownMenuSubTrigger>
                 <DropdownMenuSubContent>
@@ -190,7 +195,7 @@ function NavUser() {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <LogOutIcon />
+              <HugeiconsIcon icon={Logout01Icon} strokeWidth={2} />
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>

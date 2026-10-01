@@ -1,6 +1,7 @@
 "use client"
 
-import { BotIcon, CircleCheckIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { BotIcon, CheckmarkCircle01Icon } from "@hugeicons/core-free-icons"
 
 import { Alert, AlertDescription } from "nooxit-design-system/components/alert"
 import { Button } from "nooxit-design-system/components/button"
@@ -59,10 +60,8 @@ export function CaseComparison({ item }: { item: Case }) {
               >
                 {row.label}
               </th>
-              <td className="py-1 text-right font-mono text-xs font-medium tabular-nums">
-                {row.expected}
-              </td>
-              <td className="py-1 pl-4 text-right font-mono text-xs font-medium tabular-nums">
+              <td className="py-1 text-right font-medium">{row.expected}</td>
+              <td className="py-1 pl-4 text-right font-medium">
                 {differs ? (
                   <mark className="rounded-xs bg-warning-muted px-1 font-medium text-warning-muted-foreground">
                     {row.actual}
@@ -88,7 +87,7 @@ export function NextDecision({ item }: { item: Case | undefined }) {
         <Empty className="flex-1">
           <EmptyHeader>
             <EmptyMedia variant="icon">
-              <CircleCheckIcon />
+              <HugeiconsIcon icon={CheckmarkCircle01Icon} strokeWidth={2} />
             </EmptyMedia>
             <EmptyTitle>No decisions left</EmptyTitle>
             <EmptyDescription>
@@ -111,9 +110,7 @@ export function NextDecision({ item }: { item: Case | undefined }) {
           {item.title}
         </CardTitle>
         <CardDescription>
-          <span className="font-mono text-xs font-medium tabular-nums">
-            {item.reference}
-          </span>
+          <span className="font-medium">{item.reference}</span>
           {" · "}
           {item.supplier === "—" ? item.type : item.supplier}
         </CardDescription>
@@ -129,14 +126,14 @@ export function NextDecision({ item }: { item: Case | undefined }) {
         {item.amount !== null ? (
           <div className="flex items-baseline justify-between border-t border-border pt-3 text-sm leading-5">
             <span className="text-muted-foreground">Impact</span>
-            <span className="font-mono text-sm font-medium tabular-nums">
+            <span className="text-sm font-medium">
               {formatAmount(item.amount)}
             </span>
           </div>
         ) : null}
 
         <Alert className="border-transparent bg-muted">
-          <BotIcon />
+          <HugeiconsIcon icon={BotIcon} strokeWidth={2} />
           <AlertDescription className="text-sm leading-5 text-foreground">
             {item.note}
           </AlertDescription>

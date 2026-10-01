@@ -1,20 +1,21 @@
 'use client';
 
 import { Toggle } from 'nooxit-design-system/components/toggle';
-import { BoldIcon, ItalicIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { TextBoldIcon, TextItalicIcon } from '@hugeicons/core-free-icons';
 
 export default function ToggleDemo() {
   return (
     <div className="flex items-center gap-3">
       <Toggle aria-label="Toggle bold">
-        <BoldIcon />
+        <HugeiconsIcon icon={TextBoldIcon} strokeWidth={2} />
       </Toggle>
       <Toggle aria-label="Toggle italic" defaultPressed>
-        <ItalicIcon />
+        <HugeiconsIcon icon={TextItalicIcon} strokeWidth={2} />
         Italic
       </Toggle>
       <Toggle variant="outline" aria-label="Toggle bold" size="sm">
-        <BoldIcon />
+        <HugeiconsIcon icon={TextBoldIcon} strokeWidth={2} />
       </Toggle>
     </div>
   );

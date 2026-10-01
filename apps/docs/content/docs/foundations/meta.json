@@ -1,6 +1,6 @@
 {
   "title": "Foundations",
-  "icon": "Palette",
+  "icon": "ColorPickerIcon",
   "pages": [
     "colors",
     "typography",

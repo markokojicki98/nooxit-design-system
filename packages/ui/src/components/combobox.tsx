@@ -11,7 +11,12 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "nooxit-design-system/components/input-group"
-import { ChevronsUpDownIcon, XIcon, CheckIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowUpDownIcon,
+  Cancel01Icon,
+  Tick01Icon,
+} from "@hugeicons/core-free-icons"
 
 // Figma: Combobox (#2819:22160 page). The field is a 40px Nooxit input
 // (36px for sm) with a foreground chevrons-up-down, an accent hover, and a
@@ -35,7 +40,7 @@ function ComboboxTrigger({
       {...props}
     >
       {children}
-      <ChevronsUpDownIcon className="pointer-events-none size-4 text-foreground" />
+      <HugeiconsIcon icon={ArrowUpDownIcon} strokeWidth={2} className="pointer-events-none size-4 text-foreground" />
     </ComboboxPrimitive.Trigger>
   )
 }
@@ -48,7 +53,7 @@ function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
       className={cn(className)}
       {...props}
     >
-      <XIcon className="pointer-events-none" />
+      <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} className="pointer-events-none" />
     </ComboboxPrimitive.Clear>
   )
 }
@@ -162,7 +167,7 @@ function ComboboxItem({
           <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center" />
         }
       >
-        <CheckIcon className="pointer-events-none" />
+        <HugeiconsIcon icon={Tick01Icon} strokeWidth={2} className="pointer-events-none" />
       </ComboboxPrimitive.ItemIndicator>
     </ComboboxPrimitive.Item>
   )
@@ -267,7 +272,7 @@ function ComboboxChip({
           className="-ml-1 opacity-50 hover:opacity-100"
           data-slot="combobox-chip-remove"
         >
-          <XIcon className="pointer-events-none" />
+          <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} className="pointer-events-none" />
         </ComboboxPrimitive.ChipRemove>
       )}
     </ComboboxPrimitive.Chip>

@@ -1,11 +1,14 @@
 ---
 title: Typography
-description: DM Sans and DM Mono, and the 105 text styles from the Figma kit.
+description: Aspekta, and the 99 text styles from the Figma kit.
 ---
 
-Nooxit uses **DM Sans** for everything and **DM Mono** for code. DM Mono is
-loaded in weight 500 only, so mono text always renders medium regardless of
-what the surrounding element asks for.
+Nooxit uses **Aspekta** for all interface text, including case numbers,
+amounts and times. It replaced DM Sans on 2026-10-01, chosen over Overused
+Grotesk after a client review.
+
+There is no brand monospace. Code samples and `<code>` use the operating
+system's monospace font, and nothing in the product interface does.
 
 The Figma kit names its text styles `text-{size}/leading-{line height}/{weight}`,
 which maps one to one onto Tailwind utilities. The tables below print the
@@ -34,26 +37,33 @@ Letter spacing follows the kit: `-2.5%` (`tracking-tight`) at 30px and above,
 
 ### Body
 
-<TextStyles size="text-base" font="sans" />
-<TextStyles size="text-sm" font="sans" />
-<TextStyles size="text-xs" font="sans" />
+<TextStyles size="text-base" />
+<TextStyles size="text-sm" />
+<TextStyles size="text-xs" />
 
-### Mono
+## Numbers
 
-DM Mono covers three sizes. Figma draws some of these in DM Mono Regular, but
-only weight 500 is loaded, so they all render medium.
+Aspekta has proportional digits and no tabular figures, so `tabular-nums`
+has no effect. Do not add it. In tables, right-align amounts and times so a
+column still shares a right edge. Aspekta also has no italic; the browser
+slants the upright instead.
 
-<TextStyles font="mono" sample="const radius = '0.5rem'" />
+## Removed: DM Mono
+
+The six DM Mono styles were removed on 2026-10-01 by client decision:
+`text-base/leading-6/mono`, `text-base/leading-none/mono`,
+`text-sm/leading-5/mono`, `text-sm/leading-5/mono-semibold`,
+`text-xs/leading-4/mono` and `text-xs/leading-4/uppercase`. Each has a sans
+twin at the same size and line height. Where an uppercase label is still
+wanted, add `uppercase` to a sans style.
 
 ## Font variables
 
-The theme reads two CSS variables:
-
 ```css
---font-sans: var(--font-dm-sans, 'DM Sans'), ui-sans-serif, system-ui, sans-serif;
---font-mono: var(--font-dm-mono, 'DM Mono'), ui-monospace, monospace;
+--font-sans: var(--font-brand, 'Aspekta'), ui-sans-serif, system-ui, sans-serif;
+--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 ```
 
-`font-heading` is a third alias that also resolves to DM Sans. It exists so
-headings can be moved to a different family later without touching every
-component.
+`font-heading` is a third alias that also resolves to Aspekta. It
+exists so headings can be moved to a different family later without touching
+every component. `font-mono` is for code only.

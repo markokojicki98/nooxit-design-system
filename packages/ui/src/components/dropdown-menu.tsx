@@ -3,7 +3,12 @@
 import * as React from "react"
 import { cn } from "nooxit-design-system/lib/utils"
 import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui"
-import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowRight01Icon,
+  CircleIcon,
+  Tick01Icon,
+} from "@hugeicons/core-free-icons"
 
 function DropdownMenu({
   ...props
@@ -105,7 +110,7 @@ function DropdownMenuCheckboxItem({
         data-slot="dropdown-menu-checkbox-item-indicator"
       >
         <DropdownMenuPrimitive.ItemIndicator>
-          <CheckIcon
+          <HugeiconsIcon icon={Tick01Icon} strokeWidth={2}
           />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
@@ -148,7 +153,7 @@ function DropdownMenuRadioItem({
         data-slot="dropdown-menu-radio-item-indicator"
       >
         <DropdownMenuPrimitive.ItemIndicator>
-          <CircleIcon className="size-2 fill-current" />
+          <HugeiconsIcon icon={CircleIcon} strokeWidth={2} className="size-2 fill-current" />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
@@ -230,7 +235,7 @@ function DropdownMenuSubTrigger({
       {...props}
     >
       {children}
-      <ChevronRightIcon className="ml-auto" />
+      <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className="ml-auto" />
     </DropdownMenuPrimitive.SubTrigger>
   )
 }

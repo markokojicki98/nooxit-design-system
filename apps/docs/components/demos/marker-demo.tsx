@@ -1,5 +1,6 @@
 import { Marker, MarkerContent, MarkerIcon } from 'nooxit-design-system/components/marker';
-import { CheckIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Tick01Icon } from '@hugeicons/core-free-icons';
 
 export default function MarkerDemo() {
   return (
@@ -9,7 +10,7 @@ export default function MarkerDemo() {
       </Marker>
       <Marker>
         <MarkerIcon>
-          <CheckIcon />
+          <HugeiconsIcon icon={Tick01Icon} strokeWidth={2} />
         </MarkerIcon>
         <MarkerContent>Saved to your library</MarkerContent>
       </Marker>

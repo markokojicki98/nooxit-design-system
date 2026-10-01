@@ -1,5 +1,6 @@
 import { Button } from 'nooxit-design-system/components/button';
-import { PlusIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Add01Icon } from '@hugeicons/core-free-icons';
 
 export default function ButtonSizes() {
   return (
@@ -9,13 +10,13 @@ export default function ButtonSizes() {
       <Button size="default">Default</Button>
       <Button size="lg">Large</Button>
       <Button size="icon" aria-label="Add">
-        <PlusIcon />
+        <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
       </Button>
       <Button size="icon-sm" variant="outline" aria-label="Add">
-        <PlusIcon />
+        <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
       </Button>
       <Button size="icon-xs" variant="ghost" aria-label="Add">
-        <PlusIcon />
+        <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
       </Button>
     </div>
   );

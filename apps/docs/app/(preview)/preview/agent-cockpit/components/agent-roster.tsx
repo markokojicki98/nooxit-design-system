@@ -1,6 +1,7 @@
 "use client"
 
-import { XIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Cancel01Icon } from "@hugeicons/core-free-icons"
 
 import { Button } from "nooxit-design-system/components/button"
 import { Spinner } from "nooxit-design-system/components/spinner"
@@ -31,7 +32,11 @@ export function AgentRoster({
         </h2>
         {selected ? (
           <Button variant="ghost" size="sm" onClick={() => onSelect(null)}>
-            <XIcon data-icon="inline-start" />
+            <HugeiconsIcon
+              icon={Cancel01Icon}
+              strokeWidth={2}
+              data-icon="inline-start"
+            />
             Show all agents
           </Button>
         ) : null}
@@ -81,7 +86,7 @@ export function AgentRoster({
               <span className="flex items-baseline gap-1.5 justify-self-end [grid-area:count]">
                 <span
                   className={cn(
-                    "font-mono text-xl leading-7 font-medium tabular-nums @5xl/main:text-2xl @5xl/main:leading-8",
+                    "text-xl leading-7 font-medium @5xl/main:text-2xl @5xl/main:leading-8",
                     count === 0 && "text-muted-foreground"
                   )}
                 >

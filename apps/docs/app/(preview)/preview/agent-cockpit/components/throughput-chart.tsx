@@ -58,7 +58,7 @@ export function ThroughputChart() {
           <CardTitle size="md">Throughput</CardTitle>
           <CardDescription>
             Agents handed{" "}
-            <span className="font-mono font-medium text-foreground tabular-nums">
+            <span className="font-medium text-foreground">
               {rate.toFixed(1)}%
             </span>{" "}
             of their cases to a person in the last {ranges[range]} days.
@@ -129,7 +129,7 @@ export function ThroughputChart() {
                 style={{ backgroundColor: config[key].color }}
               />
               <span className="text-muted-foreground">{config[key].label}</span>
-              <span className="font-mono text-sm font-medium tabular-nums">
+              <span className="text-sm font-medium">
                 {totals[key].toLocaleString("en-US")}
               </span>
             </li>

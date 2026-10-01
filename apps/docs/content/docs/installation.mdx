@@ -49,39 +49,42 @@ The `@source` line tells Tailwind to scan the package for the classes its
 components use. Point it at `dist` for an installed package, or at the source
 folder when you consume it from a workspace.
 
-## Load the fonts
+## Load the font
 
-Nooxit uses DM Sans for text and DM Mono for code. The theme reads them from
-two CSS variables, so any loader works as long as it defines them.
+Nooxit uses Aspekta for all interface text. It is not on Google Fonts,
+so self-host the `.woff2` files and expose the family as the `--font-brand` CSS
+variable. Any loader works as long as it defines that variable. There is no
+brand monospace: code uses the operating system's monospace font.
 
 ```tsx title="app/layout.tsx"
-import { DM_Mono, DM_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-});
-
-// DM Mono is used in weight 500 only.
-const dmMono = DM_Mono({
-  subsets: ['latin'],
-  weight: '500',
-  variable: '--font-dm-mono',
+// The files live in public/fonts/aspekta/. Load only the weights the type
+// scale uses: 400, 500, 600, 700 and 800.
+const brandFont = localFont({
+  src: [
+    { path: '../public/fonts/aspekta/Aspekta-400.woff2', weight: '400' },
+    { path: '../public/fonts/aspekta/Aspekta-500.woff2', weight: '500' },
+    { path: '../public/fonts/aspekta/Aspekta-600.woff2', weight: '600' },
+    { path: '../public/fonts/aspekta/Aspekta-700.woff2', weight: '700' },
+    { path: '../public/fonts/aspekta/Aspekta-800.woff2', weight: '800' },
+  ],
+  variable: '--font-brand',
   display: 'swap',
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
+    <html lang="en" className={brandFont.variable}>
       <body>{children}</body>
     </html>
   );
 }
 ```
 
-If you are not on Next.js, import `nooxit-design-system/fonts.css` instead,
-which loads both families from Google Fonts.
+Outside Next.js, declare `@font-face` rules for the family `"Aspekta"`;
+the theme falls back to that family name when `--font-brand` is not set. The
+package does not ship the font files yet.
 
 ## Add the providers
 

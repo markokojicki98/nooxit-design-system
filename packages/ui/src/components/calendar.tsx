@@ -10,7 +10,12 @@ import {
 } from "react-day-picker"
 
 import { Button, buttonVariants } from "nooxit-design-system/components/button"
-import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowDown01Icon,
+  ArrowLeft01Icon,
+  ArrowRight01Icon,
+} from "@hugeicons/core-free-icons"
 
 // Figma: Calendar (#2819:19886 page). 284px wide: p-3, 6px radius, 1px
 // border (dropped inside popovers and cards), 36px day cells with 6px
@@ -151,18 +156,18 @@ function Calendar({
         Chevron: ({ className, orientation, ...props }) => {
           if (orientation === "left") {
             return (
-              <ChevronLeftIcon className={cn("size-4", className)} {...props} />
+              <HugeiconsIcon icon={ArrowLeft01Icon} strokeWidth={2} className={cn("size-4", className)} {...props} />
             )
           }
 
           if (orientation === "right") {
             return (
-              <ChevronRightIcon className={cn("size-4", className)} {...props} />
+              <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className={cn("size-4", className)} {...props} />
             )
           }
 
           return (
-            <ChevronDownIcon className={cn("size-4", className)} {...props} />
+            <HugeiconsIcon icon={ArrowDown01Icon} strokeWidth={2} className={cn("size-4", className)} {...props} />
           )
         },
         DayButton: ({ ...props }) => (

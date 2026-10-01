@@ -2,7 +2,8 @@
 
 import { cn } from "nooxit-design-system/lib/utils"
 import * as ResizablePrimitive from "react-resizable-panels"
-import { GripVerticalIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Drag01Icon } from "@hugeicons/core-free-icons"
 
 function ResizablePanelGroup({
   className,
@@ -44,7 +45,11 @@ function ResizableHandle({
     >
       {withHandle && (
         <div className="z-10 flex h-4 w-3 shrink-0 items-center justify-center rounded-sm border border-border bg-border text-foreground">
-          <GripVerticalIcon className="size-2.5" />
+          <HugeiconsIcon
+            icon={Drag01Icon}
+            strokeWidth={2}
+            className="size-2.5"
+          />
         </div>
       )}
     </ResizablePrimitive.Separator>

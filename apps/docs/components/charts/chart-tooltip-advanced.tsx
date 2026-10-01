@@ -90,7 +90,7 @@ export function ChartTooltipAdvanced() {
                       />
                       {chartConfig[name as keyof typeof chartConfig]?.label ||
                         name}
-                      <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium text-foreground tabular-nums">
+                      <div className="ml-auto flex items-baseline gap-0.5 font-medium text-foreground">
                         {value}
                         <span className="font-normal text-muted-foreground">
                           kcal
@@ -100,7 +100,7 @@ export function ChartTooltipAdvanced() {
                       {index === 1 && (
                         <div className="mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium text-foreground">
                           Total
-                          <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium text-foreground tabular-nums">
+                          <div className="ml-auto flex items-baseline gap-0.5 font-medium text-foreground">
                             {item.payload.running + item.payload.swimming}
                             <span className="font-normal text-muted-foreground">
                               kcal

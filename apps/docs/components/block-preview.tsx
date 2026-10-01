@@ -8,7 +8,13 @@ import {
   ToggleGroupItem,
 } from 'nooxit-design-system/components/toggle-group';
 import { cn } from 'nooxit-design-system/lib/utils';
-import { ExternalLinkIcon, MonitorIcon, SmartphoneIcon, TabletIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import {
+  ArrowUpRight01Icon,
+  ComputerIcon,
+  SmartPhone01Icon,
+  Tablet01Icon,
+} from '@hugeicons/core-free-icons';
 
 const WIDTHS = {
   desktop: '100%',
@@ -48,20 +54,20 @@ export function BlockPreview({
           aria-label="Preview width"
         >
           <ToggleGroupItem value="desktop" size="sm" aria-label="Desktop">
-            <MonitorIcon />
+            <HugeiconsIcon icon={ComputerIcon} strokeWidth={2} />
           </ToggleGroupItem>
           <ToggleGroupItem value="tablet" size="sm" aria-label="Tablet">
-            <TabletIcon />
+            <HugeiconsIcon icon={Tablet01Icon} strokeWidth={2} />
           </ToggleGroupItem>
           <ToggleGroupItem value="mobile" size="sm" aria-label="Mobile">
-            <SmartphoneIcon />
+            <HugeiconsIcon icon={SmartPhone01Icon} strokeWidth={2} />
           </ToggleGroupItem>
         </ToggleGroup>
 
         <Button variant="ghost" size="sm" asChild>
           <a href={path} target="_blank" rel="noreferrer">
             Open
-            <ExternalLinkIcon data-icon="inline-end" />
+            <HugeiconsIcon icon={ArrowUpRight01Icon} strokeWidth={2} data-icon="inline-end" />
           </a>
         </Button>
       </div>

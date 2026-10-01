@@ -4,8 +4,12 @@ import * as React from "react"
 import { Questionnaire as QuestionnairePrimitive } from "@shadcn/react/questionnaire"
 import { cn } from "nooxit-design-system/lib/utils"
 
-import { buttonVariants, type Button } from "nooxit-design-system/components/button"
-import { CheckIcon } from "lucide-react"
+import {
+  buttonVariants,
+  type Button,
+} from "nooxit-design-system/components/button"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Tick01Icon } from "@hugeicons/core-free-icons"
 
 function Questionnaire({
   className,
@@ -28,7 +32,7 @@ function QuestionnaireProgress({
     <QuestionnairePrimitive.Progress
       data-slot="questionnaire-progress"
       className={cn(
-        "min-h-[1lh] w-fit min-w-[14ch] text-xs font-medium text-muted-foreground tabular-nums",
+        "min-h-[1lh] w-fit min-w-[14ch] text-xs font-medium text-muted-foreground",
         className
       )}
       {...props}
@@ -125,7 +129,10 @@ function QuestionnaireChoice({
           data-slot="questionnaire-choice-indicator-dot"
           className="hidden size-2.5 rounded-full bg-primary group-data-[type=checkbox]/questionnaire-choice:hidden group-data-checked/questionnaire-choice:block"
         />
-        <CheckIcon data-slot="questionnaire-choice-indicator-check" className="hidden size-3.5 group-data-[type=radio]/questionnaire-choice:hidden group-data-checked/questionnaire-choice:block" />
+        <HugeiconsIcon icon={Tick01Icon} strokeWidth={2}
+          data-slot="questionnaire-choice-indicator-check"
+          className="hidden size-3.5 group-data-[type=radio]/questionnaire-choice:hidden group-data-checked/questionnaire-choice:block"
+        />
       </span>
       <QuestionnairePrimitive.ChoiceLabel
         data-slot="questionnaire-choice-label"
@@ -135,7 +142,7 @@ function QuestionnaireChoice({
       </QuestionnairePrimitive.ChoiceLabel>
       <QuestionnairePrimitive.ChoiceShortcut
         data-slot="questionnaire-choice-shortcut"
-        className="pointer-events-none ms-auto hidden size-5 shrink-0 translate-y-[--spacing(0.45)] items-center justify-center rounded-sm bg-muted font-mono text-[0.625rem] leading-none font-medium text-muted-foreground group-has-data-[slot=questionnaire-choice-description]/questionnaire-choice:translate-y-0.5 group-data-[shortcut]/questionnaire-choice:inline-flex"
+        className="pointer-events-none ms-auto hidden size-5 shrink-0 translate-y-[--spacing(0.45)] items-center justify-center rounded-sm bg-muted text-[0.625rem] leading-none font-medium text-muted-foreground group-has-data-[slot=questionnaire-choice-description]/questionnaire-choice:translate-y-0.5 group-data-[shortcut]/questionnaire-choice:inline-flex"
       />
     </QuestionnairePrimitive.Choice>
   )

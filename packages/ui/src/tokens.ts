@@ -1923,8 +1923,8 @@ export const semanticTokens: SemanticToken[] = [
 export type TextStyle = {
   /** Figma text style name, e.g. "text-sm/leading-5/medium". */
   name: string
-  font: "sans" | "mono"
-  /** Weight used in Figma. Mono renders at 500, the only DM Mono weight loaded. */
+  font: "sans"
+  /** Weight used in Figma. */
   weight: number
   /** Font size in px. */
   size: number
@@ -1940,19 +1940,13 @@ export type TextStyle = {
 
 export const fonts = {
   "sans": {
-    "family": "DM Sans",
+    "family": "Aspekta",
     "weights": [
       400,
       500,
       600,
       700,
       800
-    ]
-  },
-  "mono": {
-    "family": "DM Mono",
-    "weights": [
-      500
     ]
   }
 } as const
@@ -2636,15 +2630,6 @@ export const textStyles: TextStyle[] = [
     "classes": "text-base leading-6 font-medium underline"
   },
   {
-    "name": "text-base/leading-6/mono",
-    "font": "mono",
-    "weight": 400,
-    "size": 16,
-    "lineHeight": 24,
-    "letterSpacing": "-2.5%",
-    "classes": "font-mono text-base leading-6 font-medium tracking-tight"
-  },
-  {
     "name": "text-base/leading-none/normal",
     "font": "sans",
     "weight": 400,
@@ -2699,15 +2684,6 @@ export const textStyles: TextStyle[] = [
     "letterSpacing": "0",
     "decoration": "underline",
     "classes": "text-base leading-none font-medium underline"
-  },
-  {
-    "name": "text-base/leading-none/mono",
-    "font": "mono",
-    "weight": 400,
-    "size": 16,
-    "lineHeight": "100%",
-    "letterSpacing": "0",
-    "classes": "font-mono text-base leading-none font-medium"
   },
   {
     "name": "text-sm/leading-6/normal",
@@ -2802,24 +2778,6 @@ export const textStyles: TextStyle[] = [
     "classes": "text-sm leading-5 font-normal underline"
   },
   {
-    "name": "text-sm/leading-5/mono",
-    "font": "mono",
-    "weight": 400,
-    "size": 14,
-    "lineHeight": 20,
-    "letterSpacing": "0",
-    "classes": "font-mono text-sm leading-5 font-medium"
-  },
-  {
-    "name": "text-sm/leading-5/mono-semibold",
-    "font": "mono",
-    "weight": 500,
-    "size": 14,
-    "lineHeight": 20,
-    "letterSpacing": "0",
-    "classes": "font-mono text-sm leading-5 font-medium"
-  },
-  {
     "name": "text-sm/leading-none/normal",
     "font": "sans",
     "weight": 400,
@@ -2890,24 +2848,5 @@ export const textStyles: TextStyle[] = [
     "lineHeight": 16,
     "letterSpacing": "0",
     "classes": "text-xs leading-4 font-bold"
-  },
-  {
-    "name": "text-xs/leading-4/uppercase",
-    "font": "mono",
-    "weight": 400,
-    "size": 12,
-    "lineHeight": 16,
-    "letterSpacing": "0",
-    "case": "uppercase",
-    "classes": "font-mono text-xs leading-4 font-medium uppercase"
-  },
-  {
-    "name": "text-xs/leading-4/mono",
-    "font": "mono",
-    "weight": 400,
-    "size": 12,
-    "lineHeight": 16,
-    "letterSpacing": "0",
-    "classes": "font-mono text-xs leading-4 font-medium"
   }
 ]

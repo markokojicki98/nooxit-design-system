@@ -7,7 +7,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from 'nooxit-design-system/components/collapsible';
-import { ChevronsUpDownIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowUpDownIcon } from '@hugeicons/core-free-icons';
 
 export default function CollapsibleDemo() {
   const [open, setOpen] = React.useState(false);
@@ -24,7 +25,7 @@ export default function CollapsibleDemo() {
         </h4>
         <CollapsibleTrigger asChild>
           <Button variant="ghost" size="icon-sm" aria-label="Toggle">
-            <ChevronsUpDownIcon />
+            <HugeiconsIcon icon={ArrowUpDownIcon} strokeWidth={2} />
           </Button>
         </CollapsibleTrigger>
       </div>

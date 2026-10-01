@@ -92,7 +92,7 @@ items.push({
     { path: "registry/styles/fonts.css", type: "registry:file", target: "styles/nooxit/fonts.css" },
     { path: "registry/lib/nooxit-tokens.ts", type: "registry:lib" },
   ],
-  docs: 'Import styles/nooxit/theme.css after `@import "tailwindcss"`. The theme resets Tailwind\'s color palette, so it must load before any other theme. Load DM Sans and DM Mono as --font-dm-sans and --font-dm-mono, or import styles/nooxit/fonts.css.',
+  docs: 'Import styles/nooxit/theme.css after `@import "tailwindcss"`. The theme resets Tailwind\'s color palette, so it must load before any other theme. Self-host Aspekta (weights 400-800) and expose it as --font-brand; the theme falls back to the family name "Aspekta".',
 })
 
 items.push({

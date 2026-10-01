@@ -158,23 +158,20 @@ colors:
   blue-900: "#041CA0"
   blue-950: "#021072"
 typography:
-  display-9xl: { fontFamily: DM Sans, fontSize: 128px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-9xl leading-none font-normal tracking-tight" }
-  display-8xl: { fontFamily: DM Sans, fontSize: 96px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-8xl leading-none font-normal tracking-tight" }
-  display-7xl: { fontFamily: DM Sans, fontSize: 72px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-7xl leading-none font-normal tracking-tight" }
-  display-6xl: { fontFamily: DM Sans, fontSize: 60px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-6xl leading-none font-normal tracking-tight" }
-  display-5xl: { fontFamily: DM Sans, fontSize: 48px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-5xl leading-none font-normal tracking-tight" }
-  heading-4xl: { fontFamily: DM Sans, fontSize: 36px, fontWeight: 700, lineHeight: 40px, letterSpacing: -0.025em, classes: "text-4xl leading-10 font-bold tracking-tight" }
-  heading-3xl: { fontFamily: DM Sans, fontSize: 30px, fontWeight: 600, lineHeight: 36px, letterSpacing: -0.025em, classes: "text-3xl leading-9 font-semibold tracking-tight" }
-  heading-2xl: { fontFamily: DM Sans, fontSize: 24px, fontWeight: 600, lineHeight: 32px, letterSpacing: -0.025em, classes: "text-2xl leading-8 font-semibold tracking-tight" }
-  heading-xl: { fontFamily: DM Sans, fontSize: 20px, fontWeight: 600, lineHeight: 28px, letterSpacing: -0.03em, classes: "text-xl leading-7 font-semibold tracking-tight" }
-  heading-lg: { fontFamily: DM Sans, fontSize: 18px, fontWeight: 600, lineHeight: 28px, classes: "text-lg leading-7 font-semibold" }
-  body-base: { fontFamily: DM Sans, fontSize: 16px, fontWeight: 400, lineHeight: 24px, classes: "text-base leading-6 font-normal" }
-  body-sm: { fontFamily: DM Sans, fontSize: 14px, fontWeight: 400, lineHeight: 20px, classes: "text-sm leading-5 font-normal" }
-  label-sm: { fontFamily: DM Sans, fontSize: 14px, fontWeight: 500, lineHeight: 20px, classes: "text-sm leading-5 font-medium" }
-  label-xs: { fontFamily: DM Sans, fontSize: 12px, fontWeight: 500, lineHeight: 16px, classes: "text-xs leading-4 font-medium" }
-  mono-base: { fontFamily: DM Mono, fontSize: 16px, fontWeight: 500, lineHeight: 24px, letterSpacing: -0.025em, classes: "font-mono text-base leading-6 font-medium tracking-tight" }
-  mono-sm: { fontFamily: DM Mono, fontSize: 14px, fontWeight: 500, lineHeight: 20px, classes: "font-mono text-sm leading-5 font-medium" }
-  mono-xs: { fontFamily: DM Mono, fontSize: 12px, fontWeight: 500, lineHeight: 16px, classes: "font-mono text-xs leading-4 font-medium" }
+  display-9xl: { fontFamily: Aspekta, fontSize: 128px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-9xl leading-none font-normal tracking-tight" }
+  display-8xl: { fontFamily: Aspekta, fontSize: 96px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-8xl leading-none font-normal tracking-tight" }
+  display-7xl: { fontFamily: Aspekta, fontSize: 72px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-7xl leading-none font-normal tracking-tight" }
+  display-6xl: { fontFamily: Aspekta, fontSize: 60px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-6xl leading-none font-normal tracking-tight" }
+  display-5xl: { fontFamily: Aspekta, fontSize: 48px, fontWeight: 400, lineHeight: 1, letterSpacing: -0.025em, classes: "text-5xl leading-none font-normal tracking-tight" }
+  heading-4xl: { fontFamily: Aspekta, fontSize: 36px, fontWeight: 700, lineHeight: 40px, letterSpacing: -0.025em, classes: "text-4xl leading-10 font-bold tracking-tight" }
+  heading-3xl: { fontFamily: Aspekta, fontSize: 30px, fontWeight: 600, lineHeight: 36px, letterSpacing: -0.025em, classes: "text-3xl leading-9 font-semibold tracking-tight" }
+  heading-2xl: { fontFamily: Aspekta, fontSize: 24px, fontWeight: 600, lineHeight: 32px, letterSpacing: -0.025em, classes: "text-2xl leading-8 font-semibold tracking-tight" }
+  heading-xl: { fontFamily: Aspekta, fontSize: 20px, fontWeight: 600, lineHeight: 28px, letterSpacing: -0.03em, classes: "text-xl leading-7 font-semibold tracking-tight" }
+  heading-lg: { fontFamily: Aspekta, fontSize: 18px, fontWeight: 600, lineHeight: 28px, classes: "text-lg leading-7 font-semibold" }
+  body-base: { fontFamily: Aspekta, fontSize: 16px, fontWeight: 400, lineHeight: 24px, classes: "text-base leading-6 font-normal" }
+  body-sm: { fontFamily: Aspekta, fontSize: 14px, fontWeight: 400, lineHeight: 20px, classes: "text-sm leading-5 font-normal" }
+  label-sm: { fontFamily: Aspekta, fontSize: 14px, fontWeight: 500, lineHeight: 20px, classes: "text-sm leading-5 font-medium" }
+  label-xs: { fontFamily: Aspekta, fontSize: 12px, fontWeight: 500, lineHeight: 16px, classes: "text-xs leading-4 font-medium" }
 rounded:
   none: 0px
   sm: 4px      # --radius-sm, rounded-sm
@@ -289,7 +286,7 @@ chromatic signal.
 
 This is a working library, not a speculative visual language. It ships as the
 npm package `nooxit-design-system`: 61 components, 79 color primitives, 64
-semantic tokens and 105 text styles.
+semantic tokens and 99 text styles.
 
 ### Source-of-truth chain
 
@@ -392,14 +389,28 @@ silently does nothing, this is why.
 
 ## Typography
 
-**DM Sans** carries the interface. **DM Mono** is reserved for codes, compact
-metadata, table identifiers and technical labels.
+**Aspekta** carries everything, including codes, table identifiers,
+amounts and times. There is no brand monospace: `font-mono` resolves to the
+operating system's monospace and is for code samples only, never product UI.
 
-DM Mono is loaded in **weight 500 only**. Mono text therefore renders medium
-even where Figma shows DM Mono Regular; pin `font-medium` on mono text so a
-bold ancestor cannot trigger faux bold.
+> **Replaced: DM Sans (2026-10-01).** Aspekta replaced DM Sans. It was chosen
+> over Overused Grotesk after a side-by-side client review. Aspekta has no
+> italic; the browser slants the upright when italic is asked for. The font is
+> self-hosted (next/font/local in the docs, `--font-brand`); the package does
+> not ship the files yet.
 
-The kit names its 105 text styles `text-{size}/leading-{value}/{weight}`, which
+> **Removed: DM Mono (2026-10-01, client decision).** The six DM Mono
+> styles (`text-base/leading-6/mono`, `text-base/leading-none/mono`,
+> `text-sm/leading-5/mono`, `text-sm/leading-5/mono-semibold`,
+> `text-xs/leading-4/mono`, `text-xs/leading-4/uppercase`) are gone from the
+> tokens. Each has a sans twin at the same size and line height. Where an
+> uppercase label is still wanted, add `uppercase` to a sans style.
+
+Aspekta has proportional digits and no tabular figures (`tnum`), so
+`tabular-nums` does nothing. Do not add it; right-align numeric columns so they
+share a right edge.
+
+The kit names its text styles `text-{size}/leading-{value}/{weight}`, which
 maps one-to-one onto Tailwind utilities. Letter spacing follows the kit:
 `tracking-tight` (-2.5%) at 30px and above, `-0.6px` at 20 and 24px, none below.
 
@@ -463,11 +474,9 @@ Destructive and invalid controls swap `ring-primary` for `ring-destructive`.
 Inside the sidebar it becomes `ring-sidebar-ring` with `ring-offset-sidebar`.
 No component uses the stock shadcn 3px translucent ring.
 
-> **Deliberate deviation from Figma.** The kit has a single `focus ring/2px`
-> effect style and uses it on fields too. Fields were changed to the border swap
-> as a product decision. A 1px color change is a weaker focus cue than a 2px
-> ring and falls short of WCAG 2.2's AAA focus-appearance guideline (2.4.13).
-> That tradeoff is accepted for now.
+> A 1px color change is a weaker focus cue than a 2px ring and falls short of
+> WCAG 2.2's AAA focus-appearance guideline (2.4.13). That tradeoff is
+> accepted for now.
 
 ## Shapes
 
@@ -517,13 +526,18 @@ These are the deliberate deviations an agent has to know:
 | `Tooltip` | A popover, not an inverted chip. |
 | `Sonner` | Named `Sooner` in Figma. Error toasts carry the kit's Toast destructive colors. |
 
-Icons come from `lucide-react`. Components size them automatically
-(`[&_svg:not([class*='size-'])]:size-4`), so do not add `size-4` yourself.
-Mark leading and trailing icons in buttons so padding compensates:
+Icons come from **Hugeicons** (free Stroke Rounded set:
+`@hugeicons/core-free-icons` for the icon data, `@hugeicons/react` for the
+`HugeiconsIcon` component; `iconLibrary: "hugeicons"` in `components.json`).
+Icons are data, not components, so always render them through
+`HugeiconsIcon` and always pass **`strokeWidth={2}`**: 2px on the 24px grid,
+which renders about 1.3px at the usual 16px size (the set's own default is
+1.5). Components size icons automatically (`[&_svg:not([class*='size-'])]:size-4`), so do not add `size-4`
+yourself. Mark leading and trailing icons in buttons so padding compensates:
 
 ```tsx
 <Button>
-  <MailIcon data-icon="inline-start" />
+  <HugeiconsIcon icon={Mail01Icon} strokeWidth={2} data-icon="inline-start" />
   Email me
 </Button>
 ```
@@ -570,7 +584,7 @@ Read this section before changing anything.
 - **Do** bind fills and strokes to semantic variables.
 - **Do** preserve light/dark behavior — never paste a resolved light hex into a
   component that should switch modes.
-- **Do** use DM Sans for interface text, DM Mono for codes and identifiers.
+- **Do** use Aspekta for all interface text, identifiers and numbers included.
 - **Do** use the existing text styles; their names encode size, line height and
   weight.
 - **Do** favor borders and tonal surfaces over extra elevation.
@@ -586,7 +600,6 @@ Read this section before changing anything.
 ## Audit scope
 
 Produced from a read-only traversal of the Figma file: five variable
-collections (136 color, 115 float, 2 string variables), 105 text styles, 20
-effect styles, 2 grid styles, no local paint styles. Live Figma variable values
-are authoritative over the `variables2json` block on the Readme page, which is
-a stale snapshot.
+collections (136 color, 115 float, 2 string variables), 105 text styles, 20 effect styles, 2 grid styles, no
+local paint styles. Live Figma variable values are authoritative over the
+`variables2json` block on the Readme page, which is a stale snapshot.

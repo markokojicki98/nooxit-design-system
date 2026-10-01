@@ -1,6 +1,7 @@
 "use client"
 
-import { Footprints, Waves } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { RunningShoesIcon, WaveIcon } from "@hugeicons/core-free-icons"
 import { Bar, BarChart, XAxis } from "recharts"
 
 import {
@@ -32,12 +33,12 @@ const chartConfig = {
   running: {
     label: "Running",
     color: "var(--chart-1)",
-    icon: Footprints,
+    icon: () => <HugeiconsIcon icon={RunningShoesIcon} strokeWidth={2} />,
   },
   swimming: {
     label: "Swimming",
     color: "var(--chart-2)",
-    icon: Waves,
+    icon: () => <HugeiconsIcon icon={WaveIcon} strokeWidth={2} />,
   },
 } satisfies ChartConfig
 

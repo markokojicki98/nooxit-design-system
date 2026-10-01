@@ -1,5 +1,5 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
-import { DM_Mono, DM_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import type { Metadata } from 'next';
 
 import { baseUrl } from '@/lib/shared';
@@ -7,17 +7,18 @@ import { TooltipProvider } from 'nooxit-design-system/components/tooltip';
 import { Toaster } from 'nooxit-design-system/components/sonner';
 import './global.css';
 
-// Nooxit typography: DM Sans (all weights, variable) and DM Mono (500 only).
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-});
-
-const dmMono = DM_Mono({
-  subsets: ['latin'],
-  weight: '500',
-  variable: '--font-dm-mono',
+// Nooxit typography: Aspekta, self-hosted from public/fonts. Only the weights
+// the type scale uses are loaded (and preloaded); Aspekta has no italics.
+// Paths must be literals: next/font resolves them at build time.
+const brandFont = localFont({
+  src: [
+    { path: '../public/fonts/aspekta/Aspekta-400.woff2', weight: '400', style: 'normal' },
+    { path: '../public/fonts/aspekta/Aspekta-500.woff2', weight: '500', style: 'normal' },
+    { path: '../public/fonts/aspekta/Aspekta-600.woff2', weight: '600', style: 'normal' },
+    { path: '../public/fonts/aspekta/Aspekta-700.woff2', weight: '700', style: 'normal' },
+    { path: '../public/fonts/aspekta/Aspekta-800.woff2', weight: '800', style: 'normal' },
+  ],
+  variable: '--font-brand',
   display: 'swap',
 });
 
@@ -35,7 +36,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${dmMono.variable}`}
+      className={brandFont.variable}
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col">

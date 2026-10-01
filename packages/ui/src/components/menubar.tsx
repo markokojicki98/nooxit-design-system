@@ -3,7 +3,12 @@
 import * as React from "react"
 import { cn } from "nooxit-design-system/lib/utils"
 import { Menubar as MenubarPrimitive } from "radix-ui"
-import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowRight01Icon,
+  CircleIcon,
+  Tick01Icon,
+} from "@hugeicons/core-free-icons"
 
 function Menubar({
   className,
@@ -129,7 +134,7 @@ function MenubarCheckboxItem({
     >
       <span className="pointer-events-none absolute left-2 flex size-4 items-center justify-center [&_svg:not([class*='size-'])]:size-4">
         <MenubarPrimitive.ItemIndicator>
-          <CheckIcon
+          <HugeiconsIcon icon={Tick01Icon} strokeWidth={2}
           />
         </MenubarPrimitive.ItemIndicator>
       </span>
@@ -158,7 +163,7 @@ function MenubarRadioItem({
     >
       <span className="pointer-events-none absolute left-2 flex size-4 items-center justify-center [&_svg:not([class*='size-'])]:size-4">
         <MenubarPrimitive.ItemIndicator>
-          <CircleIcon className="size-2 fill-current" />
+          <HugeiconsIcon icon={CircleIcon} strokeWidth={2} className="size-2 fill-current" />
         </MenubarPrimitive.ItemIndicator>
       </span>
       {children}
@@ -240,7 +245,7 @@ function MenubarSubTrigger({
       {...props}
     >
       {children}
-      <ChevronRightIcon className="ml-auto size-4" />
+      <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className="ml-auto size-4" />
     </MenubarPrimitive.SubTrigger>
   )
 }

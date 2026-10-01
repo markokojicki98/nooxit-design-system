@@ -8,7 +8,13 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from 'nooxit-design-system/components/command';
-import { CalendarIcon, SettingsIcon, SmileIcon, UserIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import {
+  Calendar01Icon,
+  Settings01Icon,
+  SmileIcon,
+  UserCircleIcon,
+} from '@hugeicons/core-free-icons';
 
 export default function CommandDemo() {
   return (
@@ -18,23 +24,23 @@ export default function CommandDemo() {
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Suggestions">
           <CommandItem>
-            <CalendarIcon />
+            <HugeiconsIcon icon={Calendar01Icon} strokeWidth={2} />
             Calendar
           </CommandItem>
           <CommandItem>
-            <SmileIcon />
+            <HugeiconsIcon icon={SmileIcon} strokeWidth={2} />
             Search emoji
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Settings">
           <CommandItem>
-            <UserIcon />
+            <HugeiconsIcon icon={UserCircleIcon} strokeWidth={2} />
             Profile
             <CommandShortcut>⌘P</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <SettingsIcon />
+            <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />
             Settings
             <CommandShortcut>⌘S</CommandShortcut>
           </CommandItem>

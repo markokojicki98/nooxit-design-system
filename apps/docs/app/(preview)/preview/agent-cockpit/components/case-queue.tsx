@@ -1,7 +1,11 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRightIcon, CircleCheckIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowRight01Icon,
+  CheckmarkCircle01Icon,
+} from "@hugeicons/core-free-icons"
 
 import { Badge } from "nooxit-design-system/components/badge"
 import { Button } from "nooxit-design-system/components/button"
@@ -63,10 +67,7 @@ export function CaseQueue({
       <CardHeader>
         <CardTitle size="md" className="flex items-center gap-2">
           Waiting on you
-          <Badge
-            variant="secondary"
-            className="font-mono font-medium tabular-nums"
-          >
+          <Badge variant="secondary" className="font-medium">
             {items.length}
           </Badge>
         </CardTitle>
@@ -79,7 +80,11 @@ export function CaseQueue({
           <Button variant="ghost" size="sm" asChild>
             <Link href="/preview/agent-cockpit/operations">
               All cases
-              <ArrowRightIcon data-icon="inline-end" />
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                strokeWidth={2}
+                data-icon="inline-end"
+              />
             </Link>
           </Button>
         </CardAction>
@@ -90,7 +95,7 @@ export function CaseQueue({
           <Empty className="border-t border-border py-10">
             <EmptyHeader>
               <EmptyMedia variant="icon">
-                <CircleCheckIcon />
+                <HugeiconsIcon icon={CheckmarkCircle01Icon} strokeWidth={2} />
               </EmptyMedia>
               <EmptyTitle>Nothing is waiting on you</EmptyTitle>
               <EmptyDescription>
@@ -141,7 +146,7 @@ export function CaseQueue({
                       >
                         <AgentAvatar agent={item.agent} size="xs" />
                         <span className="flex min-w-0 flex-col">
-                          <span className="truncate font-mono text-xs leading-4 font-medium tabular-nums">
+                          <span className="truncate text-sm leading-5 font-medium">
                             {item.reference}
                           </span>
                           <span className="hidden truncate text-xs leading-4 text-muted-foreground @lg/queue:block">
@@ -160,12 +165,12 @@ export function CaseQueue({
                     <TableCell className="hidden @lg/queue:table-cell">
                       <ReasonBadge kind={item.reasonKind} />
                     </TableCell>
-                    <TableCell className="hidden text-right font-mono text-xs font-medium whitespace-nowrap tabular-nums @2xl/queue:table-cell">
+                    <TableCell className="hidden text-right text-sm font-medium whitespace-nowrap @2xl/queue:table-cell">
                       {formatAmount(item.amount)}
                     </TableCell>
                     <TableCell
                       className={cn(
-                        "pr-6 text-right font-mono text-xs whitespace-nowrap tabular-nums",
+                        "pr-6 text-right text-sm whitespace-nowrap",
                         overdue
                           ? "font-medium text-destructive"
                           : "text-muted-foreground"

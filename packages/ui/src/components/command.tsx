@@ -11,7 +11,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "nooxit-design-system/components/dialog"
-import { SearchIcon, CheckIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Search01Icon, Tick01Icon } from "@hugeicons/core-free-icons"
 
 // Figma: Command (#57:1305). 8px radius, 1px border, shadow-md on popover
 // colors (border and shadow are dropped inside dialogs and popovers). A 40px
@@ -74,7 +75,7 @@ function CommandInput({
       data-slot="command-input-wrapper"
       className="flex h-10 items-center gap-2 border-b border-border px-3"
     >
-      <SearchIcon className="size-4 shrink-0 text-foreground opacity-50" />
+      <HugeiconsIcon icon={Search01Icon} strokeWidth={2} className="size-4 shrink-0 text-foreground opacity-50" />
       <CommandPrimitive.Input
         data-slot="command-input"
         className={cn(
@@ -160,7 +161,7 @@ function CommandItem({
       {...props}
     >
       {children}
-      <CheckIcon className="ml-auto opacity-0 group-has-data-[slot=command-shortcut]/command-item:hidden group-data-[checked=true]/command-item:opacity-100" />
+      <HugeiconsIcon icon={Tick01Icon} strokeWidth={2} className="ml-auto opacity-0 group-has-data-[slot=command-shortcut]/command-item:hidden group-data-[checked=true]/command-item:opacity-100" />
     </CommandPrimitive.Item>
   )
 }

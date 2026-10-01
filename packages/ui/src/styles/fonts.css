@@ -1,8 +1,11 @@
 /*
- * Optional: load DM Sans (variable) and DM Mono (500) from Google Fonts.
- * Next.js apps should prefer next/font/google (self-hosted, no layout shift);
- * see the Nooxit docs, "Installation".
+ * Aspekta is self-hosted: it is not on Google Fonts, and this package does
+ * not ship the font files yet. Load it in the app and
+ * expose it as --font-brand. In Next.js, use next/font/local; see the Nooxit
+ * docs, "Installation". Elsewhere, declare @font-face rules for the family
+ * "Aspekta" (weights 400, 500, 600, 700, 800); the theme falls back to
+ * that family name when --font-brand is not set.
  *
- *   @import "nooxit-design-system/fonts.css";
+ * This stylesheet is intentionally empty; it is kept so existing
+ * `@import "nooxit-design-system/fonts.css"` lines do not break.
  */
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");

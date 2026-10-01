@@ -37,7 +37,7 @@
           "type": "registry:lib"
         }
       ],
-      "docs": "Import styles/nooxit/theme.css after `@import \"tailwindcss\"`. The theme resets Tailwind's color palette, so it must load before any other theme. Load DM Sans and DM Mono as --font-dm-sans and --font-dm-mono, or import styles/nooxit/fonts.css."
+      "docs": "Import styles/nooxit/theme.css after `@import \"tailwindcss\"`. The theme resets Tailwind's color palette, so it must load before any other theme. Self-host Aspekta (weights 400-800) and expose it as --font-brand; the theme falls back to the family name \"Aspekta\"."
     },
     {
       "name": "utils",
@@ -72,7 +72,8 @@
       "title": "Accordion",
       "description": "Accordion, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -209,7 +210,8 @@
       "title": "Breadcrumb",
       "description": "Breadcrumb, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -290,7 +292,8 @@
       "title": "Calendar",
       "description": "Calendar, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "react-day-picker"
       ],
       "registryDependencies": [
@@ -327,8 +330,9 @@
       "title": "Carousel",
       "description": "Carousel, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "embla-carousel-react",
-        "lucide-react"
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "embla-carousel-react"
       ],
       "registryDependencies": [
         "@nooxit/button",
@@ -367,7 +371,8 @@
       "title": "Checkbox",
       "description": "Checkbox, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -406,7 +411,8 @@
       "description": "Combobox, styled to the Nooxit Figma UI kit.",
       "dependencies": [
         "@base-ui/react",
-        "lucide-react"
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
       ],
       "registryDependencies": [
         "@nooxit/button",
@@ -427,8 +433,9 @@
       "title": "Command",
       "description": "Command, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "cmdk",
-        "lucide-react"
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "cmdk"
       ],
       "registryDependencies": [
         "@nooxit/dialog",
@@ -448,7 +455,8 @@
       "title": "Context Menu",
       "description": "Context Menu, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -468,7 +476,8 @@
       "title": "Dialog",
       "description": "Dialog, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -526,7 +535,8 @@
       "title": "Dropdown Menu",
       "description": "Dropdown Menu, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -627,8 +637,7 @@
       "title": "Input Otp",
       "description": "Input Otp, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "input-otp",
-        "lucide-react"
+        "input-otp"
       ],
       "registryDependencies": [
         "@nooxit/nooxit-theme",
@@ -739,7 +748,8 @@
       "title": "Menubar",
       "description": "Menubar, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -759,8 +769,9 @@
       "title": "Message Scroller",
       "description": "Message Scroller, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "@shadcn/react",
-        "lucide-react"
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "@shadcn/react"
       ],
       "registryDependencies": [
         "@nooxit/button",
@@ -796,7 +807,8 @@
       "title": "Native Select",
       "description": "Native Select, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react"
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
       ],
       "registryDependencies": [
         "@nooxit/nooxit-theme",
@@ -815,8 +827,9 @@
       "title": "Navigation Menu",
       "description": "Navigation Menu, styled to the Nooxit Figma UI kit.",
       "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "class-variance-authority",
-        "lucide-react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -836,7 +849,8 @@
       "title": "Pagination",
       "description": "Pagination, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react"
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
       ],
       "registryDependencies": [
         "@nooxit/button",
@@ -894,8 +908,9 @@
       "title": "Questionnaire",
       "description": "Questionnaire, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "@shadcn/react",
-        "lucide-react"
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "@shadcn/react"
       ],
       "registryDependencies": [
         "@nooxit/button",
@@ -934,7 +949,8 @@
       "title": "Resizable",
       "description": "Resizable, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "react-resizable-panels"
       ],
       "registryDependencies": [
@@ -973,7 +989,8 @@
       "title": "Select",
       "description": "Select, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -1012,7 +1029,8 @@
       "title": "Sheet",
       "description": "Sheet, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -1033,8 +1051,9 @@
       "title": "Sidebar",
       "description": "Sidebar, styled to the Nooxit Figma UI kit.",
       "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "class-variance-authority",
-        "lucide-react",
         "radix-ui"
       ],
       "registryDependencies": [
@@ -1096,7 +1115,8 @@
       "title": "Sonner",
       "description": "Sonner, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
         "next-themes",
         "sonner"
       ],
@@ -1116,7 +1136,8 @@
       "title": "Spinner",
       "description": "Spinner, styled to the Nooxit Figma UI kit.",
       "dependencies": [
-        "lucide-react"
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
       ],
       "registryDependencies": [
         "@nooxit/nooxit-theme",

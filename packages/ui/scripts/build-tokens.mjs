@@ -186,11 +186,7 @@ ts.push(
 const WEIGHT_CLASS = { 400: "font-normal", 500: "font-medium", 600: "font-semibold", 700: "font-bold", 800: "font-extrabold" }
 function textStyleClasses(style) {
   const [size, leading] = style.name.split("/")
-  const classes = []
-  if (style.font === "mono") classes.push("font-mono")
-  classes.push(size, leading)
-  // DM Mono ships in one weight (500); pin it so a bold parent cannot trigger faux bold.
-  classes.push(style.font === "mono" ? "font-medium" : WEIGHT_CLASS[style.weight])
+  const classes = [size, leading, WEIGHT_CLASS[style.weight]]
   const ls = style.letterSpacing
   if (ls.endsWith("%")) {
     if (ls !== "-2.5%") throw new Error(`Unmapped letter spacing ${ls}`)
@@ -208,8 +204,8 @@ const typography = source.typography
 ts.push("export type TextStyle = {")
 ts.push("  /** Figma text style name, e.g. \"text-sm/leading-5/medium\". */")
 ts.push("  name: string")
-ts.push("  font: \"sans\" | \"mono\"")
-ts.push("  /** Weight used in Figma. Mono renders at 500, the only DM Mono weight loaded. */")
+ts.push("  font: \"sans\"")
+ts.push("  /** Weight used in Figma. */")
 ts.push("  weight: number")
 ts.push("  /** Font size in px. */")
 ts.push("  size: number")

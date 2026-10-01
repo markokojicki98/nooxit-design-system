@@ -41,7 +41,6 @@ export function Guardrails() {
             <Input
               id="showcase-threshold"
               defaultValue="€5,000"
-              className="tabular-nums"
             />
             <FieldDescription>
               Anything above this waits for a human.

@@ -2,7 +2,12 @@ import * as React from "react"
 import { cn } from "nooxit-design-system/lib/utils"
 
 import { Button } from "nooxit-design-system/components/button"
-import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowLeft01Icon,
+  ArrowRight01Icon,
+  MoreHorizontalIcon,
+} from "@hugeicons/core-free-icons"
 
 // Figma: Pagination (#2774:38047) and Pagination Base / Item (#546:5807).
 // Page numbers are 40px squares with 8px corners (not pills); the current
@@ -82,7 +87,7 @@ function PaginationPrevious({
       className={cn(className)}
       {...props}
     >
-      <ChevronLeftIcon data-icon="inline-start" />
+      <HugeiconsIcon icon={ArrowLeft01Icon} strokeWidth={2} data-icon="inline-start" />
       <span className="hidden sm:block">{text}</span>
     </PaginationLink>
   )
@@ -101,7 +106,7 @@ function PaginationNext({
       {...props}
     >
       <span className="hidden sm:block">{text}</span>
-      <ChevronRightIcon data-icon="inline-end" />
+      <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} data-icon="inline-end" />
     </PaginationLink>
   )
 }
@@ -120,7 +125,7 @@ function PaginationEllipsis({
       )}
       {...props}
     >
-      <MoreHorizontalIcon />
+      <HugeiconsIcon icon={MoreHorizontalIcon} strokeWidth={2} />
       <span className="sr-only">More pages</span>
     </span>
   )

@@ -5,7 +5,8 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from 'nooxit-design-system/components/hover-card';
-import { CalendarDaysIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Calendar02Icon } from '@hugeicons/core-free-icons';
 
 export default function HoverCardDemo() {
   return (
@@ -24,7 +25,7 @@ export default function HoverCardDemo() {
               The design system behind every Nooxit product.
             </p>
             <div className="flex items-center gap-2 pt-1">
-              <CalendarDaysIcon className="size-4 opacity-70" />
+              <HugeiconsIcon icon={Calendar02Icon} strokeWidth={2} className="size-4 opacity-70" />
               <span className="text-xs leading-4 text-muted-foreground">
                 Joined September 2026
               </span>

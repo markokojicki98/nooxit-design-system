@@ -18,7 +18,8 @@ import {
   TableHeader,
   TableRow,
 } from 'nooxit-design-system/components/table';
-import { ArrowUpRightIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowUpRight01Icon } from '@hugeicons/core-free-icons';
 
 type Status = 'running' | 'done' | 'failed' | 'queued';
 
@@ -60,7 +61,7 @@ export function AgentRuns() {
         <CardAction>
           <Button variant="ghost" size="sm">
             View all
-            <ArrowUpRightIcon data-icon="inline-end" />
+            <HugeiconsIcon icon={ArrowUpRight01Icon} strokeWidth={2} data-icon="inline-end" />
           </Button>
         </CardAction>
       </CardHeader>
@@ -78,7 +79,7 @@ export function AgentRuns() {
           <TableBody>
             {runs.map((run) => (
               <TableRow key={run.id}>
-                <TableCell className="pl-6 font-mono text-xs font-medium tabular-nums">
+                <TableCell className="pl-6 font-medium">
                   {run.id}
                 </TableCell>
                 <TableCell className="font-medium">{run.task}</TableCell>
@@ -101,7 +102,7 @@ export function AgentRuns() {
                     aria-label={`${run.task} progress`}
                   />
                 </TableCell>
-                <TableCell className="pr-6 text-right font-mono text-xs tabular-nums text-muted-foreground">
+                <TableCell className="pr-6 text-right text-muted-foreground">
                   {run.duration}
                 </TableCell>
               </TableRow>

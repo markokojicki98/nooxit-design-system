@@ -4,21 +4,17 @@ const SAMPLE = 'Sustainable homes, built to last';
 
 /**
  * The Figma text styles with a live sample of each. `size` narrows the list to
- * one step (e.g. "text-sm"), `font` to sans or mono.
+ * one step (e.g. "text-sm").
  */
 export function TextStyles({
   size,
-  font,
   sample = SAMPLE,
 }: {
   size?: string;
-  font?: 'sans' | 'mono';
   sample?: string;
 }) {
   const styles = textStyles.filter(
-    (style) =>
-      (!size || style.name.startsWith(`${size}/`)) &&
-      (!font || style.font === font),
+    (style) => !size || style.name.startsWith(`${size}/`),
   );
 
   if (styles.length === 0) {

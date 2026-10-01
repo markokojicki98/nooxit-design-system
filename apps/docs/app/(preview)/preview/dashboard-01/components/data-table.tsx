@@ -1,6 +1,20 @@
 "use client"
 
-import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon, CircleCheckIcon, Columns3Icon, EllipsisVerticalIcon, GripVerticalIcon, LoaderIcon, PlusIcon, TrendingUpIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Add01Icon,
+  AnalyticsUpIcon,
+  ArrowDown01Icon,
+  ArrowLeft01Icon,
+  ArrowLeftDoubleIcon,
+  ArrowRight01Icon,
+  ArrowRightDoubleIcon,
+  CheckmarkCircle01Icon,
+  Drag01Icon,
+  Layout3ColumnIcon,
+  Loading01Icon,
+  MoreVerticalIcon,
+} from "@hugeicons/core-free-icons"
 import * as React from "react"
 import {
   closestCenter,
@@ -139,7 +153,7 @@ function DragHandle({ id }: { id: number }) {
       size="icon"
       className="size-7 text-muted-foreground hover:bg-transparent"
     >
-      <GripVerticalIcon className="size-3 text-muted-foreground" />
+      <HugeiconsIcon icon={Drag01Icon} strokeWidth={2} className="size-3 text-muted-foreground" />
       <span className="sr-only">Drag to reorder</span>
     </Button>
   )
@@ -199,9 +213,9 @@ const columns = columnHelper.columns([
     cell: ({ row }) => (
       <Badge variant="outline" className="px-1.5 text-muted-foreground">
         {row.original.status === "Done" ? (
-          <CircleCheckIcon className="fill-green-500 dark:fill-green-400" />
+          <HugeiconsIcon icon={CheckmarkCircle01Icon} strokeWidth={2} className="fill-green-500 dark:fill-green-400" />
         ) : (
-          <LoaderIcon />
+          <HugeiconsIcon icon={Loading01Icon} strokeWidth={2} />
         )}
         {row.original.status}
       </Badge>
@@ -300,7 +314,7 @@ const columns = columnHelper.columns([
             className="flex size-8 text-muted-foreground data-[state=open]:bg-muted"
             size="icon"
           >
-            <EllipsisVerticalIcon />
+            <HugeiconsIcon icon={MoreVerticalIcon} strokeWidth={2} />
             <span className="sr-only">Open menu</span>
           </Button>
         </DropdownMenuTrigger>
@@ -445,9 +459,9 @@ export function DataTable({
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
-                <Columns3Icon data-icon="inline-start" />
+                <HugeiconsIcon icon={Layout3ColumnIcon} strokeWidth={2} data-icon="inline-start" />
                 Columns
-                <ChevronDownIcon data-icon="inline-end" />
+                <HugeiconsIcon icon={ArrowDown01Icon} strokeWidth={2} data-icon="inline-end" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-32">
@@ -475,7 +489,7 @@ export function DataTable({
             </DropdownMenuContent>
           </DropdownMenu>
           <Button variant="outline" size="sm">
-            <PlusIcon />
+            <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
             <span className="hidden lg:inline">Add Section</span>
           </Button>
         </div>
@@ -574,7 +588,7 @@ export function DataTable({
                 disabled={!table.getCanPreviousPage()}
               >
                 <span className="sr-only">Go to first page</span>
-                <ChevronsLeftIcon />
+                <HugeiconsIcon icon={ArrowLeftDoubleIcon} strokeWidth={2} />
               </Button>
               <Button
                 variant="outline"
@@ -584,7 +598,7 @@ export function DataTable({
                 disabled={!table.getCanPreviousPage()}
               >
                 <span className="sr-only">Go to previous page</span>
-                <ChevronLeftIcon />
+                <HugeiconsIcon icon={ArrowLeft01Icon} strokeWidth={2} />
               </Button>
               <Button
                 variant="outline"
@@ -594,7 +608,7 @@ export function DataTable({
                 disabled={!table.getCanNextPage()}
               >
                 <span className="sr-only">Go to next page</span>
-                <ChevronRightIcon />
+                <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} />
               </Button>
               <Button
                 variant="outline"
@@ -604,7 +618,7 @@ export function DataTable({
                 disabled={!table.getCanNextPage()}
               >
                 <span className="sr-only">Go to last page</span>
-                <ChevronsRightIcon />
+                <HugeiconsIcon icon={ArrowRightDoubleIcon} strokeWidth={2} />
               </Button>
             </div>
           </div>
@@ -713,7 +727,7 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
               <div className="grid gap-2">
                 <div className="flex gap-2 leading-none font-medium">
                   Trending up by 5.2% this month{" "}
-                  <TrendingUpIcon className="size-4" />
+                  <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} className="size-4" />
                 </div>
                 <div className="text-muted-foreground">
                   Showing total visitors for the last 6 months. This is just

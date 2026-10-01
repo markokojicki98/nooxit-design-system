@@ -1,19 +1,20 @@
 "use client"
 
 import * as React from "react"
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  ArrowDownIcon,
+  ArrowDown01Icon,
+  ArrowLeft01Icon,
+  ArrowLeftDoubleIcon,
+  ArrowRight01Icon,
+  ArrowRightDoubleIcon,
+  ArrowUp01Icon,
   ArrowUpDownIcon,
-  ArrowUpIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronsLeftIcon,
-  ChevronsRightIcon,
-  DownloadIcon,
-  EllipsisVerticalIcon,
-  SearchIcon,
-  SearchXIcon,
-} from "lucide-react"
+  Download01Icon,
+  MoreVerticalIcon,
+  Search01Icon,
+  SearchMinusIcon,
+} from "@hugeicons/core-free-icons"
 import {
   createColumnHelper,
   createPaginatedRowModel,
@@ -108,11 +109,11 @@ function SortButton({
   onClick: ((event: unknown) => void) | undefined
   align?: "left" | "right"
 }) {
-  const Icon =
+  const icon =
     sorted === "asc"
-      ? ArrowUpIcon
+      ? ArrowUp01Icon
       : sorted === "desc"
-        ? ArrowDownIcon
+        ? ArrowDown01Icon
         : ArrowUpDownIcon
   return (
     <button
@@ -125,7 +126,11 @@ function SortButton({
       aria-label={`Sort by ${label.toLowerCase()}`}
     >
       {label}
-      <Icon className={cn("size-3.5", !sorted && "text-muted-foreground")} />
+      <HugeiconsIcon
+        icon={icon}
+        strokeWidth={2}
+        className={cn("size-3.5", !sorted && "text-muted-foreground")}
+      />
     </button>
   )
 }
@@ -157,7 +162,7 @@ const columns = columnHelper.columns([
     header: "Case",
     cell: ({ row }) => (
       <span className="flex min-w-0 flex-col">
-        <span className="truncate font-mono text-xs leading-4 font-medium tabular-nums">
+        <span className="truncate text-sm leading-5 font-medium">
           {row.original.reference}
         </span>
         <span className="truncate text-sm leading-5 text-muted-foreground">
@@ -204,7 +209,7 @@ const columns = columnHelper.columns([
       </div>
     ),
     cell: ({ row }) => (
-      <div className="text-right font-mono text-xs font-medium tabular-nums">
+      <div className="text-right text-sm font-medium">
         {formatAmount(row.original.amount)}
       </div>
     ),
@@ -226,7 +231,7 @@ const columns = columnHelper.columns([
       return (
         <div
           className={cn(
-            "text-right font-mono text-xs whitespace-nowrap tabular-nums",
+            "text-right text-sm whitespace-nowrap",
             overdue ? "font-medium text-destructive" : "text-muted-foreground"
           )}
         >
@@ -248,7 +253,7 @@ const columns = columnHelper.columns([
             onClick={(event) => event.stopPropagation()}
             aria-label={`Actions for ${row.original.reference}`}
           >
-            <EllipsisVerticalIcon />
+            <HugeiconsIcon icon={MoreVerticalIcon} strokeWidth={2} />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -340,7 +345,11 @@ export function OperationsView() {
         title="Operations"
         actions={
           <Button variant="outline">
-            <DownloadIcon data-icon="inline-start" />
+            <HugeiconsIcon
+              icon={Download01Icon}
+              strokeWidth={2}
+              data-icon="inline-start"
+            />
             Export
           </Button>
         }
@@ -359,7 +368,7 @@ export function OperationsView() {
             {tabs.map((t) => (
               <TabsTrigger key={t.value} value={t.value}>
                 {t.label}
-                <span className="font-mono text-xs font-medium text-muted-foreground tabular-nums">
+                <span className="text-xs font-medium text-muted-foreground">
                   {counts[t.value]}
                 </span>
               </TabsTrigger>
@@ -370,7 +379,7 @@ export function OperationsView() {
         <div className="flex flex-col gap-3 @3xl/main:flex-row @3xl/main:items-center">
           <InputGroup className="@3xl/main:max-w-72">
             <InputGroupAddon>
-              <SearchIcon />
+              <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
             </InputGroupAddon>
             <InputGroupInput
               value={query}
@@ -437,7 +446,7 @@ export function OperationsView() {
           <Empty className="py-16">
             <EmptyHeader>
               <EmptyMedia variant="icon">
-                <SearchXIcon />
+                <HugeiconsIcon icon={SearchMinusIcon} strokeWidth={2} />
               </EmptyMedia>
               <EmptyTitle>No cases match</EmptyTitle>
               <EmptyDescription>
@@ -560,7 +569,7 @@ export function OperationsView() {
                 </SelectContent>
               </Select>
             </div>
-            <span className="text-sm leading-5 font-medium tabular-nums">
+            <span className="text-sm leading-5 font-medium">
               Page {pagination.pageIndex + 1} of {table.getPageCount()}
             </span>
             <div className="flex items-center gap-2">
@@ -572,7 +581,7 @@ export function OperationsView() {
                 disabled={!table.getCanPreviousPage()}
                 aria-label="First page"
               >
-                <ChevronsLeftIcon />
+                <HugeiconsIcon icon={ArrowLeftDoubleIcon} strokeWidth={2} />
               </Button>
               <Button
                 variant="outline"
@@ -581,7 +590,7 @@ export function OperationsView() {
                 disabled={!table.getCanPreviousPage()}
                 aria-label="Previous page"
               >
-                <ChevronLeftIcon />
+                <HugeiconsIcon icon={ArrowLeft01Icon} strokeWidth={2} />
               </Button>
               <Button
                 variant="outline"
@@ -590,7 +599,7 @@ export function OperationsView() {
                 disabled={!table.getCanNextPage()}
                 aria-label="Next page"
               >
-                <ChevronRightIcon />
+                <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} />
               </Button>
               <Button
                 variant="outline"
@@ -600,7 +609,7 @@ export function OperationsView() {
                 disabled={!table.getCanNextPage()}
                 aria-label="Last page"
               >
-                <ChevronsRightIcon />
+                <HugeiconsIcon icon={ArrowRightDoubleIcon} strokeWidth={2} />
               </Button>
             </div>
           </div>

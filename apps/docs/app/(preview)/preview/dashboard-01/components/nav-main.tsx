@@ -1,6 +1,7 @@
 "use client"
 
-import { CirclePlusIcon, MailIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { AddCircleIcon, Mail01Icon } from "@hugeicons/core-free-icons"
 import { Button } from "nooxit-design-system/components/button"
 import {
   SidebarGroup,
@@ -28,7 +29,7 @@ export function NavMain({
               tooltip="Quick Create"
               className="min-w-8 bg-primary text-primary-foreground duration-200 ease-linear hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
             >
-              <CirclePlusIcon />
+              <HugeiconsIcon icon={AddCircleIcon} strokeWidth={2} />
               <span>Quick Create</span>
             </SidebarMenuButton>
             <Button
@@ -36,7 +37,7 @@ export function NavMain({
               className="size-8 group-data-[collapsible=icon]:opacity-0"
               variant="outline"
             >
-              <MailIcon />
+              <HugeiconsIcon icon={Mail01Icon} strokeWidth={2} />
               <span className="sr-only">Inbox</span>
             </Button>
           </SidebarMenuItem>

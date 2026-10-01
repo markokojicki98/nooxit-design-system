@@ -18,7 +18,7 @@ Unresolved: other nav items are visual only.
 
 THESIS: The cockpit is a hand-off desk, not a KPI wall. It refuses dashboard-01's four stat tiles over a chart; every number sits next to the thing a person does about it.
 
-OWN-WORLD: The incumbent Nooxit world unchanged: warm neutral chrome on sidebar-gray, one off-white panel, 1px borders, pill buttons, DM Sans with DM Mono only for case numbers, amounts and times. Color appears only as state: warning for deviations, descriptive blue for work in progress, destructive for overdue, success for cleared.
+OWN-WORLD: The incumbent Nooxit world unchanged: warm neutral chrome on sidebar-gray, one off-white panel, 1px borders, pill buttons, Aspekta throughout (chosen over Overused Grotesk; it replaced DM Sans on 2026-10-01), case numbers, amounts and times included. Color appears only as state: warning for deviations, descriptive blue for work in progress, destructive for overdue, success for cleared.
 
 STORY: Spot (agent roster shows who is waiting on you) → intervene (the next decision, answered in place) → trust (throughput and the activity log show the rest ran on its own).
 

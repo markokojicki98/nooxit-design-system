@@ -1,6 +1,6 @@
 {
   "title": "Components",
-  "icon": "Component",
+  "icon": "ShapesIcon",
   "pages": [
     "accordion",
     "alert",

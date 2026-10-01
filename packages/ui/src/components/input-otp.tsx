@@ -3,7 +3,6 @@
 import * as React from "react"
 import { cn } from "nooxit-design-system/lib/utils"
 import { OTPInput, OTPInputContext } from "input-otp"
-import { DotIcon } from "lucide-react"
 
 // Figma: Input OPT (#2737:7152). 40px slots joined into groups with 6px
 // outer corners, text-sm/leading-6/medium values, dot separators. Slots share
@@ -73,11 +72,11 @@ function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="input-otp-separator"
-      className="flex items-center text-foreground [&_svg:not([class*='size-'])]:size-6"
+      className="flex items-center text-foreground"
       role="separator"
       {...props}
     >
-      <DotIcon />
+      <span aria-hidden className="size-1.5 rounded-full bg-current" />
     </div>
   )
 }

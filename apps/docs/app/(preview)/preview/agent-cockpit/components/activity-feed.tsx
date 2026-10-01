@@ -1,6 +1,7 @@
 "use client"
 
-import { UserRoundCheckIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { UserCheck01Icon } from "@hugeicons/core-free-icons"
 
 import {
   Card,
@@ -33,7 +34,11 @@ export function ActivityFeed() {
             <li key={event.id} className="flex items-start gap-3">
               {event.agent === "you" ? (
                 <span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                  <UserRoundCheckIcon className="size-3.5" />
+                  <HugeiconsIcon
+                    icon={UserCheck01Icon}
+                    strokeWidth={2}
+                    className="size-3.5"
+                  />
                   <span className="sr-only">You</span>
                 </span>
               ) : (
@@ -45,7 +50,7 @@ export function ActivityFeed() {
                 </span>{" "}
                 <span className="text-muted-foreground">{event.text}</span>
               </span>
-              <time className="shrink-0 font-mono text-xs leading-5 font-medium text-muted-foreground tabular-nums">
+              <time className="shrink-0 text-xs leading-5 font-medium text-muted-foreground">
                 {event.time}
               </time>
             </li>

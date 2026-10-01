@@ -7,9 +7,10 @@
  *   @import "tailwindcss";
  *   @import "nooxit-design-system/theme.css";
  *
- * Fonts: the theme expects DM Sans and DM Mono in the CSS variables
- * --font-dm-sans and --font-dm-mono (next/font/google sets them, see the docs),
- * and falls back to the family names "DM Sans" / "DM Mono".
+ * Fonts: the theme expects Aspekta in the CSS variable --font-brand
+ * (next/font/local sets it, see the docs) and falls back to the family name
+ * "Aspekta". There is no brand monospace: font-mono is the OS
+ * monospace, for code only.
  */
 @import "tw-animate-css";
 @import "./shadcn.css";
@@ -30,15 +31,17 @@
 }
 
 @theme inline {
-  /* Figma tailwind_typography: font-family/font-sans, font-family/font-mono. */
+  /* Figma tailwind_typography: font-family/font-sans, now Aspekta. DM Mono
+     was removed (2026-10-01); font-mono stays for code and uses the OS
+     monospace. */
   --font-sans:
-    var(--font-dm-sans, "DM Sans"), ui-sans-serif, system-ui, sans-serif,
+    var(--font-brand, "Aspekta"), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-heading:
-    var(--font-dm-sans, "DM Sans"), ui-sans-serif, system-ui, sans-serif;
+    var(--font-brand, "Aspekta"), ui-sans-serif, system-ui, sans-serif;
   --font-mono:
-    var(--font-dm-mono, "DM Mono"), ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 
   /* rounded-sm = 4px, rounded-md = 6px, rounded-lg = 8px (from --radius).
      rounded-xs 2px, rounded-xl 12px, rounded-2xl 16px and rounded-3xl 24px are
@@ -145,12 +148,6 @@
     caret-color: var(--foreground);
     scrollbar-color: var(--border) transparent;
     scrollbar-width: thin;
-  }
-
-  /* Numerals in data must not jitter as values change. */
-  table,
-  [data-slot="table"] {
-    font-variant-numeric: tabular-nums;
   }
 
   /* Text entry keeps the I-beam even inside a clickable wrapper. */

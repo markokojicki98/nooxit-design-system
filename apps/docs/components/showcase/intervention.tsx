@@ -16,7 +16,8 @@ import {
   CardTitle,
 } from 'nooxit-design-system/components/card';
 import { Separator } from 'nooxit-design-system/components/separator';
-import { TriangleAlertIcon } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Alert02Icon } from '@hugeicons/core-free-icons';
 
 export function Intervention() {
   return (
@@ -32,8 +33,8 @@ export function Intervention() {
           variant="destructive"
           className="border-transparent bg-destructive-muted [&>svg]:text-destructive"
         >
-          <TriangleAlertIcon />
-          <AlertDescription className="font-mono text-xs leading-4 font-medium uppercase">
+          <HugeiconsIcon icon={Alert02Icon} strokeWidth={2} />
+          <AlertDescription className="text-xs leading-4 font-medium uppercase">
             Invoice #INV-2291 for €14,280 names a supplier who is not on the
             approved list.
           </AlertDescription>

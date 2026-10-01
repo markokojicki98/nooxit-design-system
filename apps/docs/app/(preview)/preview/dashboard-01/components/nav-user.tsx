@@ -1,6 +1,13 @@
 "use client"
 
-import { BellIcon, CircleUserRoundIcon, CreditCardIcon, EllipsisVerticalIcon, LogOutIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  CreditCardIcon,
+  Logout01Icon,
+  MoreVerticalIcon,
+  Notification01Icon,
+  UserCircleIcon,
+} from "@hugeicons/core-free-icons"
 import {
   Avatar,
   AvatarFallback,
@@ -52,7 +59,7 @@ export function NavUser({
                   {user.email}
                 </span>
               </div>
-              <EllipsisVerticalIcon className="ml-auto size-4" />
+              <HugeiconsIcon icon={MoreVerticalIcon} strokeWidth={2} className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -78,21 +85,21 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <CircleUserRoundIcon />
+                <HugeiconsIcon icon={UserCircleIcon} strokeWidth={2} />
                 Account
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <CreditCardIcon />
+                <HugeiconsIcon icon={CreditCardIcon} strokeWidth={2} />
                 Billing
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <BellIcon />
+                <HugeiconsIcon icon={Notification01Icon} strokeWidth={2} />
                 Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <LogOutIcon />
+              <HugeiconsIcon icon={Logout01Icon} strokeWidth={2} />
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>

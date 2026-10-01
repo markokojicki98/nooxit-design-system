@@ -1,6 +1,12 @@
 "use client"
 
-import { FolderIcon, MoreHorizontalIcon, ShareIcon, Trash2Icon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Delete02Icon,
+  Folder01Icon,
+  MoreHorizontalIcon,
+  Share01Icon,
+} from "@hugeicons/core-free-icons"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -47,7 +53,7 @@ export function NavDocuments({
                   showOnHover
                   className="rounded-sm data-[state=open]:bg-accent"
                 >
-                  <MoreHorizontalIcon />
+                  <HugeiconsIcon icon={MoreHorizontalIcon} strokeWidth={2} />
                   <span className="sr-only">More</span>
                 </SidebarMenuAction>
               </DropdownMenuTrigger>
@@ -57,16 +63,16 @@ export function NavDocuments({
                 align={isMobile ? "end" : "start"}
               >
                 <DropdownMenuItem>
-                  <FolderIcon />
+                  <HugeiconsIcon icon={Folder01Icon} strokeWidth={2} />
                   <span>Open</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <ShareIcon />
+                  <HugeiconsIcon icon={Share01Icon} strokeWidth={2} />
                   <span>Share</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem variant="destructive">
-                  <Trash2Icon />
+                  <HugeiconsIcon icon={Delete02Icon} strokeWidth={2} />
                   <span>Delete</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -75,7 +81,7 @@ export function NavDocuments({
         ))}
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontalIcon className="text-sidebar-foreground/70" />
+            <HugeiconsIcon icon={MoreHorizontalIcon} strokeWidth={2} className="text-sidebar-foreground/70" />
             <span>More</span>
           </SidebarMenuButton>
         </SidebarMenuItem>

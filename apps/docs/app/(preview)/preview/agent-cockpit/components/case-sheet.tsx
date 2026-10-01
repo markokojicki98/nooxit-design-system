@@ -1,6 +1,7 @@
 "use client"
 
-import { BotIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { BotIcon } from "@hugeicons/core-free-icons"
 
 import { Alert, AlertDescription } from "nooxit-design-system/components/alert"
 import { Button } from "nooxit-design-system/components/button"
@@ -52,9 +53,7 @@ export function CaseSheet({
             <SheetHeader className="gap-2 border-b pr-12">
               <SheetTitle className="leading-7">{item.title}</SheetTitle>
               <SheetDescription>
-                <span className="font-mono text-xs font-medium tabular-nums">
-                  {item.reference}
-                </span>
+                <span className="font-medium">{item.reference}</span>
                 {" · "}
                 {item.type}
               </SheetDescription>
@@ -73,14 +72,14 @@ export function CaseSheet({
                 </Field>
                 <Field label="Supplier">{item.supplier}</Field>
                 <Field label="Impact">
-                  <span className="font-mono text-xs font-medium tabular-nums">
+                  <span className="font-medium">
                     {formatAmount(item.amount)}
                   </span>
                 </Field>
                 <Field
                   label={item.status === "waiting" ? "Waiting" : "Updated"}
                 >
-                  <span className="font-mono text-xs font-medium tabular-nums">
+                  <span className="font-medium">
                     {item.hours === 0
                       ? "just now"
                       : `${formatAge(item.hours)} ago`}
@@ -99,7 +98,7 @@ export function CaseSheet({
                 </div>
                 <CaseComparison item={item} />
                 <Alert className="border-transparent bg-muted">
-                  <BotIcon />
+                  <HugeiconsIcon icon={BotIcon} strokeWidth={2} />
                   <AlertDescription className="text-sm leading-5 text-foreground">
                     {item.note}
                   </AlertDescription>

@@ -1,12 +1,13 @@
 "use client"
 
 import Link from "next/link"
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  CheckIcon,
-  ChevronsUpDownIcon,
+  Add01Icon,
+  ArrowUpDownIcon,
   InboxIcon,
-  PlusIcon,
-} from "lucide-react"
+  Tick01Icon,
+} from "@hugeicons/core-free-icons"
 
 import { Badge } from "nooxit-design-system/components/badge"
 import { Button } from "nooxit-design-system/components/button"
@@ -42,7 +43,7 @@ function OrgMark({ name }: { name: string }) {
   return (
     <span
       aria-hidden
-      className="flex size-5 shrink-0 items-center justify-center rounded-sm bg-primary font-mono text-xs font-medium text-primary-foreground"
+      className="flex size-5 shrink-0 items-center justify-center rounded-sm bg-primary text-xs font-medium text-primary-foreground"
     >
       {name.slice(0, 1)}
     </span>
@@ -63,7 +64,11 @@ function OrgSwitcher() {
           <span className="min-w-0 flex-1 truncate text-left">
             {current.name}
           </span>
-          <ChevronsUpDownIcon className="size-4 shrink-0" />
+          <HugeiconsIcon
+            icon={ArrowUpDownIcon}
+            strokeWidth={2}
+            className="size-4 shrink-0"
+          />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-56">
@@ -72,12 +77,18 @@ function OrgSwitcher() {
           <DropdownMenuItem key={org.id}>
             <OrgMark name={org.name} />
             {org.name}
-            {org.id === current.id ? <CheckIcon className="ml-auto" /> : null}
+            {org.id === current.id ? (
+              <HugeiconsIcon
+                icon={Tick01Icon}
+                strokeWidth={2}
+                className="ml-auto"
+              />
+            ) : null}
           </DropdownMenuItem>
         ))}
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <PlusIcon />
+          <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
           Add organization
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -88,7 +99,7 @@ function OrgSwitcher() {
 function WorkforceStatus() {
   return (
     <div
-      className="hidden items-center gap-2 font-mono text-xs leading-4 font-medium tracking-wide text-muted-foreground uppercase lg:flex"
+      className="hidden items-center gap-2 text-xs leading-4 font-medium tracking-wide text-muted-foreground uppercase lg:flex"
       role="status"
     >
       <span aria-hidden className="size-2 rounded-full bg-success" />
@@ -105,12 +116,13 @@ function Inbox() {
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="outline" size="sm">
-          <InboxIcon data-icon="inline-start" />
+          <HugeiconsIcon
+            icon={InboxIcon}
+            strokeWidth={2}
+            data-icon="inline-start"
+          />
           Inbox
-          <Badge
-            variant="secondary"
-            className="font-mono font-medium tabular-nums"
-          >
+          <Badge variant="secondary" className="font-medium">
             {latest.length}
           </Badge>
         </Button>
@@ -128,7 +140,7 @@ function Inbox() {
               <AgentAvatar agent={item.agent} size="xs" className="mt-0.5" />
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm leading-5">{item.title}</p>
-                <p className="truncate font-mono text-xs leading-4 font-medium text-muted-foreground">
+                <p className="truncate text-xs leading-4 font-medium text-muted-foreground">
                   {item.reference} · {formatAge(item.hours)}
                 </p>
               </div>

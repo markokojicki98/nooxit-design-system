@@ -11,18 +11,19 @@ import {
   MarkerContent,
   MarkerIcon,
 } from 'nooxit-design-system/components/marker';
+import { HugeiconsIcon } from '@hugeicons/react';
 import {
-  CircleCheckIcon,
-  CircleDotIcon,
+  CheckmarkCircle01Icon,
+  CircleIcon,
   OctagonXIcon,
-  UserRoundIcon,
-} from 'lucide-react';
+  UserCircleIcon,
+} from '@hugeicons/core-free-icons';
 
 const events = [
-  { icon: CircleDotIcon, text: 'Run started by schedule', time: '09:14' },
-  { icon: CircleCheckIcon, text: '38 invoices matched', time: '09:16' },
+  { icon: CircleIcon, text: 'Run started by schedule', time: '09:14' },
+  { icon: CheckmarkCircle01Icon, text: '38 invoices matched', time: '09:16' },
   { icon: OctagonXIcon, text: 'Held on unverified supplier', time: '09:18' },
-  { icon: UserRoundIcon, text: 'Escalated to Marko', time: '09:18' },
+  { icon: UserCircleIcon, text: 'Escalated to Marko', time: '09:18' },
 ];
 
 export function AuditTrail() {
@@ -41,12 +42,12 @@ export function AuditTrail() {
           {events.map((event) => (
             <li key={event.text} className="flex items-center gap-3">
               <span className="flex size-6 shrink-0 items-center justify-center rounded-sm bg-muted text-foreground">
-                <event.icon className="size-3.5" />
+                <HugeiconsIcon icon={event.icon} strokeWidth={2} className="size-3.5" />
               </span>
               <span className="min-w-0 flex-1 truncate text-sm leading-5">
                 {event.text}
               </span>
-              <span className="font-mono text-xs leading-4 tabular-nums text-muted-foreground">
+              <span className="text-xs leading-4 text-muted-foreground">
                 {event.time}
               </span>
             </li>
