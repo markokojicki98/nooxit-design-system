@@ -2,14 +2,13 @@
 
 import { useTheme } from "next-themes"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  Alert02Icon,
-  CheckmarkCircle01Icon,
-  InformationCircleIcon,
-  Loading02Icon,
-  OctagonXIcon,
-} from "@hugeicons/core-free-icons"
+  CheckCircleIcon,
+  CircleNotchIcon,
+  InfoIcon,
+  WarningIcon,
+  XCircleIcon,
+} from "@phosphor-icons/react/ssr"
 
 // Figma: "Sooner" (#540:5281) and Sooner Base / Button (#2785:11531).
 // 356px toast, 16px padding and gap, 6px radius, 1px border, shadow-lg,
@@ -30,19 +29,19 @@ const Toaster = ({ ...props }: ToasterProps) => {
       gap={12}
       icons={{
         success: (
-          <HugeiconsIcon icon={CheckmarkCircle01Icon} strokeWidth={2} className="size-4" />
+          <CheckCircleIcon className="size-4" />
         ),
         info: (
-          <HugeiconsIcon icon={InformationCircleIcon} strokeWidth={2} className="size-4" />
+          <InfoIcon className="size-4" />
         ),
         warning: (
-          <HugeiconsIcon icon={Alert02Icon} strokeWidth={2} className="size-4" />
+          <WarningIcon className="size-4" />
         ),
         error: (
-          <HugeiconsIcon icon={OctagonXIcon} strokeWidth={2} className="size-4" />
+          <XCircleIcon className="size-4" />
         ),
         loading: (
-          <HugeiconsIcon icon={Loading02Icon} strokeWidth={2} className="size-4 animate-spin" />
+          <CircleNotchIcon className="size-4 animate-spin" />
         ),
       }}
       style={

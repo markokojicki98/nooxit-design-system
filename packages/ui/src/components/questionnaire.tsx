@@ -8,8 +8,7 @@ import {
   buttonVariants,
   type Button,
 } from "nooxit-design-system/components/button"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { Tick01Icon } from "@hugeicons/core-free-icons"
+import { CheckIcon } from "@phosphor-icons/react/ssr"
 
 function Questionnaire({
   className,
@@ -129,7 +128,7 @@ function QuestionnaireChoice({
           data-slot="questionnaire-choice-indicator-dot"
           className="hidden size-2.5 rounded-full bg-primary group-data-[type=checkbox]/questionnaire-choice:hidden group-data-checked/questionnaire-choice:block"
         />
-        <HugeiconsIcon icon={Tick01Icon} strokeWidth={2}
+        <CheckIcon
           data-slot="questionnaire-choice-indicator-check"
           className="hidden size-3.5 group-data-[type=radio]/questionnaire-choice:hidden group-data-checked/questionnaire-choice:block"
         />

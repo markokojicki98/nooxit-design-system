@@ -8,13 +8,12 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from 'nooxit-design-system/components/dropdown-menu';
-import { HugeiconsIcon } from '@hugeicons/react';
 import {
   CreditCardIcon,
-  Logout01Icon,
-  Settings01Icon,
-  UserCircleIcon,
-} from '@hugeicons/core-free-icons';
+  GearIcon,
+  SignOutIcon,
+  UserIcon,
+} from '@phosphor-icons/react/ssr';
 
 export default function DropdownMenuDemo() {
   return (
@@ -26,21 +25,21 @@ export default function DropdownMenuDemo() {
         <DropdownMenuLabel>My account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <HugeiconsIcon icon={UserCircleIcon} strokeWidth={2} />
+          <UserIcon />
           Profile
           <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <HugeiconsIcon icon={CreditCardIcon} strokeWidth={2} />
+          <CreditCardIcon />
           Billing
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />
+          <GearIcon />
           Settings
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem variant="destructive">
-          <HugeiconsIcon icon={Logout01Icon} strokeWidth={2} />
+          <SignOutIcon />
           Log out
         </DropdownMenuItem>
       </DropdownMenuContent>

@@ -1,11 +1,7 @@
 import * as React from "react"
 import { cn } from "nooxit-design-system/lib/utils"
 import { Slot } from "radix-ui"
-import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ArrowRight01Icon,
-  MoreHorizontalIcon,
-} from "@hugeicons/core-free-icons"
+import { CaretRightIcon, DotsThreeIcon } from "@phosphor-icons/react/ssr"
 
 // Figma: Breadcrumb Base (#2730:13718). text-sm/leading-5, muted items that
 // turn foreground on hover, 16px chevron separators, 8px gaps.
@@ -91,7 +87,7 @@ function BreadcrumbSeparator({
       {...props}
     >
       {children ?? (
-        <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} />
+        <CaretRightIcon />
       )}
     </li>
   )
@@ -112,7 +108,7 @@ function BreadcrumbEllipsis({
       )}
       {...props}
     >
-      <HugeiconsIcon icon={MoreHorizontalIcon} strokeWidth={2} />
+      <DotsThreeIcon />
       <span className="sr-only">More</span>
     </span>
   )

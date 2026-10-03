@@ -1,6 +1,6 @@
 {
   "title": "Charts",
-  "icon": "Chart01Icon",
+  "icon": "ChartLineIcon",
   "pages": [
     "index",
     "area",

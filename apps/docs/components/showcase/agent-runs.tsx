@@ -18,8 +18,7 @@ import {
   TableHeader,
   TableRow,
 } from 'nooxit-design-system/components/table';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowUpRight01Icon } from '@hugeicons/core-free-icons';
+import { ArrowUpRightIcon } from '@phosphor-icons/react/ssr';
 
 type Status = 'running' | 'done' | 'failed' | 'queued';
 
@@ -61,7 +60,7 @@ export function AgentRuns() {
         <CardAction>
           <Button variant="ghost" size="sm">
             View all
-            <HugeiconsIcon icon={ArrowUpRight01Icon} strokeWidth={2} data-icon="inline-end" />
+            <ArrowUpRightIcon data-icon="inline-end" />
           </Button>
         </CardAction>
       </CardHeader>

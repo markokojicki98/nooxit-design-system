@@ -19,8 +19,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from 'nooxit-design-system/components/chart';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { AnalyticsUpIcon } from '@hugeicons/core-free-icons';
+import { TrendUpIcon } from '@phosphor-icons/react/ssr';
 
 const data = [
   { day: 'Mon', automated: 186, escalated: 34 },
@@ -45,7 +44,7 @@ export function Throughput() {
         <CardDescription>Tasks closed without a human, last 7 days.</CardDescription>
         <CardAction>
           <Badge className="bg-success-muted text-success-muted-foreground">
-            <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} />
+            <TrendUpIcon />
             +18.2%
           </Badge>
         </CardAction>

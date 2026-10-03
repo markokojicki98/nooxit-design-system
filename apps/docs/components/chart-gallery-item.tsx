@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { CodeIcon } from '@hugeicons/core-free-icons';
+import { CodeIcon } from '@phosphor-icons/react/ssr';
 
 import { Button } from 'nooxit-design-system/components/button';
 import {
@@ -43,7 +42,7 @@ export function ChartGalleryItem({
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="xs">
-              <HugeiconsIcon icon={CodeIcon} strokeWidth={2} data-icon="inline-start" />
+              <CodeIcon data-icon="inline-start" />
               View code
             </Button>
           </SheetTrigger>

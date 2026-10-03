@@ -1,13 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  Add01Icon,
-  FileAddIcon,
-  Invoice02Icon,
+  FilePlusIcon,
+  PlusIcon,
+  ReceiptIcon,
   WarehouseIcon,
-} from "@hugeicons/core-free-icons"
+} from "@phosphor-icons/react/ssr"
 
 import { Button } from "nooxit-design-system/components/button"
 import {
@@ -48,25 +47,21 @@ function AddMenu() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button>
-          <HugeiconsIcon
-            icon={Add01Icon}
-            strokeWidth={2}
-            data-icon="inline-start"
-          />
+          <PlusIcon data-icon="inline-start" />
           Add
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuItem>
-          <HugeiconsIcon icon={FileAddIcon} strokeWidth={2} />
+          <FilePlusIcon />
           Purchase requisition
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <HugeiconsIcon icon={Invoice02Icon} strokeWidth={2} />
+          <ReceiptIcon />
           Upload an invoice
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <HugeiconsIcon icon={WarehouseIcon} strokeWidth={2} />
+          <WarehouseIcon />
           Supplier
         </DropdownMenuItem>
       </DropdownMenuContent>

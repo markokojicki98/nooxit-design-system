@@ -8,13 +8,12 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from 'nooxit-design-system/components/command';
-import { HugeiconsIcon } from '@hugeicons/react';
 import {
-  Calendar01Icon,
-  Settings01Icon,
-  SmileIcon,
-  UserCircleIcon,
-} from '@hugeicons/core-free-icons';
+  CalendarIcon,
+  GearIcon,
+  SmileyIcon,
+  UserIcon,
+} from '@phosphor-icons/react/ssr';
 
 export default function CommandDemo() {
   return (
@@ -24,23 +23,23 @@ export default function CommandDemo() {
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Suggestions">
           <CommandItem>
-            <HugeiconsIcon icon={Calendar01Icon} strokeWidth={2} />
+            <CalendarIcon />
             Calendar
           </CommandItem>
           <CommandItem>
-            <HugeiconsIcon icon={SmileIcon} strokeWidth={2} />
+            <SmileyIcon />
             Search emoji
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Settings">
           <CommandItem>
-            <HugeiconsIcon icon={UserCircleIcon} strokeWidth={2} />
+            <UserIcon />
             Profile
             <CommandShortcut>⌘P</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />
+            <GearIcon />
             Settings
             <CommandShortcut>⌘S</CommandShortcut>
           </CommandItem>

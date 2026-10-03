@@ -11,19 +11,18 @@ import {
   MarkerContent,
   MarkerIcon,
 } from 'nooxit-design-system/components/marker';
-import { HugeiconsIcon } from '@hugeicons/react';
 import {
-  CheckmarkCircle01Icon,
-  CircleIcon,
-  OctagonXIcon,
-  UserCircleIcon,
-} from '@hugeicons/core-free-icons';
+  CheckCircleIcon,
+  RecordIcon,
+  UserIcon,
+  XCircleIcon,
+} from '@phosphor-icons/react/ssr';
 
 const events = [
-  { icon: CircleIcon, text: 'Run started by schedule', time: '09:14' },
-  { icon: CheckmarkCircle01Icon, text: '38 invoices matched', time: '09:16' },
-  { icon: OctagonXIcon, text: 'Held on unverified supplier', time: '09:18' },
-  { icon: UserCircleIcon, text: 'Escalated to Marko', time: '09:18' },
+  { icon: RecordIcon, text: 'Run started by schedule', time: '09:14' },
+  { icon: CheckCircleIcon, text: '38 invoices matched', time: '09:16' },
+  { icon: XCircleIcon, text: 'Held on unverified supplier', time: '09:18' },
+  { icon: UserIcon, text: 'Escalated to Marko', time: '09:18' },
 ];
 
 export function AuditTrail() {
@@ -42,7 +41,7 @@ export function AuditTrail() {
           {events.map((event) => (
             <li key={event.text} className="flex items-center gap-3">
               <span className="flex size-6 shrink-0 items-center justify-center rounded-sm bg-muted text-foreground">
-                <HugeiconsIcon icon={event.icon} strokeWidth={2} className="size-3.5" />
+                <event.icon className="size-3.5" />
               </span>
               <span className="min-w-0 flex-1 truncate text-sm leading-5">
                 {event.text}

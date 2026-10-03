@@ -1,22 +1,20 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  BarChartIcon,
-  Camera01Icon,
+  CameraIcon,
+  ChartBarIcon,
   CommandIcon,
-  DashboardSquare01Icon,
   DatabaseIcon,
-  File01Icon,
-  File02Icon,
-  FileChartColumnIcon,
-  Folder01Icon,
-  HelpCircleIcon,
-  ListViewIcon,
-  Search01Icon,
-  Settings02Icon,
-  UserMultipleIcon,
-} from "@hugeicons/core-free-icons"
+  FileIcon,
+  FileTextIcon,
+  FolderIcon,
+  ListIcon,
+  MagnifyingGlassIcon,
+  QuestionIcon,
+  SlidersHorizontalIcon,
+  SquaresFourIcon,
+  UsersIcon,
+} from "@phosphor-icons/react/ssr"
 import * as React from "react"
 
 import { NavDocuments } from "./nav-documents"
@@ -44,35 +42,35 @@ const data = {
       title: "Dashboard",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={DashboardSquare01Icon} strokeWidth={2} />
+        <SquaresFourIcon />
       ),
     },
     {
       title: "Lifecycle",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={ListViewIcon} strokeWidth={2} />
+        <ListIcon />
       ),
     },
     {
       title: "Analytics",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={BarChartIcon} strokeWidth={2} />
+        <ChartBarIcon />
       ),
     },
     {
       title: "Projects",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={Folder01Icon} strokeWidth={2} />
+        <FolderIcon />
       ),
     },
     {
       title: "Team",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={UserMultipleIcon} strokeWidth={2} />
+        <UsersIcon />
       ),
     },
   ],
@@ -80,7 +78,7 @@ const data = {
     {
       title: "Capture",
       icon: (
-        <HugeiconsIcon icon={Camera01Icon} strokeWidth={2} />
+        <CameraIcon />
       ),
       isActive: true,
       url: "#",
@@ -98,7 +96,7 @@ const data = {
     {
       title: "Proposal",
       icon: (
-        <HugeiconsIcon icon={File02Icon} strokeWidth={2} />
+        <FileTextIcon />
       ),
       url: "#",
       items: [
@@ -115,7 +113,7 @@ const data = {
     {
       title: "Prompts",
       icon: (
-        <HugeiconsIcon icon={File02Icon} strokeWidth={2} />
+        <FileTextIcon />
       ),
       url: "#",
       items: [
@@ -135,21 +133,21 @@ const data = {
       title: "Settings",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={Settings02Icon} strokeWidth={2} />
+        <SlidersHorizontalIcon />
       ),
     },
     {
       title: "Get Help",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={HelpCircleIcon} strokeWidth={2} />
+        <QuestionIcon />
       ),
     },
     {
       title: "Search",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
+        <MagnifyingGlassIcon />
       ),
     },
   ],
@@ -158,21 +156,21 @@ const data = {
       name: "Data Library",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={DatabaseIcon} strokeWidth={2} />
+        <DatabaseIcon />
       ),
     },
     {
       name: "Reports",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={FileChartColumnIcon} strokeWidth={2} />
+        <FileTextIcon />
       ),
     },
     {
       name: "Word Assistant",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={File01Icon} strokeWidth={2} />
+        <FileIcon />
       ),
     },
   ],
@@ -189,7 +187,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
               <a href="#">
-                <HugeiconsIcon icon={CommandIcon} strokeWidth={2} className="size-5!" />
+                <CommandIcon className="size-5!" />
                 <span className="text-base font-semibold">Acme Inc.</span>
               </a>
             </SidebarMenuButton>

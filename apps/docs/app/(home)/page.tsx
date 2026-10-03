@@ -6,8 +6,7 @@ import { Badge } from 'nooxit-design-system/components/badge';
 import { Button } from 'nooxit-design-system/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'nooxit-design-system/components/card';
 import { Separator } from 'nooxit-design-system/components/separator';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowRight01Icon } from '@hugeicons/core-free-icons';
+import { ArrowRightIcon } from '@phosphor-icons/react/ssr';
 
 const entries = [
   {
@@ -46,7 +45,7 @@ export default function HomePage() {
           <Button size="lg" asChild>
             <Link href="/docs">
               Get started
-              <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} data-icon="inline-end" />
+              <ArrowRightIcon data-icon="inline-end" />
             </Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
@@ -76,7 +75,7 @@ export default function HomePage() {
                 <CardContent className="mt-auto">
                   <span className="inline-flex items-center gap-1 text-sm leading-5 font-medium">
                     Read
-                    <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className="size-4 transition-transform group-hover/entry:translate-x-0.5" />
+                    <ArrowRightIcon className="size-4 transition-transform group-hover/entry:translate-x-0.5" />
                   </span>
                 </CardContent>
               </Card>

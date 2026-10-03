@@ -11,14 +11,13 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from 'nooxit-design-system/components/command';
-import { HugeiconsIcon } from '@hugeicons/react';
 import {
+  ArrowCounterClockwiseIcon,
   PlayIcon,
-  RotateLeft01Icon,
   ScrollIcon,
   SquareIcon,
-  UserAdd01Icon,
-} from '@hugeicons/core-free-icons';
+  UserPlusIcon,
+} from '@phosphor-icons/react/ssr';
 
 export function CommandPalette() {
   /*
@@ -40,27 +39,27 @@ export function CommandPalette() {
       <CommandList>
         <CommandGroup heading="Run actions">
           <CommandItem>
-            <HugeiconsIcon icon={PlayIcon} strokeWidth={2} />
+            <PlayIcon />
             Resume run
             <CommandShortcut>⌘R</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <HugeiconsIcon icon={SquareIcon} strokeWidth={2} />
+            <SquareIcon />
             Stop run
           </CommandItem>
           <CommandItem>
-            <HugeiconsIcon icon={RotateLeft01Icon} strokeWidth={2} />
+            <ArrowCounterClockwiseIcon />
             Retry from step 3
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Queue">
           <CommandItem>
-            <HugeiconsIcon icon={UserAdd01Icon} strokeWidth={2} />
+            <UserPlusIcon />
             Assign reviewer
           </CommandItem>
           <CommandItem>
-            <HugeiconsIcon icon={ScrollIcon} strokeWidth={2} />
+            <ScrollIcon />
             Open audit log
             <CommandShortcut>⌘L</CommandShortcut>
           </CommandItem>

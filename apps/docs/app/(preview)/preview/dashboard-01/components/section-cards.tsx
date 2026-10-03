@@ -1,7 +1,6 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
-import { AnalyticsDownIcon, AnalyticsUpIcon } from "@hugeicons/core-free-icons"
+import { TrendDownIcon, TrendUpIcon } from "@phosphor-icons/react/ssr"
 import { Badge } from "nooxit-design-system/components/badge"
 import {
   Card,
@@ -23,7 +22,7 @@ export function SectionCards() {
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
-              <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} />
+              <TrendUpIcon />
               +12.5%
             </Badge>
           </CardAction>
@@ -31,7 +30,7 @@ export function SectionCards() {
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
             Trending up this month{" "}
-            <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} className="size-4" />
+            <TrendUpIcon className="size-4" />
           </div>
           <div className="text-muted-foreground">
             Visitors for the last 6 months
@@ -46,7 +45,7 @@ export function SectionCards() {
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
-              <HugeiconsIcon icon={AnalyticsDownIcon} strokeWidth={2} />
+              <TrendDownIcon />
               -20%
             </Badge>
           </CardAction>
@@ -54,7 +53,7 @@ export function SectionCards() {
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
             Down 20% this period{" "}
-            <HugeiconsIcon icon={AnalyticsDownIcon} strokeWidth={2} className="size-4" />
+            <TrendDownIcon className="size-4" />
           </div>
           <div className="text-muted-foreground">
             Acquisition needs attention
@@ -69,7 +68,7 @@ export function SectionCards() {
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
-              <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} />
+              <TrendUpIcon />
               +12.5%
             </Badge>
           </CardAction>
@@ -77,7 +76,7 @@ export function SectionCards() {
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
             Strong user retention{" "}
-            <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} className="size-4" />
+            <TrendUpIcon className="size-4" />
           </div>
           <div className="text-muted-foreground">Engagement exceed targets</div>
         </CardFooter>
@@ -90,7 +89,7 @@ export function SectionCards() {
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
-              <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} />
+              <TrendUpIcon />
               +4.5%
             </Badge>
           </CardAction>
@@ -98,7 +97,7 @@ export function SectionCards() {
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
             Steady performance increase{" "}
-            <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} className="size-4" />
+            <TrendUpIcon className="size-4" />
           </div>
           <div className="text-muted-foreground">Meets growth projections</div>
         </CardFooter>

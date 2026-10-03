@@ -3,12 +3,11 @@
 import * as React from "react"
 import { cn } from "nooxit-design-system/lib/utils"
 import { Select as SelectPrimitive } from "radix-ui"
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  ArrowDown01Icon,
-  ArrowUp01Icon,
-  Tick01Icon,
-} from "@hugeicons/core-free-icons"
+  CaretDownIcon,
+  CaretUpIcon,
+  CheckIcon,
+} from "@phosphor-icons/react/ssr"
 
 function Select({
   ...props
@@ -59,7 +58,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <HugeiconsIcon icon={ArrowDown01Icon} strokeWidth={2} className="pointer-events-none size-4 text-foreground" />
+        <CaretDownIcon className="pointer-events-none size-4 text-foreground" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )
@@ -132,7 +131,7 @@ function SelectItem({
     >
       <span className="pointer-events-none absolute left-2 flex size-4 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <HugeiconsIcon icon={Tick01Icon} strokeWidth={2} className="pointer-events-none" />
+          <CheckIcon className="pointer-events-none" />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
@@ -166,7 +165,7 @@ function SelectScrollUpButton({
       )}
       {...props}
     >
-      <HugeiconsIcon icon={ArrowUp01Icon} strokeWidth={2}
+      <CaretUpIcon
       />
     </SelectPrimitive.ScrollUpButton>
   )
@@ -185,7 +184,7 @@ function SelectScrollDownButton({
       )}
       {...props}
     >
-      <HugeiconsIcon icon={ArrowDown01Icon} strokeWidth={2}
+      <CaretDownIcon
       />
     </SelectPrimitive.ScrollDownButton>
   )

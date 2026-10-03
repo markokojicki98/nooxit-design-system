@@ -1,15 +1,9 @@
 import { cn } from "nooxit-design-system/lib/utils"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { Loading02Icon } from "@hugeicons/core-free-icons"
+import { CircleNotchIcon } from "@phosphor-icons/react/ssr"
 
-function Spinner({
-  className,
-  ...props
-}: Omit<React.ComponentProps<"svg">, "strokeWidth">) {
+function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
   return (
-    <HugeiconsIcon
-      icon={Loading02Icon}
-      strokeWidth={2}
+    <CircleNotchIcon
       data-slot="spinner"
       role="status"
       aria-label="Loading"

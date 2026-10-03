@@ -78,6 +78,18 @@
   }
 
   /*
+   * Phosphor icons (256-unit viewBox) draw their lines as filled outlines: the
+   * regular weight is 16 units thick, 1px at 16px. An outline stroke of 16/3
+   * units in the same color thickens every line to 1.33px at 16px, scaling
+   * with the icon's size.
+   */
+  svg[viewBox="0 0 256 256"] {
+    stroke: currentColor;
+    stroke-width: 5.333;
+    stroke-linejoin: round;
+  }
+
+  /*
    * Anything that can be clicked shows the pointer cursor.
    *
    * Browsers default <button> and friends to `cursor: default`, and Tailwind's

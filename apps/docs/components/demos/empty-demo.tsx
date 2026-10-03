@@ -7,15 +7,14 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from 'nooxit-design-system/components/empty';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Folder01Icon } from '@hugeicons/core-free-icons';
+import { FolderIcon } from '@phosphor-icons/react/ssr';
 
 export default function EmptyDemo() {
   return (
     <Empty className="border">
       <EmptyHeader>
         <EmptyMedia variant="icon">
-          <HugeiconsIcon icon={Folder01Icon} strokeWidth={2} />
+          <FolderIcon />
         </EmptyMedia>
         <EmptyTitle>No projects yet</EmptyTitle>
         <EmptyDescription>

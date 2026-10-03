@@ -1,7 +1,6 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
-import { AnalyticsUpIcon } from "@hugeicons/core-free-icons"
+import { TrendUpIcon } from "@phosphor-icons/react/ssr"
 import { RadialBar, RadialBarChart } from "recharts"
 
 import {
@@ -78,12 +77,7 @@ export function ChartRadialSimple() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month{" "}
-          <HugeiconsIcon
-            icon={AnalyticsUpIcon}
-            strokeWidth={2}
-            className="h-4 w-4"
-          />
+          Trending up by 5.2% this month <TrendUpIcon className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months

@@ -1,7 +1,6 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
-import { BotIcon, CheckmarkCircle01Icon } from "@hugeicons/core-free-icons"
+import { CheckCircleIcon, RobotIcon } from "@phosphor-icons/react/ssr"
 
 import { Alert, AlertDescription } from "nooxit-design-system/components/alert"
 import { Button } from "nooxit-design-system/components/button"
@@ -87,7 +86,7 @@ export function NextDecision({ item }: { item: Case | undefined }) {
         <Empty className="flex-1">
           <EmptyHeader>
             <EmptyMedia variant="icon">
-              <HugeiconsIcon icon={CheckmarkCircle01Icon} strokeWidth={2} />
+              <CheckCircleIcon />
             </EmptyMedia>
             <EmptyTitle>No decisions left</EmptyTitle>
             <EmptyDescription>
@@ -133,7 +132,7 @@ export function NextDecision({ item }: { item: Case | undefined }) {
         ) : null}
 
         <Alert className="border-transparent bg-muted">
-          <HugeiconsIcon icon={BotIcon} strokeWidth={2} />
+          <RobotIcon />
           <AlertDescription className="text-sm leading-5 text-foreground">
             {item.note}
           </AlertDescription>

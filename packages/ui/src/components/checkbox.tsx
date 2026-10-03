@@ -3,8 +3,7 @@
 import * as React from "react"
 import { cn } from "nooxit-design-system/lib/utils"
 import { Checkbox as CheckboxPrimitive } from "radix-ui"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { MinusSignIcon, Tick01Icon } from "@hugeicons/core-free-icons"
+import { CheckIcon, MinusIcon } from "@phosphor-icons/react/ssr"
 
 // Figma: Checkbox Base (#2744:7267). 16px box, 4px radius, 1px primary
 // border; checked/indeterminate fill with primary. Pass
@@ -26,16 +25,8 @@ function Checkbox({
         data-slot="checkbox-indicator"
         className="grid place-content-center text-current transition-none [&>svg]:size-3.5"
       >
-        <HugeiconsIcon
-          icon={Tick01Icon}
-          strokeWidth={2}
-          className="group-data-[state=indeterminate]/checkbox:hidden"
-        />
-        <HugeiconsIcon
-          icon={MinusSignIcon}
-          strokeWidth={2}
-          className="hidden group-data-[state=indeterminate]/checkbox:block"
-        />
+        <CheckIcon className="group-data-[state=indeterminate]/checkbox:hidden" />
+        <MinusIcon className="hidden group-data-[state=indeterminate]/checkbox:block" />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   )

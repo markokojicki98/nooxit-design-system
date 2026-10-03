@@ -1,7 +1,6 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
-import { Activity01Icon, AnalyticsUpIcon } from "@hugeicons/core-free-icons"
+import { PulseIcon, TrendUpIcon } from "@phosphor-icons/react/ssr"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 import {
@@ -34,7 +33,7 @@ const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--primary)",
-    icon: () => <HugeiconsIcon icon={Activity01Icon} strokeWidth={2} />,
+    icon: PulseIcon,
   },
 } satisfies ChartConfig
 
@@ -83,12 +82,7 @@ export function ChartAreaStep() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 leading-none font-medium">
-              Trending up by 5.2% this month{" "}
-              <HugeiconsIcon
-                icon={AnalyticsUpIcon}
-                strokeWidth={2}
-                className="h-4 w-4"
-              />
+              Trending up by 5.2% this month <TrendUpIcon className="h-4 w-4" />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
               January - June 2024

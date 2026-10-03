@@ -1,13 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  Add01Icon,
-  ArrowUpDownIcon,
-  InboxIcon,
-  Tick01Icon,
-} from "@hugeicons/core-free-icons"
+  CaretUpDownIcon,
+  CheckIcon,
+  PlusIcon,
+  TrayIcon,
+} from "@phosphor-icons/react/ssr"
 
 import { Badge } from "nooxit-design-system/components/badge"
 import { Button } from "nooxit-design-system/components/button"
@@ -64,11 +63,7 @@ function OrgSwitcher() {
           <span className="min-w-0 flex-1 truncate text-left">
             {current.name}
           </span>
-          <HugeiconsIcon
-            icon={ArrowUpDownIcon}
-            strokeWidth={2}
-            className="size-4 shrink-0"
-          />
+          <CaretUpDownIcon className="size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-56">
@@ -77,18 +72,12 @@ function OrgSwitcher() {
           <DropdownMenuItem key={org.id}>
             <OrgMark name={org.name} />
             {org.name}
-            {org.id === current.id ? (
-              <HugeiconsIcon
-                icon={Tick01Icon}
-                strokeWidth={2}
-                className="ml-auto"
-              />
-            ) : null}
+            {org.id === current.id ? <CheckIcon className="ml-auto" /> : null}
           </DropdownMenuItem>
         ))}
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
+          <PlusIcon />
           Add organization
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -116,11 +105,7 @@ function Inbox() {
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="outline" size="sm">
-          <HugeiconsIcon
-            icon={InboxIcon}
-            strokeWidth={2}
-            data-icon="inline-start"
-          />
+          <TrayIcon data-icon="inline-start" />
           Inbox
           <Badge variant="secondary" className="font-medium">
             {latest.length}

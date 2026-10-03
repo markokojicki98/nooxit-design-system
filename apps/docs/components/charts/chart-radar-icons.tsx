@@ -1,11 +1,10 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  AnalyticsUpIcon,
-  ArrowDownFromLineIcon,
-  ArrowUpFromLineIcon,
-} from "@hugeicons/core-free-icons"
+  ArrowLineDownIcon,
+  ArrowLineUpIcon,
+  TrendUpIcon,
+} from "@phosphor-icons/react/ssr"
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 
 import {
@@ -40,12 +39,12 @@ const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--chart-1)",
-    icon: () => <HugeiconsIcon icon={ArrowDownFromLineIcon} strokeWidth={2} />,
+    icon: ArrowLineDownIcon,
   },
   mobile: {
     label: "Mobile",
     color: "var(--chart-2)",
-    icon: () => <HugeiconsIcon icon={ArrowUpFromLineIcon} strokeWidth={2} />,
+    icon: ArrowLineUpIcon,
   },
 } satisfies ChartConfig
 
@@ -90,12 +89,7 @@ export function ChartRadarIcons() {
       </CardContent>
       <CardFooter className="flex-col gap-2 pt-4 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month{" "}
-          <HugeiconsIcon
-            icon={AnalyticsUpIcon}
-            strokeWidth={2}
-            className="h-4 w-4"
-          />
+          Trending up by 5.2% this month <TrendUpIcon className="h-4 w-4" />
         </div>
         <div className="flex items-center gap-2 leading-none text-muted-foreground">
           January - June 2024

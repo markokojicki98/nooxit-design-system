@@ -3,8 +3,7 @@
 import * as React from "react"
 import { cn } from "nooxit-design-system/lib/utils"
 import { Accordion as AccordionPrimitive } from "radix-ui"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { ArrowDown01Icon } from "@hugeicons/core-free-icons"
+import { CaretDownIcon } from "@phosphor-icons/react/ssr"
 
 // Figma: Accordion Base Item (#1:55). Every item has a bottom border, the
 // trigger is text-base/leading-6/medium and underlines on hover. As in the
@@ -51,9 +50,7 @@ function AccordionTrigger({
         {...props}
       >
         {children}
-        <HugeiconsIcon
-          icon={ArrowDown01Icon}
-          strokeWidth={2}
+        <CaretDownIcon
           data-slot="accordion-trigger-icon"
           className="pointer-events-none size-4 shrink-0 rotate-180 text-foreground transition-transform duration-200 group-aria-expanded/accordion-trigger:rotate-0"
         />

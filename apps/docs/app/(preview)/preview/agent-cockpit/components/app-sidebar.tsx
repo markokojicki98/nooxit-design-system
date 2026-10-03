@@ -2,21 +2,21 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react"
 import {
-  Agreement01Icon,
-  AiNetworkIcon,
-  ArrowUpDownIcon,
-  BarChartIcon,
-  CheckListIcon,
-  Home01Icon,
-  LanguageCircleIcon,
-  Logout01Icon,
-  Notification01Icon,
-  Settings01Icon,
+  BellIcon,
+  CaretUpDownIcon,
+  ChartBarIcon,
+  GearIcon,
+  HandshakeIcon,
+  HouseIcon,
+  ListChecksIcon,
+  NetworkIcon,
+  SignOutIcon,
+  TranslateIcon,
   UserCircleIcon,
   WarehouseIcon,
-} from "@hugeicons/core-free-icons"
+} from "@phosphor-icons/react/ssr"
 
 import { NooxitLogo } from "@/components/nooxit-logo"
 import { Avatar, AvatarFallback } from "nooxit-design-system/components/avatar"
@@ -55,27 +55,27 @@ import { useCockpit } from "./cockpit-store"
 const base = "/preview/agent-cockpit"
 
 const platform = [
-  { id: "home", title: "Home", icon: Home01Icon, href: base },
+  { id: "home", title: "Home", icon: HouseIcon, href: base },
   {
     id: "operations",
     title: "Operations",
-    icon: CheckListIcon,
+    icon: ListChecksIcon,
     href: `${base}/operations`,
   },
-  { id: "transactions", title: "Transactions", icon: Agreement01Icon },
+  { id: "transactions", title: "Transactions", icon: HandshakeIcon },
   { id: "suppliers", title: "Suppliers", icon: WarehouseIcon },
-  { id: "digital-twin", title: "Digital twin", icon: AiNetworkIcon },
+  { id: "digital-twin", title: "Digital twin", icon: NetworkIcon },
 ] as const
 
 const system = [
-  { id: "analytics", title: "Analytics", icon: BarChartIcon },
-  { id: "settings", title: "Settings", icon: Settings01Icon },
+  { id: "analytics", title: "Analytics", icon: ChartBarIcon },
+  { id: "settings", title: "Settings", icon: GearIcon },
 ] as const
 
 type NavItem = {
   id: string
   title: string
-  icon: IconSvgElement
+  icon: PhosphorIcon
   href?: string
 }
 
@@ -99,13 +99,13 @@ function NavGroup({
               {item.href ? (
                 <SidebarMenuButton asChild isActive={pathname === item.href}>
                   <Link href={item.href}>
-                    <HugeiconsIcon icon={item.icon} strokeWidth={2} />
+                    <item.icon />
                     <span>{item.title}</span>
                   </Link>
                 </SidebarMenuButton>
               ) : (
                 <SidebarMenuButton>
-                  <HugeiconsIcon icon={item.icon} strokeWidth={2} />
+                  <item.icon />
                   <span>{item.title}</span>
                 </SidebarMenuButton>
               )}
@@ -147,11 +147,7 @@ function NavUser() {
                   m@example.com
                 </span>
               </div>
-              <HugeiconsIcon
-                icon={ArrowUpDownIcon}
-                strokeWidth={2}
-                className="ml-auto"
-              />
+              <CaretUpDownIcon className="ml-auto" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -169,16 +165,16 @@ function NavUser() {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <HugeiconsIcon icon={UserCircleIcon} strokeWidth={2} />
+                <UserCircleIcon />
                 Account
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <HugeiconsIcon icon={Notification01Icon} strokeWidth={2} />
+                <BellIcon />
                 Notifications
               </DropdownMenuItem>
               <DropdownMenuSub>
                 <DropdownMenuSubTrigger>
-                  <HugeiconsIcon icon={LanguageCircleIcon} strokeWidth={2} />
+                  <TranslateIcon />
                   Language
                 </DropdownMenuSubTrigger>
                 <DropdownMenuSubContent>
@@ -195,7 +191,7 @@ function NavUser() {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <HugeiconsIcon icon={Logout01Icon} strokeWidth={2} />
+              <SignOutIcon />
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>

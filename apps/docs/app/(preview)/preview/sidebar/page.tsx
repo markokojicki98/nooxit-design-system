@@ -30,21 +30,20 @@ import {
   BreadcrumbSeparator,
 } from 'nooxit-design-system/components/breadcrumb';
 import { Separator } from 'nooxit-design-system/components/separator';
-import { HugeiconsIcon } from '@hugeicons/react';
 import {
-  ArrowUpDownIcon,
-  Building01Icon,
-  DashboardSquare01Icon,
-  File02Icon,
-  Settings01Icon,
-  UserMultipleIcon,
-} from '@hugeicons/core-free-icons';
+  BuildingIcon,
+  CaretUpDownIcon,
+  FileTextIcon,
+  GearIcon,
+  SquaresFourIcon,
+  UsersIcon,
+} from '@phosphor-icons/react/ssr';
 
 const navigation = [
-  { title: 'Overview', icon: DashboardSquare01Icon, active: true },
-  { title: 'Projects', icon: Building01Icon },
-  { title: 'Documents', icon: File02Icon },
-  { title: 'Team', icon: UserMultipleIcon },
+  { title: 'Overview', icon: SquaresFourIcon, active: true },
+  { title: 'Projects', icon: BuildingIcon },
+  { title: 'Documents', icon: FileTextIcon },
+  { title: 'Team', icon: UsersIcon },
 ];
 
 export default function SidebarPreviewPage() {
@@ -56,7 +55,7 @@ export default function SidebarPreviewPage() {
             <SidebarMenuItem>
               <SidebarMenuButton size="lg">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <HugeiconsIcon icon={Building01Icon} strokeWidth={2} className="size-4" />
+                  <BuildingIcon className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left">
                   <span className="truncate text-sm leading-none font-semibold">
@@ -66,7 +65,7 @@ export default function SidebarPreviewPage() {
                     Design system
                   </span>
                 </div>
-                <HugeiconsIcon icon={ArrowUpDownIcon} strokeWidth={2} className="ml-auto" />
+                <CaretUpDownIcon className="ml-auto" />
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
@@ -80,7 +79,7 @@ export default function SidebarPreviewPage() {
                 {navigation.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton isActive={item.active}>
-                      <HugeiconsIcon icon={item.icon} strokeWidth={2} />
+                      <item.icon />
                       <span>{item.title}</span>
                     </SidebarMenuButton>
                     {item.active ? (
@@ -109,7 +108,7 @@ export default function SidebarPreviewPage() {
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton>
-                    <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />
+                    <GearIcon />
                     <span>Preferences</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -122,7 +121,7 @@ export default function SidebarPreviewPage() {
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton>
-                <HugeiconsIcon icon={UserMultipleIcon} strokeWidth={2} />
+                <UsersIcon />
                 <span>marko@example.com</span>
               </SidebarMenuButton>
             </SidebarMenuItem>

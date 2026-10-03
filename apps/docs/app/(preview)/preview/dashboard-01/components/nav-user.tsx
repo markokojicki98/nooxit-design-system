@@ -1,13 +1,12 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
+  BellIcon,
   CreditCardIcon,
-  Logout01Icon,
-  MoreVerticalIcon,
-  Notification01Icon,
+  DotsThreeVerticalIcon,
+  SignOutIcon,
   UserCircleIcon,
-} from "@hugeicons/core-free-icons"
+} from "@phosphor-icons/react/ssr"
 import {
   Avatar,
   AvatarFallback,
@@ -59,7 +58,7 @@ export function NavUser({
                   {user.email}
                 </span>
               </div>
-              <HugeiconsIcon icon={MoreVerticalIcon} strokeWidth={2} className="ml-auto size-4" />
+              <DotsThreeVerticalIcon className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -85,21 +84,21 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <HugeiconsIcon icon={UserCircleIcon} strokeWidth={2} />
+                <UserCircleIcon />
                 Account
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <HugeiconsIcon icon={CreditCardIcon} strokeWidth={2} />
+                <CreditCardIcon />
                 Billing
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <HugeiconsIcon icon={Notification01Icon} strokeWidth={2} />
+                <BellIcon />
                 Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <HugeiconsIcon icon={Logout01Icon} strokeWidth={2} />
+              <SignOutIcon />
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>

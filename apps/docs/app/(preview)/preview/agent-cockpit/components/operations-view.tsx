@@ -1,20 +1,18 @@
 "use client"
 
 import * as React from "react"
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  ArrowDown01Icon,
-  ArrowLeft01Icon,
-  ArrowLeftDoubleIcon,
-  ArrowRight01Icon,
-  ArrowRightDoubleIcon,
-  ArrowUp01Icon,
-  ArrowUpDownIcon,
-  Download01Icon,
-  MoreVerticalIcon,
-  Search01Icon,
-  SearchMinusIcon,
-} from "@hugeicons/core-free-icons"
+  ArrowDownIcon,
+  ArrowUpIcon,
+  ArrowsDownUpIcon,
+  CaretDoubleLeftIcon,
+  CaretDoubleRightIcon,
+  CaretLeftIcon,
+  CaretRightIcon,
+  DotsThreeVerticalIcon,
+  DownloadIcon,
+  MagnifyingGlassIcon,
+} from "@phosphor-icons/react/ssr"
 import {
   createColumnHelper,
   createPaginatedRowModel,
@@ -109,12 +107,12 @@ function SortButton({
   onClick: ((event: unknown) => void) | undefined
   align?: "left" | "right"
 }) {
-  const icon =
+  const Icon =
     sorted === "asc"
-      ? ArrowUp01Icon
+      ? ArrowUpIcon
       : sorted === "desc"
-        ? ArrowDown01Icon
-        : ArrowUpDownIcon
+        ? ArrowDownIcon
+        : ArrowsDownUpIcon
   return (
     <button
       type="button"
@@ -126,11 +124,7 @@ function SortButton({
       aria-label={`Sort by ${label.toLowerCase()}`}
     >
       {label}
-      <HugeiconsIcon
-        icon={icon}
-        strokeWidth={2}
-        className={cn("size-3.5", !sorted && "text-muted-foreground")}
-      />
+      <Icon className={cn("size-3.5", !sorted && "text-muted-foreground")} />
     </button>
   )
 }
@@ -253,7 +247,7 @@ const columns = columnHelper.columns([
             onClick={(event) => event.stopPropagation()}
             aria-label={`Actions for ${row.original.reference}`}
           >
-            <HugeiconsIcon icon={MoreVerticalIcon} strokeWidth={2} />
+            <DotsThreeVerticalIcon />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -345,11 +339,7 @@ export function OperationsView() {
         title="Operations"
         actions={
           <Button variant="outline">
-            <HugeiconsIcon
-              icon={Download01Icon}
-              strokeWidth={2}
-              data-icon="inline-start"
-            />
+            <DownloadIcon data-icon="inline-start" />
             Export
           </Button>
         }
@@ -379,7 +369,7 @@ export function OperationsView() {
         <div className="flex flex-col gap-3 @3xl/main:flex-row @3xl/main:items-center">
           <InputGroup className="@3xl/main:max-w-72">
             <InputGroupAddon>
-              <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
+              <MagnifyingGlassIcon />
             </InputGroupAddon>
             <InputGroupInput
               value={query}
@@ -446,7 +436,7 @@ export function OperationsView() {
           <Empty className="py-16">
             <EmptyHeader>
               <EmptyMedia variant="icon">
-                <HugeiconsIcon icon={SearchMinusIcon} strokeWidth={2} />
+                <MagnifyingGlassIcon />
               </EmptyMedia>
               <EmptyTitle>No cases match</EmptyTitle>
               <EmptyDescription>
@@ -581,7 +571,7 @@ export function OperationsView() {
                 disabled={!table.getCanPreviousPage()}
                 aria-label="First page"
               >
-                <HugeiconsIcon icon={ArrowLeftDoubleIcon} strokeWidth={2} />
+                <CaretDoubleLeftIcon />
               </Button>
               <Button
                 variant="outline"
@@ -590,7 +580,7 @@ export function OperationsView() {
                 disabled={!table.getCanPreviousPage()}
                 aria-label="Previous page"
               >
-                <HugeiconsIcon icon={ArrowLeft01Icon} strokeWidth={2} />
+                <CaretLeftIcon />
               </Button>
               <Button
                 variant="outline"
@@ -599,7 +589,7 @@ export function OperationsView() {
                 disabled={!table.getCanNextPage()}
                 aria-label="Next page"
               >
-                <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} />
+                <CaretRightIcon />
               </Button>
               <Button
                 variant="outline"
@@ -609,7 +599,7 @@ export function OperationsView() {
                 disabled={!table.getCanNextPage()}
                 aria-label="Last page"
               >
-                <HugeiconsIcon icon={ArrowRightDoubleIcon} strokeWidth={2} />
+                <CaretDoubleRightIcon />
               </Button>
             </div>
           </div>

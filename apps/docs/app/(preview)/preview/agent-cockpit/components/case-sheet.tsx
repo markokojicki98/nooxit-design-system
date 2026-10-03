@@ -1,7 +1,6 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
-import { BotIcon } from "@hugeicons/core-free-icons"
+import { RobotIcon } from "@phosphor-icons/react/ssr"
 
 import { Alert, AlertDescription } from "nooxit-design-system/components/alert"
 import { Button } from "nooxit-design-system/components/button"
@@ -98,7 +97,7 @@ export function CaseSheet({
                 </div>
                 <CaseComparison item={item} />
                 <Alert className="border-transparent bg-muted">
-                  <HugeiconsIcon icon={BotIcon} strokeWidth={2} />
+                  <RobotIcon />
                   <AlertDescription className="text-sm leading-5 text-foreground">
                     {item.note}
                   </AlertDescription>

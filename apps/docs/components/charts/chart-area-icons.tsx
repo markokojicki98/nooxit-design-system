@@ -1,7 +1,6 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
-import { AnalyticsDownIcon, AnalyticsUpIcon } from "@hugeicons/core-free-icons"
+import { TrendDownIcon, TrendUpIcon } from "@phosphor-icons/react/ssr"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 import {
@@ -36,12 +35,12 @@ const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--chart-1)",
-    icon: () => <HugeiconsIcon icon={AnalyticsDownIcon} strokeWidth={2} />,
+    icon: TrendDownIcon,
   },
   mobile: {
     label: "Mobile",
     color: "var(--chart-2)",
-    icon: () => <HugeiconsIcon icon={AnalyticsUpIcon} strokeWidth={2} />,
+    icon: TrendUpIcon,
   },
 } satisfies ChartConfig
 
@@ -100,12 +99,7 @@ export function ChartAreaIcons() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 leading-none font-medium">
-              Trending up by 5.2% this month{" "}
-              <HugeiconsIcon
-                icon={AnalyticsUpIcon}
-                strokeWidth={2}
-                className="h-4 w-4"
-              />
+              Trending up by 5.2% this month <TrendUpIcon className="h-4 w-4" />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
               January - June 2024

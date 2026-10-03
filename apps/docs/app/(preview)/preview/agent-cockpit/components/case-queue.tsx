@@ -1,11 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ArrowRight01Icon,
-  CheckmarkCircle01Icon,
-} from "@hugeicons/core-free-icons"
+import { ArrowRightIcon, CheckCircleIcon } from "@phosphor-icons/react/ssr"
 
 import { Badge } from "nooxit-design-system/components/badge"
 import { Button } from "nooxit-design-system/components/button"
@@ -80,11 +76,7 @@ export function CaseQueue({
           <Button variant="ghost" size="sm" asChild>
             <Link href="/preview/agent-cockpit/operations">
               All cases
-              <HugeiconsIcon
-                icon={ArrowRight01Icon}
-                strokeWidth={2}
-                data-icon="inline-end"
-              />
+              <ArrowRightIcon data-icon="inline-end" />
             </Link>
           </Button>
         </CardAction>
@@ -95,7 +87,7 @@ export function CaseQueue({
           <Empty className="border-t border-border py-10">
             <EmptyHeader>
               <EmptyMedia variant="icon">
-                <HugeiconsIcon icon={CheckmarkCircle01Icon} strokeWidth={2} />
+                <CheckCircleIcon />
               </EmptyMedia>
               <EmptyTitle>Nothing is waiting on you</EmptyTitle>
               <EmptyDescription>

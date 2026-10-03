@@ -1,34 +1,40 @@
 ---
 title: Icons
-description: Hugeicons, at 16px.
+description: Phosphor, at 16px.
 ---
 
-Nooxit uses the free [Hugeicons](https://hugeicons.com) set: about 6,000
-MIT-licensed icons in the Stroke Rounded style. Icons are plain data from
-`@hugeicons/core-free-icons`, rendered by the `HugeiconsIcon` component from
-`@hugeicons/react`.
+Nooxit uses [Phosphor](https://phosphoricons.com) through
+`@phosphor-icons/react`: 1,512 MIT-licensed icons, each drawn in six weights
+(thin, light, regular, bold, fill and duotone).
 
 ```tsx
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowRight01Icon, Search01Icon } from '@hugeicons/core-free-icons';
-
-<HugeiconsIcon icon={Search01Icon} strokeWidth={2} />;
+import { ArrowRightIcon, MagnifyingGlassIcon } from '@phosphor-icons/react/ssr';
 ```
 
-Always pass `strokeWidth={2}`. That is 2px on the 24px grid, about 1.3px at
-the usual 16px size, the same weight the system had with Lucide. Hugeicons'
-own default is 1.5, which renders noticeably lighter.
+Import from `@phosphor-icons/react/ssr`. The package's main entry reads a React
+context, which fails inside server components; the `ssr` entry has no context
+and works everywhere. Use the names that end in `Icon`; the unsuffixed names
+are deprecated and some clash with component names such as `Calendar`.
 
-`components.json` sets `iconLibrary` to `hugeicons`, so components added with
-the shadcn CLI arrive in the same style.
+Lines are **1.33px thick at 16px**. Phosphor has no such weight (regular is
+1px at 16px, bold 1.5px), so icons use regular and the theme adds a thin
+outline stroke in the same color to every Phosphor icon:
 
-Find icons at [hugeicons.com/icons](https://hugeicons.com/icons). The free
-set also exports aliases under Lucide's names.
+```css
+svg[viewBox="0 0 256 256"] {
+  stroke: currentColor;
+  stroke-width: 5.333; /* 16/3 of 256 units: +0.33px at 16px */
+  stroke-linejoin: round;
+}
+```
 
-When an icon has to be passed around as a value (a nav item, a list), pass the
-icon data and render it with `HugeiconsIcon`. The one exception is
-`ChartConfig.icon`, which keeps shadcn's component API, so wrap it:
-`icon: () => <HugeiconsIcon icon={X} strokeWidth={2} />`.
+The extra thickness scales with the icon: 1px at 12px, 2px at 24px. Keep the
+default weight; set `weight` only for a deliberate exception, such as
+`weight="fill"` for a solid dot.
+
+`components.json` sets `iconLibrary` to `phosphor`, so components added with
+the shadcn CLI arrive with Phosphor icons too. Find icons at
+[phosphoricons.com](https://phosphoricons.com).
 
 ## Sizing
 
@@ -52,13 +58,13 @@ can:
 
 ```tsx
 <Button>
-  <HugeiconsIcon icon={Mail01Icon} strokeWidth={2} data-icon="inline-start" />
+  <EnvelopeIcon data-icon="inline-start" />
   Email me
 </Button>
 
 <Button variant="outline">
   Continue
-  <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} data-icon="inline-end" />
+  <ArrowRightIcon data-icon="inline-end" />
 </Button>
 ```
 

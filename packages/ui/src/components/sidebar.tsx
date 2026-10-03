@@ -22,8 +22,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "nooxit-design-system/components/tooltip"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { PanelLeftIcon } from "@hugeicons/core-free-icons"
+import { SidebarSimpleIcon } from "@phosphor-icons/react/ssr"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -272,7 +271,7 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <HugeiconsIcon icon={PanelLeftIcon} strokeWidth={2} />
+      <SidebarSimpleIcon />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )

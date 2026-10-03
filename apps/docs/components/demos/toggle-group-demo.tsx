@@ -1,24 +1,23 @@
 'use client';
 
 import { ToggleGroup, ToggleGroupItem } from 'nooxit-design-system/components/toggle-group';
-import { HugeiconsIcon } from '@hugeicons/react';
 import {
-  TextBoldIcon,
+  TextBIcon,
   TextItalicIcon,
   TextUnderlineIcon,
-} from '@hugeicons/core-free-icons';
+} from '@phosphor-icons/react/ssr';
 
 export default function ToggleGroupDemo() {
   return (
     <ToggleGroup type="multiple" defaultValue={['bold']}>
       <ToggleGroupItem value="bold" aria-label="Bold">
-        <HugeiconsIcon icon={TextBoldIcon} strokeWidth={2} />
+        <TextBIcon />
       </ToggleGroupItem>
       <ToggleGroupItem value="italic" aria-label="Italic">
-        <HugeiconsIcon icon={TextItalicIcon} strokeWidth={2} />
+        <TextItalicIcon />
       </ToggleGroupItem>
       <ToggleGroupItem value="underline" aria-label="Underline">
-        <HugeiconsIcon icon={TextUnderlineIcon} strokeWidth={2} />
+        <TextUnderlineIcon />
       </ToggleGroupItem>
     </ToggleGroup>
   );

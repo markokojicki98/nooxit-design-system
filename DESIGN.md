@@ -526,18 +526,21 @@ These are the deliberate deviations an agent has to know:
 | `Tooltip` | A popover, not an inverted chip. |
 | `Sonner` | Named `Sooner` in Figma. Error toasts carry the kit's Toast destructive colors. |
 
-Icons come from **Hugeicons** (free Stroke Rounded set:
-`@hugeicons/core-free-icons` for the icon data, `@hugeicons/react` for the
-`HugeiconsIcon` component; `iconLibrary: "hugeicons"` in `components.json`).
-Icons are data, not components, so always render them through
-`HugeiconsIcon` and always pass **`strokeWidth={2}`**: 2px on the 24px grid,
-which renders about 1.3px at the usual 16px size (the set's own default is
-1.5). Components size icons automatically (`[&_svg:not([class*='size-'])]:size-4`), so do not add `size-4`
-yourself. Mark leading and trailing icons in buttons so padding compensates:
+Icons come from **Phosphor** (`@phosphor-icons/react`, `iconLibrary:
+"phosphor"` in `components.json`). Import them from
+`@phosphor-icons/react/ssr`, which works in server and client components
+alike, and use the `Icon`-suffixed names, e.g. `CaretDownIcon`. Lines are
+**1.33px thick at 16px**: icons use Phosphor's regular weight (1px at 16px),
+and a rule in `theme.css` adds a same-color outline stroke of 16/3 units to
+every Phosphor SVG. It scales with the icon (1px at 12px, 2px at 24px). Do not
+switch weights to change thickness; set `weight` only for a deliberate
+exception, such as `weight="fill"` on the menu radio dot. Components size icons automatically
+(`[&_svg:not([class*='size-'])]:size-4`), so do not add `size-4` yourself.
+Mark leading and trailing icons in buttons so padding compensates:
 
 ```tsx
 <Button>
-  <HugeiconsIcon icon={Mail01Icon} strokeWidth={2} data-icon="inline-start" />
+  <EnvelopeIcon data-icon="inline-start" />
   Email me
 </Button>
 ```

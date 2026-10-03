@@ -1,10 +1,5 @@
 import { createElement } from 'react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import {
-  Chart01Icon,
-  ColorPickerIcon,
-  ShapesIcon,
-} from '@hugeicons/core-free-icons';
+import { ChartLineIcon, PaletteIcon, ShapesIcon } from '@phosphor-icons/react/ssr';
 import { llms, loader } from 'fumadocs-core/source';
 import { docsContentRoute, docsImageRoute, docsRoute } from './shared';
 import { defineDocs } from 'fumadocs-mdx/macro';
@@ -23,10 +18,10 @@ const docs = defineDocs({
   },
 });
 
-// Sidebar icons named in meta.json files, by their Hugeicons export name.
+// Sidebar icons named in meta.json files, by their Phosphor export name.
 // Listed explicitly so the server does not import the whole set; add new
 // names here.
-const sidebarIcons = { Chart01Icon, ShapesIcon, ColorPickerIcon };
+const sidebarIcons = { ChartLineIcon, PaletteIcon, ShapesIcon };
 
 // See https://fumadocs.dev/docs/headless/source-api for more info
 export const source = loader({
@@ -34,12 +29,12 @@ export const source = loader({
   source: docs.toFumadocsSource(),
   icon(name) {
     if (!name) return;
-    const icon = sidebarIcons[name as keyof typeof sidebarIcons];
-    if (!icon) {
+    const Icon = sidebarIcons[name as keyof typeof sidebarIcons];
+    if (!Icon) {
       console.warn(`Unknown sidebar icon "${name}" in a meta.json file.`);
       return;
     }
-    return createElement(HugeiconsIcon, { icon, strokeWidth: 2 });
+    return createElement(Icon);
   },
 });
 

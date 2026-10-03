@@ -1,7 +1,6 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
-import { Cancel01Icon } from "@hugeicons/core-free-icons"
+import { XIcon } from "@phosphor-icons/react/ssr"
 
 import { Button } from "nooxit-design-system/components/button"
 import { Spinner } from "nooxit-design-system/components/spinner"
@@ -32,11 +31,7 @@ export function AgentRoster({
         </h2>
         {selected ? (
           <Button variant="ghost" size="sm" onClick={() => onSelect(null)}>
-            <HugeiconsIcon
-              icon={Cancel01Icon}
-              strokeWidth={2}
-              data-icon="inline-start"
-            />
+            <XIcon data-icon="inline-start" />
             Show all agents
           </Button>
         ) : null}

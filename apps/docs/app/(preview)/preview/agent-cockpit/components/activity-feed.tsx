@@ -1,7 +1,6 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
-import { UserCheck01Icon } from "@hugeicons/core-free-icons"
+import { UserCheckIcon } from "@phosphor-icons/react/ssr"
 
 import {
   Card,
@@ -34,11 +33,7 @@ export function ActivityFeed() {
             <li key={event.id} className="flex items-start gap-3">
               {event.agent === "you" ? (
                 <span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                  <HugeiconsIcon
-                    icon={UserCheck01Icon}
-                    strokeWidth={2}
-                    className="size-3.5"
-                  />
+                  <UserCheckIcon className="size-3.5" />
                   <span className="sr-only">You</span>
                 </span>
               ) : (

@@ -10,8 +10,7 @@ import {
 import { cn } from "nooxit-design-system/lib/utils"
 
 import { Button } from "nooxit-design-system/components/button"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { ArrowDown01Icon } from "@hugeicons/core-free-icons"
+import { ArrowDownIcon } from "@phosphor-icons/react/ssr"
 
 function MessageScrollerProvider(
   props: React.ComponentProps<typeof MessageScrollerPrimitive.Provider>
@@ -108,7 +107,7 @@ function MessageScrollerButton({
     >
       {children ?? (
         <>
-          <HugeiconsIcon icon={ArrowDown01Icon} strokeWidth={2}
+          <ArrowDownIcon
           />
           <span className="sr-only">
             {direction === "end" ? "Scroll to end" : "Scroll to start"}
